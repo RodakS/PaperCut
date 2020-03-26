@@ -12,7 +12,7 @@ namespace PaperCut
         public int Cost = 1;
         public void Effect()
         {
-            Hero.Shield += 10;
+           // Hero.Shield += 10;
         }
 
 

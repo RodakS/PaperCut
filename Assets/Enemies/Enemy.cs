@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace PaperCut
-{
     public class Enemy : MonoBehaviour
     {
         public int intent = 1;
@@ -12,10 +10,6 @@ namespace PaperCut
         public int HP = 80;
         public int AttackUp = 0;
         public int Shield;
-        void Start()
-        {
-
-        }
 
         public void substractHP(int Damage)
         {
@@ -71,12 +65,7 @@ namespace PaperCut
          
 
 
-
-    void Update()
-        {
-
-        }
     }
-}
+
 
 

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace PaperCut
-{
+
     public class Hero : MonoBehaviour
     {
         public int MaxHP = 80;
@@ -51,6 +50,6 @@ namespace PaperCut
 
         }
     }
-}
+
 
 
