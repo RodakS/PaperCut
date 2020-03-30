@@ -12,7 +12,7 @@ namespace PaperCut
         public int Cost = 1;
         public void Effect()
         {
-            //Enemy.substractHP(5);
+            EnemyUnit.substractHP(5);
         }
 
         //przy użyciu zasób/energia/stanima bohatera spadłaby o 1
