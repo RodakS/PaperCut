@@ -11,6 +11,7 @@ using UnityEngine;
         public int AttackUp = 0;
         public int Shield;
         public int cardDraw = 5;
+        public int energy = 3;
         private const int maxCards = 10;
         void Start()
         {

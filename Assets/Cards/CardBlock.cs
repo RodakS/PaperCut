@@ -10,7 +10,7 @@ namespace PaperCut
         public string Name = "Block";
         public string Description = "Gain 10 block.";
         public int Cost = 1;
-        public void Effect()
+        public void Effect(Hero HeroUnit)
         {
            HeroUnit.Shield += 10;
         }

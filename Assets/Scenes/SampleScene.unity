@@ -676,7 +676,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -690,8 +690,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667122386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 430.4, y: 215, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 1}
+  m_LocalPosition: {x: 526.3, y: 214.1, z: 0}
+  m_LocalScale: {x: 182.59999, y: 182.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1396,6 +1396,7 @@ MonoBehaviour:
   AttackUp: 0
   Shield: 0
   cardDraw: 5
+  energy: 3
 --- !u!212 &1535149837
 SpriteRenderer:
   m_ObjectHideFlags: 0
