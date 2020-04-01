@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 153552684}
   - component: {fileID: 153552683}
   - component: {fileID: 153552682}
+  - component: {fileID: 153552685}
   m_Layer: 0
   m_Name: Card 1
   m_TagString: Untagged
@@ -412,7 +413,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 153552682}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1254924811}
+        m_MethodName: onCardClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &153552685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153552679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b0df01e74d6084899b70d7cd12ce04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 1
+  Name: Attack
+  Description: Deal 5 dmg.
+  Cost: 1
 --- !u!1 &301654888
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +752,7 @@ GameObject:
   - component: {fileID: 705027066}
   - component: {fileID: 705027068}
   - component: {fileID: 705027067}
+  - component: {fileID: 705027069}
   m_Layer: 5
   m_Name: EnemyHP
   m_TagString: Untagged
@@ -790,6 +819,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705027065}
   m_CullTransparentMesh: 0
+--- !u!114 &705027069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705027065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: {fileID: 705027067}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +1012,7 @@ GameObject:
   - component: {fileID: 884116019}
   - component: {fileID: 884116021}
   - component: {fileID: 884116020}
+  - component: {fileID: 884116022}
   m_Layer: 5
   m_Name: HeroHP
   m_TagString: Untagged
@@ -1036,6 +1079,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884116018}
   m_CullTransparentMesh: 0
+--- !u!114 &884116022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884116018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: {fileID: 884116020}
 --- !u!1 &899095867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1279,7 @@ MonoBehaviour:
   heroHPText: {fileID: 884116020}
   statusText: {fileID: 301654890}
   buttom: {fileID: 2106086555}
+  buttom2: {fileID: 153552684}
 --- !u!4 &1254924812
 Transform:
   m_ObjectHideFlags: 0

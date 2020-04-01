@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using PaperCut;
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 
 public class BattleSystem : MonoBehaviour
@@ -18,12 +18,13 @@ public class BattleSystem : MonoBehaviour
 
     Hero heroUnit;      //kopie bohatera/przeciwnika
     Enemy enemyUnit;
+    CardAttack Attack;
 
     public Text enemyHPText;    // do wyswietlania hp
     public Text heroHPText;
     public Text statusText;
     public Button buttom;
-
+    public Button buttom2;
     void Start()
     {
         state = BattleState.START;
@@ -92,7 +93,10 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            ///uzyj efektu karty
+           // Attack.Effect(enemyUnit);
+            //enemyUnit.HP = enemyUnit.HP - 5;
+            enemyHPText.text = enemyUnit.HP + "/" + enemyUnit.MaxHP;
+
             checkHP();
         }
     }
