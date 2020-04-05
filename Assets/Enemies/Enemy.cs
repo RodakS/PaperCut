@@ -13,15 +13,15 @@ using UnityEngine;
 
         public void substractHP(int Damage)
         {
-            if (Damage <= Shield)
+            if (Damage <= this.Shield)
             {
-                Shield -= Damage;
+            this.Shield -= Damage;
             }
             else
             {
-                Damage -= Shield;
-                Shield = 0;
-                HP -= Damage;
+                Damage -= this.Shield;
+                this.Shield = 0;
+                this.HP -= Damage;
             }
         }
 

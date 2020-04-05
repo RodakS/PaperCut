@@ -18,7 +18,7 @@ public class BattleSystem : MonoBehaviour
 
     Hero heroUnit;      //kopie bohatera/przeciwnika
     Enemy enemyUnit;
-    CardAttack Attack;
+    CardAttack Attack = new CardAttack();
 
     public Text enemyHPText;    // do wyswietlania hp
     public Text heroHPText;
@@ -93,8 +93,9 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-           // Attack.Effect(enemyUnit);
+           Attack.Effect(enemyUnit);
             //enemyUnit.HP = enemyUnit.HP - 5;
+
             enemyHPText.text = enemyUnit.HP + "/" + enemyUnit.MaxHP;
 
             checkHP();
