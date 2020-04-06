@@ -15,8 +15,8 @@ public class CardDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 	
 	public void OnDrop(PointerEventData eventData) {
 		Debug.Log (eventData.pointerDrag.name + " was dropped on " + gameObject.name);
-
-		Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
+        //BattleSystem battle
+        Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
 		if(d != null) {
 			d.parentToReturnTo = this.transform;
 		}

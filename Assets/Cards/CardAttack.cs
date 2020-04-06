@@ -10,9 +10,13 @@ namespace PaperCut
         public string Name = "Attack";
         public string Description = "Deal 5 dmg.";
         public int Cost = 1;
-        public void Effect(Enemy EnemyUnit)
+        public void Effect(Hero HeroUnit,Enemy EnemyUnit)
         {
-            EnemyUnit.substractHP(5);
+            if (HeroUnit.energy > 1)
+            {
+                EnemyUnit.substractHP(5);
+                HeroUnit.energy--;
+            }
         }
 
         //przy użyciu zasób/energia/stanima bohatera spadłaby o 1

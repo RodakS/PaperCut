@@ -361,7 +361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  placeholderParent: {fileID: 0}
 --- !u!114 &625953916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +807,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  placeholderParent: {fileID: 0}
 --- !u!114 &834610598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,7 +1051,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
-  placeholderParent: {fileID: 0}
 --- !u!114 &929076216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,6 +1258,7 @@ MonoBehaviour:
   AttackUp: 0
   Shield: 0
   cardDraw: 5
+  maxenergy: 3
   energy: 3
 --- !u!212 &1535149837
 SpriteRenderer:

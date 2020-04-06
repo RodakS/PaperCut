@@ -25,13 +25,13 @@ using UnityEngine;
             }
         }
 
-        public void Turn()
+        public void Turn(Hero Target)
         {
             switch (intent)
             {
                 case 1:
                     //tutaj czekam aż zostanie stworzona instancja bohatera
-                   //  Hero.substractHP(6 + AttackUp);
+                   Target.substractHP(6 + AttackUp);
                     break;
                 case 2:
                     this.Shield += 10;
@@ -44,16 +44,16 @@ using UnityEngine;
 
             }
             this.Shield = 0;
-            this.calculateMove();
+            this.calculateMove(Target);
             //tutaj kończymy turę
         }
 
-        public void calculateMove()
+        public void calculateMove(Hero Target)
         {
             int AttackMove = 3;
             int DefenseMove = 6;
             //tutaj czekam aż zostanie stworzona instancja bohatera
-            // if (Hero.HP < Hero.HP / 2) AttackMove++;
+           if (Target.HP < Target.HP / 2) AttackMove++;
             if (this.HP < this.HP / 2) DefenseMove--;
             int Decision = Random.Range(0, 11);
             if (Decision < AttackMove)
