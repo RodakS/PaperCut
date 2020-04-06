@@ -9,7 +9,7 @@ using UnityEngine;
         public int MaxHP = 80;
         public int HP = 80;
         public int AttackUp = 0;
-        public int Shield;
+        public int Shield=0;
 
         public void substractHP(int Damage)
         {

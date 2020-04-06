@@ -12,7 +12,7 @@ namespace PaperCut
         public int Cost = 1;
         public void Effect(Hero HeroUnit,Enemy EnemyUnit)
         {
-            if (HeroUnit.energy > 1)
+            if (HeroUnit.energy >= 1)
             {
                 EnemyUnit.substractHP(5);
                 HeroUnit.energy--;

@@ -16,13 +16,15 @@ public class BattleSystem : MonoBehaviour
 
     public BattleState state;  // tworze status
 
-    Hero heroUnit;      //kopie bohatera/przeciwnika
-    Enemy enemyUnit;
+    Hero heroUnit = new Hero();      //kopie bohatera/przeciwnika
+    Enemy enemyUnit = new Enemy();
     CardAttack Attack = new CardAttack();
     CardBlock Block = new CardBlock();
 
     public Text enemyHPText;    // do wyswietlania hp
     public Text heroHPText;
+    public Text enemyShieldText;    // do wyswietlania tarczy
+    public Text heroShieldText;
     public Text statusText;
     public Button buttom;
     public Button buttom2;
@@ -43,6 +45,8 @@ public class BattleSystem : MonoBehaviour
 
         enemyHPText.text = enemyUnit.HP + "/" + enemyUnit.MaxHP ;
         heroHPText.text = heroUnit.HP + "/" + heroUnit.MaxHP;
+        enemyShieldText.text = "Shield: "+ enemyUnit.Shield;
+        heroShieldText.text = "Shield: " + heroUnit.Shield;
 
         playerTurn();
     }
@@ -62,7 +66,8 @@ public class BattleSystem : MonoBehaviour
         statusText.text = state + " ";
         enemyUnit.Turn(heroUnit);  // ew coś co ma zrobić przeciwnik
         checkHP();
-
+        heroHPText.text = heroUnit.HP + "/" + heroUnit.MaxHP;
+        checkHP();
         playerTurn();
     }
 
@@ -103,6 +108,7 @@ public class BattleSystem : MonoBehaviour
 
             checkHP();
         }
+        
     }
 
 }

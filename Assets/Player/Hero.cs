@@ -9,7 +9,7 @@ using UnityEngine;
         public int MaxHP = 80;
         public int HP = 80;
         public int AttackUp = 0;
-        public int Shield;
+        public int Shield=0;
         public int cardDraw = 5;
     public int maxenergy = 3;
         public int energy = 3;
