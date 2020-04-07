@@ -43,24 +43,24 @@ using UnityEngine;
 
 
             }
-            this.Shield = 0;
+           // this.Shield = 0;
             this.calculateMove(Target);
             //tutaj kończymy turę
         }
 
         public void calculateMove(Hero Target)
         {
-            int AttackMove = 3;
-            int DefenseMove = 6;
-            //tutaj czekam aż zostanie stworzona instancja bohatera
-           if (Target.HP < Target.HP / 2) AttackMove++;
-            if (this.HP < this.HP / 2) DefenseMove--;
-            int Decision = Random.Range(0, 11);
-            if (Decision < AttackMove)
-                intent = 1;
-            else if (Decision > DefenseMove)
-                intent = 2;
-            else intent = 3;
+        int AttackMove = 3;
+        int DefenseMove = 6;
+        //tutaj czekam aż zostanie stworzona instancja bohatera
+        if (Target.HP < Target.HP / 2) AttackMove++;
+        if (this.HP < this.HP / 2) DefenseMove--;
+        int Decision = Random.Range(0, 11);
+        if (Decision < AttackMove)
+            intent = 1;
+        else if (Decision > DefenseMove)
+            intent = 2;
+        else intent = 3;
         }
          
 
