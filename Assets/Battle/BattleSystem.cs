@@ -7,8 +7,8 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 
 public class BattleSystem : MonoBehaviour
 {
-   // public GameObject heroPrefab; //tu podłączam hero <- trzeba poprawić
-  //  public GameObject enemyPrefab ; // przeciwnika
+    public GameObject heroPrefab; //tu podłączam hero <- trzeba poprawić
+    public GameObject enemyPrefab ; // przeciwnika
 
     public Transform playerPlace ; // tu podstawiam miejsce w którym mają być
     public Transform enemyPlace ;
@@ -21,13 +21,17 @@ public class BattleSystem : MonoBehaviour
     CardAttack Attack = new CardAttack();
     CardBlock Block = new CardBlock();
 
+    //Hero heroUnit;     //kopie bohatera/przeciwnika
+    //Enemy enemyUnit;
+    //CardAttack Attack;
+    //CardBlock Block;
+
     public Text enemyHPText ;    // do wyswietlania hp
     public Text heroHPText;
     public Text enemyShieldText;    // do wyswietlania tarczy
     public Text heroShieldText;
     public Text statusText;
-    public Button buttom;
-    public Button buttom2;
+
     void Start()
     {
         state = BattleState.START;
@@ -37,17 +41,13 @@ public class BattleSystem : MonoBehaviour
 
     void battleSetUp() 
     {
-      // GameObject playerGameObject = Instantiate(heroPrefab, playerPlace);
-       // heroUnit=playerGameObject.GetComponent<Hero>();
+       GameObject playerGameObject = Instantiate(heroPrefab, playerPlace);
+        heroUnit=playerGameObject.GetComponent<Hero>();
 
-     //  GameObject enemyGameObject = Instantiate(enemyPrefab, enemyPlace);
-      //  enemyUnit = enemyGameObject.GetComponent<Enemy>();
+       GameObject enemyGameObject = Instantiate(enemyPrefab, enemyPlace);
+        enemyUnit = enemyGameObject.GetComponent<Enemy>();
 
-        enemyHPText.text = enemyUnit.HP + "/" + enemyUnit.MaxHP ;
-        heroHPText.text = heroUnit.HP + "/" + heroUnit.MaxHP;
-       // enemyShieldText.text = "Shield: "+ enemyUnit.Shield;
-      //  heroShieldText.text = "Shield: " + heroUnit.Shield;
-
+        checkHP();
         playerTurn();
     }
 
@@ -64,6 +64,11 @@ public class BattleSystem : MonoBehaviour
 
     void checkHP()
     {
+        enemyHPText.text = enemyUnit.HP + "/" + enemyUnit.MaxHP;
+        heroHPText.text = heroUnit.HP + "/" + heroUnit.MaxHP;
+        enemyShieldText.text = "Shield: " + enemyUnit.Shield;
+        heroShieldText.text = "Shield: " + heroUnit.Shield;
+
         if (enemyUnit.HP<=0)
         {
             state = BattleState.WON;
@@ -93,9 +98,13 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.ENEMYTURN;
         statusText.text = state + " ";
         enemyUnit.Turn(heroUnit);  // ew coś co ma zrobić przeciwnik
-        heroHPText.text = heroUnit.HP + "/" + heroUnit.MaxHP;
+
         checkHP();
-        playerTurn();
+        if(state == BattleState.ENEMYTURN)
+        { 
+             playerTurn();
+        }
+        
     }
 
     public void onAttackCardClick()
@@ -104,8 +113,6 @@ public class BattleSystem : MonoBehaviour
         {
            Attack.Effect(heroUnit,enemyUnit,1);
             //enemyUnit.HP = enemyUnit.HP - 5;
-
-            enemyHPText.text = enemyUnit.HP + "/" + enemyUnit.MaxHP;
 
             checkHP();
         }
@@ -117,8 +124,6 @@ public class BattleSystem : MonoBehaviour
         {
             Attack.Effect(heroUnit, enemyUnit, 2);
             //enemyUnit.HP = enemyUnit.HP - 5;
-
-            enemyHPText.text = enemyUnit.HP + "/" + enemyUnit.MaxHP;
 
             checkHP();
         }
