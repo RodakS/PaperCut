@@ -31,6 +31,8 @@ public class BattleSystem : MonoBehaviour
     public Text enemyShieldText;    // do wyswietlania tarczy
     public Text heroShieldText;
     public Text statusText;
+    public Text enemyStrength;
+    public Text heroEnergy;
 
     void Start()
     {
@@ -68,6 +70,8 @@ public class BattleSystem : MonoBehaviour
         heroHPText.text = heroUnit.HP + "/" + heroUnit.MaxHP;
         enemyShieldText.text = "Shield: " + enemyUnit.Shield;
         heroShieldText.text = "Shield: " + heroUnit.Shield;
+        heroEnergy.text = "Energy:" + heroUnit.energy + "/" + heroUnit.maxenergy;
+        enemyStrength.text = "Strength : " + enemyUnit.AttackUp;
 
         if (enemyUnit.HP<=0)
         {
