@@ -28,6 +28,13 @@ namespace PaperCut
                         HeroUnit.energy--;
                     }
                     break;
+                case 3:
+                    if (HeroUnit.energy >= 2)
+                    {
+                        HeroUnit.AttackUp += 5;
+                        HeroUnit.energy -= 2;
+                    }
+                    break;
 
             }
           

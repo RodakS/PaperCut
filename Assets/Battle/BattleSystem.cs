@@ -33,6 +33,8 @@ public class BattleSystem : MonoBehaviour
     public Text statusText;
     public Text enemyStrength;
     public Text heroEnergy;
+    public Text enemyIntent;
+    public Text heroStrength;
 
     void Start()
     {
@@ -72,6 +74,19 @@ public class BattleSystem : MonoBehaviour
         heroShieldText.text = "Shield: " + heroUnit.Shield;
         heroEnergy.text = "Energy:" + heroUnit.energy + "/" + heroUnit.maxenergy;
         enemyStrength.text = "Strength : " + enemyUnit.AttackUp;
+        heroStrength.text = "Strength : " + heroUnit.AttackUp;
+        switch (enemyUnit.intent)
+        {
+            case 1:
+                enemyIntent.text = "Attack for " + enemyUnit.AttackUp + 5;
+                break;
+            case 2:
+                enemyIntent.text = "Defend for 10";
+                break;
+            case 3:
+                enemyIntent.text = "Defend for 6, 2 strength up";
+                break;
+        }
 
         if (enemyUnit.HP<=0)
         {
@@ -127,6 +142,17 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.PLAYERTURN)
         {
             Attack.Effect(heroUnit, enemyUnit, 2);
+            //enemyUnit.HP = enemyUnit.HP - 5;
+
+            checkHP();
+        }
+
+    }
+    public void onMiscCardClick()
+    {
+        if (state == BattleState.PLAYERTURN)
+        {
+            Attack.Effect(heroUnit, enemyUnit, 3);
             //enemyUnit.HP = enemyUnit.HP - 5;
 
             checkHP();
