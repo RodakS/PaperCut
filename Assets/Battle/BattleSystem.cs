@@ -62,6 +62,8 @@ public class BattleSystem : MonoBehaviour
         heroUnit.energy = heroUnit.maxenergy;
         statusText.text = state + " ";
 
+        checkHP();
+
     }
 
     
@@ -78,7 +80,7 @@ public class BattleSystem : MonoBehaviour
         switch (enemyUnit.intent)
         {
             case 1:
-                enemyIntent.text = "Attack for " + enemyUnit.AttackUp + 5;
+                enemyIntent.text = "Attack for " +(int) (enemyUnit.AttackUp + 5);
                 break;
             case 2:
                 enemyIntent.text = "Defend for 10";
@@ -131,7 +133,6 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.PLAYERTURN)
         {
            Attack.Effect(heroUnit,enemyUnit,1);
-            //enemyUnit.HP = enemyUnit.HP - 5;
 
             checkHP();
         }
@@ -142,7 +143,6 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.PLAYERTURN)
         {
             Attack.Effect(heroUnit, enemyUnit, 2);
-            //enemyUnit.HP = enemyUnit.HP - 5;
 
             checkHP();
         }
@@ -153,7 +153,6 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.PLAYERTURN)
         {
             Attack.Effect(heroUnit, enemyUnit, 3);
-            //enemyUnit.HP = enemyUnit.HP - 5;
 
             checkHP();
         }

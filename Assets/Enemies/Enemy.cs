@@ -50,8 +50,8 @@ using UnityEngine;
 
         public void calculateMove(Hero Target)
         {
-        int AttackMove = 3;
-        int DefenseMove = 6;
+        int AttackMove = 5;
+        int DefenseMove = 8;
         //tutaj czekam aż zostanie stworzona instancja bohatera
         if (Target.HP < Target.HP / 2) AttackMove++;
         if (this.HP < this.HP / 2) DefenseMove--;
