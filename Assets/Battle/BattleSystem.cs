@@ -16,8 +16,8 @@ public class BattleSystem : MonoBehaviour
 
     public BattleState state;  // tworze status
 
-    Hero heroUnit = new Hero();      //kopie bohatera/przeciwnika
-    Enemy enemyUnit = new Enemy();
+    Hero heroUnit;   //kopie bohatera/przeciwnika
+    Enemy enemyUnit;
     Card Attack = new Card();
     public Shield Shield = new Shield();
     public Weapon Weapon = new Weapon();
