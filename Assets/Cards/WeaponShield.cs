@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    int MaxDurability = 5;
-    int CurrDurrability = 5;
-    int Damage = 5;
-    int Cost = 1;
+   public  int MaxDurability = 5;
+   public int CurrDurrability = 5;
+    public int Damage = 5;
+    public int Cost = 1;
     public void Effect(Hero HeroUnit, Enemy EnemyUnit)
     {
        
@@ -20,14 +20,25 @@ public class Weapon : MonoBehaviour
              
 
     }
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
 }
 public class Shield : MonoBehaviour
 {
-    int MaxDurability = 5;
-    int CurrDurrability = 5;
-    int Armor = 5;
-    int Cost = 1;
+    public int MaxDurability = 5;
+    public int CurrDurrability = 5;
+    public int Armor = 5;
+    public int Cost = 1;
     public void Effect(Hero HeroUnit, Enemy EnemyUnit)
     {
 
@@ -38,6 +49,17 @@ public class Shield : MonoBehaviour
             HeroUnit.energy--;
         }
 
+
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
     }
 

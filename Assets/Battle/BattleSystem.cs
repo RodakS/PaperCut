@@ -15,12 +15,12 @@ public class BattleSystem : MonoBehaviour
 
 
     public BattleState state;  // tworze status
-
+    Shield Shielder = new Shield();
+    Weapon Weaponer = new Weapon();
     Hero heroUnit;   //kopie bohatera/przeciwnika
     Enemy enemyUnit;
     Card Attack = new Card();
-    public Shield Shield = new Shield();
-    public Weapon Weapon = new Weapon();
+    
 
     //Hero heroUnit;     //kopie bohatera/przeciwnika
     //Enemy enemyUnit;
@@ -36,6 +36,7 @@ public class BattleSystem : MonoBehaviour
     public Text heroEnergy;
     public Text enemyIntent;
     public Text heroStrength;
+    public Text Durability;
 
     void Start()
     {
@@ -78,6 +79,7 @@ public class BattleSystem : MonoBehaviour
         heroEnergy.text = "Energy:" + heroUnit.energy + "/" + heroUnit.maxenergy;
         enemyStrength.text = "Strength : " + enemyUnit.AttackUp;
         heroStrength.text = "Strength : " + heroUnit.AttackUp;
+        Durability.text = "Durability : "+ Weaponer.CurrDurrability+ "/"+Weaponer.MaxDurability + " Durability : " + Shielder.CurrDurrability + "/" + Shielder.MaxDurability;
         switch (enemyUnit.intent)
         {
             case 1:
@@ -167,7 +169,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            Weapon.Effect(heroUnit, enemyUnit);
+            Weaponer.Effect(heroUnit, enemyUnit);
 
             checkHP();
         }
@@ -177,7 +179,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            Shield.Effect(heroUnit, enemyUnit);
+            Shielder.Effect(heroUnit, enemyUnit);
 
             checkHP();
         }
