@@ -18,8 +18,9 @@ public class BattleSystem : MonoBehaviour
 
     Hero heroUnit = new Hero();      //kopie bohatera/przeciwnika
     Enemy enemyUnit = new Enemy();
-    CardAttack Attack = new CardAttack();
-    CardBlock Block = new CardBlock();
+    Card Attack = new Card();
+    public Shield Shield = new Shield();
+    public Weapon Weapon = new Weapon();
 
     //Hero heroUnit;     //kopie bohatera/przeciwnika
     //Enemy enemyUnit;
@@ -88,6 +89,9 @@ public class BattleSystem : MonoBehaviour
             case 3:
                 enemyIntent.text = "Defend for 6, 2 strength up";
                 break;
+            case -1:
+                enemyIntent.text = "Fuck I'm stunned";
+                break;
         }
 
         if (enemyUnit.HP<=0)
@@ -153,6 +157,27 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.PLAYERTURN)
         {
             Attack.Effect(heroUnit, enemyUnit, 3);
+
+            checkHP();
+        }
+
+    }
+
+    public void onWeaponClick()
+    {
+        if (state == BattleState.PLAYERTURN)
+        {
+            Weapon.Effect(heroUnit, enemyUnit);
+
+            checkHP();
+        }
+
+    }
+    public void onShieldClick()
+    {
+        if (state == BattleState.PLAYERTURN)
+        {
+            Shield.Effect(heroUnit, enemyUnit);
 
             checkHP();
         }
