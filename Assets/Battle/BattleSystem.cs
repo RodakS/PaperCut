@@ -62,6 +62,15 @@ public class BattleSystem : MonoBehaviour
 
         state= BattleState.PLAYERTURN;
         heroUnit.energy = heroUnit.maxenergy;
+        ////if (heroUnit.Regeneration > 0)
+        ////{
+        ////    heroUnit.HP += 3;
+        ////    if (HeroUnit.HP > HeroUnit.MaxHP)
+        ////    {
+        ////        HeroUnit.HP = HeroUnit.MaxHP;
+        ////    }
+        ////    heroUnit.Regeneration--;
+        ////}        
         statusText.text = state + " ";
 
         checkHP();
@@ -111,7 +120,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-   public void onEndTurnClick()
+    public void onEndTurnClick()
     {
         if (state != BattleState.PLAYERTURN)
         {

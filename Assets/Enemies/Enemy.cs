@@ -10,6 +10,8 @@ using UnityEngine;
         public int HP = 80;
         public int AttackUp = 0;
         public int Shield=0;
+        ////public int SetOnFire = 0;
+        ////public int Sleep = 0;
 
         public void substractHP(int Damage)
         {
@@ -27,6 +29,17 @@ using UnityEngine;
 
         public void Turn(Hero Target)
         {
+            ////if (this.SetOnFire > 0)
+            ////{
+            ////    this.substractHP(3);
+            ////    this.SetOnFire--;
+            ////}
+            ////if (this.Sleep > 0)
+            ////{
+            ////    this.intent = -1;
+            ////    this.Sleep--;
+            ////}
+
             switch (intent)
             {
                 case 1:

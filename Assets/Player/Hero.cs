@@ -11,9 +11,11 @@ using UnityEngine;
         public int AttackUp = 0;
         public int Shield=0;
         public int cardDraw = 5;
-    public int maxenergy = 3;
+        public int maxenergy = 3;
         public int energy = 3;
         private const int maxCards = 10;
+        ////public int Regeneration = 0;
+        
         void Start()
         {
 
