@@ -10,8 +10,8 @@ using UnityEngine;
         public int HP = 80;
         public int AttackUp = 0;
         public int Shield=0;
-        ////public int SetOnFire = 0;
-        ////public int Sleep = 0;
+        public int SetOnFire = 0;
+        public int Sleep = 0;
 
         public void substractHP(int Damage)
         {
@@ -24,23 +24,27 @@ using UnityEngine;
                 Damage -= this.Shield;
                 this.Shield = 0;
                 this.HP -= Damage;
+            if (this.intent == -2)
+            {
+                this.calculateMove(new Hero());
             }
+        }
         }
 
         public void Turn(Hero Target)
+    {
+        if (this.SetOnFire > 0)
         {
-            ////if (this.SetOnFire > 0)
-            ////{
-            ////    this.substractHP(3);
-            ////    this.SetOnFire--;
-            ////}
-            ////if (this.Sleep > 0)
-            ////{
-            ////    this.intent = -1;
-            ////    this.Sleep--;
-            ////}
+            this.substractHP(3);
+            this.SetOnFire--;
+        }
+        if (this.Sleep > 0)
+        {
+            this.intent = -2;
+            this.Sleep--;
+        }
 
-            switch (intent)
+        switch (intent)
             {
                 case 1:
                     //tutaj czekam aż zostanie stworzona instancja bohatera

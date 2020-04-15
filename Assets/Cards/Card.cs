@@ -233,14 +233,13 @@ namespace PaperCut
         public string Name = "Sweeping edge";
         public string Description = "Deal 5 dmg to each enemy.";
         public int Cost = 3;
-        public void Effect(Hero HeroUnit, Enemy EnemyUnit) //Enemy EnemyUnit1, Enemy EnemyUnit2, Enemy EnemyUnit3)
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit1, Enemy EnemyUnit2, Enemy EnemyUnit3) //Enemy EnemyUnit1, Enemy EnemyUnit2, Enemy EnemyUnit3)
         {
             if (HeroUnit.energy >= 3)
             {
-                EnemyUnit.substractHP(5);
-                //EnemyUnit1.substractHP(5);
-                //EnemyUnit2.substractHP(5);
-                //EnemyUnit3.substractHP(5);               
+                EnemyUnit1.substractHP(5);
+                EnemyUnit2.substractHP(5);
+                EnemyUnit3.substractHP(5);
                 HeroUnit.energy -= 3;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -256,7 +255,7 @@ namespace PaperCut
         {
             if (HeroUnit.energy >= 3)
             {
-                if (EnemyUnit.HP > EnemyUnit.MaxHP * 30 / 100)
+                if (EnemyUnit.HP < EnemyUnit.MaxHP * 30 / 100)
                 {
                     EnemyUnit.substractHP(15);
                 }
@@ -280,7 +279,7 @@ namespace PaperCut
             if (HeroUnit.energy >= 2)
             {
                 EnemyUnit.substractHP(5);
-                //EnemyUnit.SetOnFire = 3;
+                EnemyUnit.SetOnFire = 3;
                 HeroUnit.energy -= 2;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -292,18 +291,17 @@ namespace PaperCut
         public string Name = "Firaga";
         public string Description = "Deal 5 dmg to each enemy, set the targets on fire for 3 turns.";
         public int Cost = 3;
-        public void Effect(Hero HeroUnit, Enemy EnemyUnit) //Enemy EnemyUnit1, Enemy EnemyUnit2, Enemy EnemyUnit3)
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit1, Enemy EnemyUnit2, Enemy EnemyUnit3) //Enemy EnemyUnit1, Enemy EnemyUnit2, Enemy EnemyUnit3)
         {
             if (HeroUnit.energy >= 3)
             {
-                EnemyUnit.substractHP(5);                
-                //EnemyUnit1.substractHP(5);
-                //EnemyUnit2.substractHP(5);
-                //EnemyUnit3.substractHP(5);  
-                //EnemyUnit.SetOnFire = 3;
-                //EnemyUnit1.SetOnFire = 3;
-                //EnemyUnit2.SetOnFire = 3;
-                //EnemyUnit3.SetOnFire = 3;  
+
+                EnemyUnit1.substractHP(5);
+                EnemyUnit2.substractHP(5);
+                EnemyUnit3.substractHP(5);
+                EnemyUnit1.SetOnFire = 3;
+                EnemyUnit2.SetOnFire = 3;
+                EnemyUnit3.SetOnFire = 3;
                 HeroUnit.energy -= 3;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -319,7 +317,7 @@ namespace PaperCut
         {
             if (HeroUnit.energy >= 2)
             {
-               // EnemyUnit.Sleep = 2;                
+                EnemyUnit.Sleep = 2;                
                 HeroUnit.energy -= 2;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -340,7 +338,7 @@ namespace PaperCut
                 {
                     HeroUnit.HP = HeroUnit.MaxHP;
                 }
-               // HeroUnit.Regeneration = 2;                
+                HeroUnit.Regeneration = 2;                
                 HeroUnit.energy -= 2;                
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }

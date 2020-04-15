@@ -14,9 +14,9 @@ using UnityEngine;
         public int maxenergy = 3;
         public int energy = 3;
         private const int maxCards = 10;
-        ////public int Regeneration = 0;
-        
-        void Start()
+        public int Regeneration = 0;
+
+    void Start()
         {
 
         }

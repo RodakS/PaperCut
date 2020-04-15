@@ -62,15 +62,15 @@ public class BattleSystem : MonoBehaviour
         heroUnit.energy = heroUnit.maxenergy;
 
 
-        ////if (heroUnit.Regeneration > 0)
-        ////{
-        ////    heroUnit.HP += 3;
-        ////    if (HeroUnit.HP > HeroUnit.MaxHP)
-        ////    {
-        ////        HeroUnit.HP = HeroUnit.MaxHP;
-        ////    }
-        ////    heroUnit.Regeneration--;
-        ////}        
+        if (heroUnit.Regeneration > 0)
+        {
+            heroUnit.HP += 3;
+            if (heroUnit.HP > heroUnit.MaxHP)
+            {
+                heroUnit.HP = heroUnit.MaxHP;
+            }
+            heroUnit.Regeneration--;
+        }
         statusText.text = state + " ";
 
         checkHP();
@@ -172,8 +172,8 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            // Attack.Effect(heroUnit, enemyUnit, 3);
-            // checkHP();
+             Attack.Effect(heroUnit, enemyUnit, 3);
+             checkHP();
             string tmpp="sdsdsd ";
             string tmp = deck.CardDraw(tmpp);
             cards.text = tmp;
