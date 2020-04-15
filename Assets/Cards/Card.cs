@@ -7,6 +7,7 @@ namespace PaperCut
     //tutaj jest placeholder na mechanikę główną, niżej są już karty o które szymon prosił
     public class Card : MonoBehaviour
     {
+
         public int Id = 1;
         public string Name = "Attack";
         public string Description = "Deal 5 dmg.";
@@ -279,7 +280,7 @@ namespace PaperCut
             if (HeroUnit.energy >= 2)
             {
                 EnemyUnit.substractHP(5);
-                EnemyUnit.SetOnFire = 3;
+                //EnemyUnit.SetOnFire = 3;
                 HeroUnit.energy -= 2;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -299,7 +300,7 @@ namespace PaperCut
                 //EnemyUnit1.substractHP(5);
                 //EnemyUnit2.substractHP(5);
                 //EnemyUnit3.substractHP(5);  
-                EnemyUnit.SetOnFire = 3;
+                //EnemyUnit.SetOnFire = 3;
                 //EnemyUnit1.SetOnFire = 3;
                 //EnemyUnit2.SetOnFire = 3;
                 //EnemyUnit3.SetOnFire = 3;  
@@ -318,7 +319,7 @@ namespace PaperCut
         {
             if (HeroUnit.energy >= 2)
             {
-                EnemyUnit.Sleep = 2;                
+               // EnemyUnit.Sleep = 2;                
                 HeroUnit.energy -= 2;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -339,10 +340,22 @@ namespace PaperCut
                 {
                     HeroUnit.HP = HeroUnit.MaxHP;
                 }
-                HeroUnit.Regeneration = 2;                
+               // HeroUnit.Regeneration = 2;                
                 HeroUnit.energy -= 2;                
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
         }
     }
+}
+public class CardTMP : MonoBehaviour
+{
+    public int Id = 4;
+    public string Name = "Heal";
+    public string Description = "Heal 5 dmg.";
+    public int Cost = 1;
+    public void Effect()
+    {
+    }
+
+
 }

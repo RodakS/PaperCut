@@ -8,7 +8,7 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 public class BattleSystem : MonoBehaviour
 {
     public GameObject heroPrefab; //tu podłączam hero <- trzeba poprawić
-    public GameObject enemyPrefab ; // przeciwnika
+    public GameObject enemyPrefab; // przeciwnika
 
     public Transform playerPlace ; // tu podstawiam miejsce w którym mają być
     public Transform enemyPlace ;
@@ -20,12 +20,7 @@ public class BattleSystem : MonoBehaviour
     Hero heroUnit;   //kopie bohatera/przeciwnika
     Enemy enemyUnit;
     Card Attack = new Card();
-    
-
-    //Hero heroUnit;     //kopie bohatera/przeciwnika
-    //Enemy enemyUnit;
-    //CardAttack Attack;
-    //CardBlock Block;
+    Deck deck = new Deck();
 
     public Text enemyHPText ;    // do wyswietlania hp
     public Text heroHPText;
@@ -37,7 +32,7 @@ public class BattleSystem : MonoBehaviour
     public Text enemyIntent;
     public Text heroStrength;
     public Text Durability;
-
+    public Text cards;
     void Start()
     {
         state = BattleState.START;
@@ -53,8 +48,11 @@ public class BattleSystem : MonoBehaviour
        GameObject enemyGameObject = Instantiate(enemyPrefab, enemyPlace);
         enemyUnit = enemyGameObject.GetComponent<Enemy>();
 
+        deck.Generate();
+
         checkHP();
         playerTurn();
+
     }
 
     void playerTurn()
@@ -62,6 +60,8 @@ public class BattleSystem : MonoBehaviour
 
         state= BattleState.PLAYERTURN;
         heroUnit.energy = heroUnit.maxenergy;
+
+
         ////if (heroUnit.Regeneration > 0)
         ////{
         ////    heroUnit.HP += 3;
@@ -133,7 +133,7 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.ENEMYTURN;
         statusText.text = state + " ";
-        enemyUnit.Turn(heroUnit);  // ew coś co ma zrobić przeciwnik
+        enemyUnit.Turn(heroUnit); 
 
         checkHP();
         if(state == BattleState.ENEMYTURN)
@@ -150,8 +150,9 @@ public class BattleSystem : MonoBehaviour
            Attack.Effect(heroUnit,enemyUnit,1);
 
             checkHP();
+
         }
-        
+
     }
     public void onDefendCardClick()
     {
@@ -160,6 +161,10 @@ public class BattleSystem : MonoBehaviour
             Attack.Effect(heroUnit, enemyUnit, 2);
 
             checkHP();
+
+            // draw a card()
+            // card effect()
+            // card UI
         }
 
     }
@@ -167,9 +172,11 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            Attack.Effect(heroUnit, enemyUnit, 3);
-
-            checkHP();
+            // Attack.Effect(heroUnit, enemyUnit, 3);
+            // checkHP();
+            string tmpp="sdsdsd ";
+            string tmp = deck.CardDraw(tmpp);
+            cards.text = tmp;
         }
 
     }
