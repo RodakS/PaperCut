@@ -66,8 +66,6 @@
     <Compile Include="Assets\Battle\Deck.cs" />
     <Compile Include="Assets\Battle\HUD.cs" />
     <Compile Include="Assets\Cards\Card.cs" />
-    <Compile Include="Assets\Cards\CardDrop.cs" />
-    <Compile Include="Assets\Cards\Draggable.cs" />
     <Compile Include="Assets\Cards\WeaponShield.cs" />
     <Compile Include="Assets\Enemies\Enemy.cs" />
     <Compile Include="Assets\Player\Hero.cs" />

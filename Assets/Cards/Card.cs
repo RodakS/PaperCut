@@ -19,7 +19,7 @@ namespace PaperCut
                 case 1:
                     if (HeroUnit.energy >= 1)
                     {
-                        EnemyUnit.substractHP(5);
+                        EnemyUnit.substractHP(5+HeroUnit.AttackUp);
                         HeroUnit.energy--;
                     }
                     break;
@@ -35,6 +35,7 @@ namespace PaperCut
                     {
                         HeroUnit.AttackUp += 5;
                         HeroUnit.energy -= 2;
+                        EnemyUnit.Stun = 1;
                         EnemyUnit.intent = -1;
                     }
                     break;
@@ -59,6 +60,7 @@ namespace PaperCut
                 EnemyUnit.substractHP(5);
                 EnemyUnit.intent = -1;
                 HeroUnit.energy -= 3;
+                EnemyUnit.Stun = 1;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
 
