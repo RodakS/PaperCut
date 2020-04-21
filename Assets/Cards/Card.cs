@@ -26,7 +26,7 @@ namespace PaperCut
                 case 2:
                     if (HeroUnit.energy >= 1)
                     {
-                        HeroUnit.Shield += 5; ;
+                        HeroUnit.Shield += 5;
                         HeroUnit.energy--;
                     }
                     break;
@@ -357,8 +357,8 @@ namespace PaperCut
             if (HeroUnit.energy >= 1)
             {
                 HeroUnit.Shield += 8;
-                //HeroUnit.Strength += 2;
-                //Funkcja na danate'owanie            
+                HeroUnit.Strength += 2;
+                //Enemy.GiveModifier(Hero.TakeRandomModifier);
                 HeroUnit.energy -= 1;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -375,8 +375,8 @@ namespace PaperCut
             if (HeroUnit.energy >= 2)
             {
                 HeroUnit.Shield += 10;
-                //HeroUnit.Strength -= 1;
-                //Funkcja na danate'owanie            
+                HeroUnit.Weak += 1;
+                //Hero.GiveModifier(Enemy.TakeRandomModifier);
                 HeroUnit.energy -= 2;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -393,8 +393,8 @@ namespace PaperCut
             if (HeroUnit.energy >= 1)
             {
                 EnemyUnit.substractHP(9);
-                //EnemyUnit.Strength -= 2;
-                //Funkcja na steal'owanie            
+                EnemyUnit.Weak += 2;
+                //Enemy.GiveModifier(Hero.TakeRandomModifier);
                 HeroUnit.energy -= 1;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -411,8 +411,8 @@ namespace PaperCut
             if (HeroUnit.energy >= 2)
             {
                 EnemyUnit.substractHP(7);
-                //EnemyUnit.Strength += 1;
-                //Funkcja na steal'owanie            
+                EnemyUnit.Strength += 1;
+                //Enemy.GiveModifier(Hero.TakeRandomModifier);
                 HeroUnit.energy -= 2;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -548,7 +548,7 @@ namespace PaperCut
                 EnemyUnit.MaxHP = 2 * EnemyUnit.MaxHP;
                 EnemyUnit.HP = EnemyUnit.MaxHP;
                 HeroUnit.Gold += 50;
-                //EnemyUnit.Bounty = 20;
+                EnemyUnit.Bounty = 20;
                 HeroUnit.energy -= 3;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
@@ -623,6 +623,245 @@ namespace PaperCut
             }
         }
     }
+    public class CardFairTrade : MonoBehaviour
+    {
+        public int Id = 32;
+        public string Name = "Fair Trade";
+        public string Description = "Pay 15, Steal 1, Give bounty 15.";
+        public int Cost = 0;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 0 && HeroUnit.Gold >= 15)
+            {
+                HeroUnit.Gold -= 15;
+                //Enemy.GiveModifier(Hero.TakeRandomModifier);
+                EnemyUnit.Bounty = 20;           
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardMoneyIsPower : MonoBehaviour
+    {
+        public int Id = 33;
+        public string Name = "Money is Power";
+        public string Description = "Pay 300, gain 1 mana permanently.";
+        public int Cost = 3;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 3 && HeroUnit.Gold >= 300)
+            {
+                HeroUnit.Gold -= 15;
+                HeroUnit.maxenergy += 1;                   
+                HeroUnit.energy -= 3;
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardBasicEconomy : MonoBehaviour
+    {
+        public int Id = 34;
+        public string Name = "Basic Economy";
+        public string Description = "Donate 1, Acquire 5.";
+        public int Cost = 0;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 0)
+            {
+                //Hero.GiveModifier(Enemy.TakeRandomModifier);
+                HeroUnit.Gold += 5;
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardTargetPractice : MonoBehaviour
+    {
+        public int Id = 35;
+        public string Name = "Target practice";
+        public string Description = "Gain 8 shield, get a Bounty 5.";
+        public int Cost = 1;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 1)
+            {
+                HeroUnit.Shield += 8;
+                EnemyUnit.Bounty = 5;
+                HeroUnit.energy -= 1;
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardFluidExchange : MonoBehaviour
+    {
+        public int Id = 36;
+        public string Name = "Fluid Exchange";
+        public string Description = "Pay 15, Deal 10 damage to an enemy, gain 10 shield, Steal 1, Donate 1, Rob, Exhaust.";
+        public int Cost = 3;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 3 && HeroUnit.Gold >= 15)
+            {
+                HeroUnit.Gold -= 15;
+                EnemyUnit.substractHP(10);
+                HeroUnit.Shield += 10;
+                //Enemy.GiveModifier(Hero.TakeRandomModifier);
+                //Hero.GiveModifier(Enemy.TakeRandomModifier);
+                HeroUnit.Gold += 10;
+                //Funkcja na exhaust'a                
+                HeroUnit.energy -= 3;
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardBastion : MonoBehaviour
+    {
+        public int Id = 37;
+        public string Name = "Bastion";
+        public string Description = "Gain 1 Dexterous, gain 6 shieldy.";
+        public int Cost = 1;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 1)
+            {                
+                HeroUnit.Dexterous = 1;
+                HeroUnit.Shield += 6;
+                HeroUnit.energy -= 1;
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardOneForAll : MonoBehaviour
+    {
+        public int Id = 38;
+        public string Name = "One for all";
+        public string Description = "Get 2 vulnerable, 2 Frail and 2 Weak, Donate 6.";
+        public int Cost = 2;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 2 && HeroUnit.Gold >= 6)
+            {
+                HeroUnit.Vulnerable += 2;
+                HeroUnit.Frail += 2;
+                HeroUnit.Strength += 2;
+                HeroUnit.Gold -= 6;            
+                HeroUnit.energy -= 2;
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardAllForOne : MonoBehaviour
+    {
+        public int Id = 39;
+        public string Name = "All for one";
+        public string Description = "Give 1 strength, 1 dexterous to all enemies, steal 2 from each.";
+        public int Cost = 2;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit1, Enemy EnemyUnit2, Enemy EnemyUnit3)
+        {
+            if (HeroUnit.energy >= 2)
+            {
+                EnemyUnit1.Strength += 2;
+                EnemyUnit2.Strength += 2;
+                EnemyUnit3.Strength += 2;
+                EnemyUnit1.Dexterous += 2;
+                EnemyUnit2.Dexterous += 2;
+                EnemyUnit3.Dexterous += 2;
+                //Funkcja na steal'owanie z kilku celów
+                //Enemy.GiveModifier(Hero.TakeRandomModifier);
+                HeroUnit.energy -= 2;
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardBasicMovements : MonoBehaviour
+    {
+        public int Id = 40;
+        public string Name = "Basic Movements";
+        public string Description = "Deal 1 damage, get 1 shield, get 1 strength and 1 dexterous for the rest of this turn.";
+        public int Cost = 0;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 0)
+            {                
+                EnemyUnit.substractHP(1);
+                HeroUnit.Shield += 1;
+                HeroUnit.Strength += 1;                
+                HeroUnit.Dexterous = 1;                
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardFinishingThrust : MonoBehaviour
+    {
+        public int Id = 41;
+        public string Name = "Finishing thrust";
+        public string Description = "Deal 2 damage per modifier an enemy has.";
+        public int Cost = 1;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 1)
+            {
+                //if (EnemyUnit.NumberOfModifiers >= 0)
+                //{
+                //    EnemyUnit.substractHP(2 * EnemyUnit.NumberOfModifiers);
+                //}
+                HeroUnit.energy -= 1;
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardFinalDefence : MonoBehaviour
+    {
+        public int Id = 42;
+        public string Name = "Final Defence";
+        public string Description = "get 3 shield per modifier you have.";
+        public int Cost = 1;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 1)
+            {
+                //if (HeroUnit.NumberOfModifiers >= 0)
+                //{
+                //    HeroUnit.Shield += 3 * HeroUnit.NumberOfModifiers;
+                //}
+                HeroUnit.energy -= 1;
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardGamblingHeart : MonoBehaviour
+    {
+        public int Id = 43;
+        public string Name = "Gambling Heart";
+        public string Description = "Get 3 shield and 1 random modifier.";
+        public int Cost = 0;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 0)
+            {
+                HeroUnit.Shield += 3;
+                //funkcja dająca bohaterowi randomowy modifier
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+    public class CardAceInTheHole : MonoBehaviour
+    {
+        public int Id = 44;
+        public string Name = "Ace in the hole";
+        public string Description = "Deal 3 damage and give 1 random modifier.";
+        public int Cost = 0;
+        public void Effect(Hero HeroUnit, Enemy EnemyUnit)
+        {
+            if (HeroUnit.energy >= 0)
+            {
+                EnemyUnit.substractHP(3);                
+                //funkcja dająca wrogowi randomowy modifier
+                //tutaj funkcja na ciągnięcie kolejnej karty
+            }
+        }
+    }
+
+
+
 
 
 

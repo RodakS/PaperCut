@@ -18,12 +18,16 @@ using UnityEngine;
         public int Gold = 0;
         public int AttackDown = 0;
         public int Vulnerable = 0;
-    public int ShieldUp = 0;
-    public int ShieldDown = 0;
-    public int Bounty = 0;
-    public int SetOnFire = 0;
-    public int Sleep = 0;
-    public int Stun = 0;
+        public int ShieldUp = 0;
+        public int ShieldDown = 0;
+        public int Bounty = 0;
+        public int SetOnFire = 0;
+        public int Sleep = 0;
+        public int Stun = 0;
+        public int Strength = 0;
+        public int Weak = 0;
+        public int Dexterous = 0;
+        public int Frail = 0;
 
     void Start()
         {
@@ -83,6 +87,14 @@ using UnityEngine;
             returnee.Add(7);
         for (int i = 0; i < Stun; i++)
             returnee.Add(8);
+        for (int i = 0; i < Strength; i++)
+            returnee.Add(9);
+        for (int i = 0; i < Weak; i++)
+            returnee.Add(10);
+        for (int i = 0; i < Dexterous; i++)
+            returnee.Add(11);
+        for (int i = 0; i < Frail; i++)
+            returnee.Add(12);
 
         int randomInt = returnee[new System.Random().Next(0, returnee.Count)];
         switch (randomInt)
@@ -113,7 +125,18 @@ using UnityEngine;
                 break;
             case 8:
                 this.Stun--;
-
+                break;
+            case 9:
+                this.Strength --;
+                break;
+            case 10:
+                this.Weak--;
+                break;
+            case 11:
+                this.Dexterous--;
+                break;
+            case 12:
+                this.Frail--;
                 break;
         }
 
@@ -153,6 +176,18 @@ using UnityEngine;
             case 8:
                 this.Stun++;
                 this.energy = -1;
+                break;
+            case 9:
+                this.Strength++;
+                break;
+            case 10:
+                this.Weak++;
+                break;
+            case 11:
+                this.Dexterous++;
+                break;
+            case 12:
+                this.Frail++;
                 break;
         }
 
