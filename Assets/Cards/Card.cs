@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace PaperCut
 {
+    //mała nieistniejąca zmiana
     //tutaj jest placeholder na mechanikę główną, niżej są już karty o które szymon prosił
     public class Card : MonoBehaviour
     {
