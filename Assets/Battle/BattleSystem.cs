@@ -2,32 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using PaperCut;
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 
 public class BattleSystem : MonoBehaviour
 {
-    public GameObject heroPrefab; //tu podłączam hero <- trzeba poprawić
-    public GameObject enemyPrefab; // przeciwnika
-    public GameObject HUDPrefab;
-
-    public Transform playerPlace ; // tu podstawiam miejsce w którym mają być
-    public Transform enemyPlace ;
-    public Transform HUDPlace;
-
-
-    public BattleState state;  // tworze status
-    Shield Shielder = new Shield();
-    Weapon Weaponer = new Weapon();
-    Hero heroUnit;   //kopie bohatera/przeciwnika
-    Enemy enemyUnit;
-    HUD HUDSystem;
+    private BattleGenerator battlegenerator_CS;
+    public BattleState state;
     Card Attack = new Card();
-    Deck deck = new Deck();
 
-  
     void Start()
     {
+        battlegenerator_CS = GetComponent<BattleGenerator>(); //podłączam battlegenerator.cs 
+        battlegenerator_CS.battleGenerate();                    //uruchamiam battlegenerator.cs 
+
         state = BattleState.START;
         battleSetUp();
     }
@@ -35,16 +22,9 @@ public class BattleSystem : MonoBehaviour
 
     void battleSetUp() 
     {
-       GameObject playerGameObject = Instantiate(heroPrefab, playerPlace);
-        heroUnit=playerGameObject.GetComponent<Hero>();
 
-       GameObject enemyGameObject = Instantiate(enemyPrefab, enemyPlace);
-        enemyUnit = enemyGameObject.GetComponent<Enemy>();
-
-        GameObject HUDGameObject = Instantiate(HUDPrefab, HUDPlace);
-        HUDSystem = HUDGameObject.GetComponent<HUD>();
-        deck.Generate();
-
+        battlegenerator_CS.deck_CS.Generate();  // tworze deck
+        
         checkHP();
         playerTurn();
 
@@ -54,23 +34,22 @@ public class BattleSystem : MonoBehaviour
     {
 
         state= BattleState.PLAYERTURN;
-        heroUnit.energy = heroUnit.maxenergy;
+
+        battlegenerator_CS.hero_CS.energy = battlegenerator_CS.hero_CS.maxenergy; // to ma robic bohater a nie battlesystem -->
 
 
-        if (heroUnit.Regeneration > 0)
+        if (battlegenerator_CS.hero_CS.Regeneration > 0)
         {
-            heroUnit.HP += 3;
-            if (heroUnit.HP > heroUnit.MaxHP)
+            battlegenerator_CS.hero_CS.HP += 3;
+            if (battlegenerator_CS.hero_CS.HP > battlegenerator_CS.hero_CS.MaxHP)
             {
-                heroUnit.HP = heroUnit.MaxHP;
+                battlegenerator_CS.hero_CS.HP = battlegenerator_CS.hero_CS.MaxHP;
             }
-            heroUnit.Regeneration--;
-        }
-       
+            battlegenerator_CS.hero_CS.Regeneration--;
+        }                                                                       // <--
+            
 
         checkHP();
-        
-
     }
 
     
@@ -78,20 +57,20 @@ public class BattleSystem : MonoBehaviour
     void checkHP()
     {
        
-        HUDSystem.UpdateHUD(enemyUnit, heroUnit, Weaponer, Shielder);
-        if (enemyUnit.HP <= 0)
+        battlegenerator_CS.hud_CS.UpdateHUD();
+        if (battlegenerator_CS.enemy_CS.HP <= 0)       // to ma sprawdzać przeciwnik
         {
             state = BattleState.WON;
             //goto ekran koncowy
-            HUDSystem.StatusUpdate(state);
+            battlegenerator_CS.hud_CS.StatusUpdate(state);
 
         }
 
-        if (heroUnit.HP <= 0)
+        if (battlegenerator_CS.hero_CS.HP <= 0)  // to ma sprawdzać bohater
         {
             state = BattleState.LOST;
             // goto ekran koncowy
-            HUDSystem.StatusUpdate(state);
+            battlegenerator_CS.hud_CS.StatusUpdate(state);
 
         }
 
@@ -109,49 +88,46 @@ public class BattleSystem : MonoBehaviour
     void enemyTurn()
     {
         state = BattleState.ENEMYTURN;
-        HUDSystem.StatusUpdate(state);
-        enemyUnit.Turn(heroUnit); 
+
+        battlegenerator_CS.enemy_CS.Turn(battlegenerator_CS.hero_CS);
+        battlegenerator_CS.hud_CS.StatusUpdate(state);
 
         checkHP();
         if(state == BattleState.ENEMYTURN)
         { 
              playerTurn();
         }
-        
     }
 
     public void onAttackCardClick()
     {
         if (state == BattleState.PLAYERTURN)
         {
-           Attack.Effect(heroUnit,enemyUnit,1);
+            Attack.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS, 1);
             checkHP();
-
+            // CardDraw(cardOnePlace);
         }
-
     }
     public void onDefendCardClick()
     {
         if (state == BattleState.PLAYERTURN)
         {
-            Attack.Effect(heroUnit, enemyUnit, 2);
+           Attack.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS, 2);
             checkHP();
-
             // draw a card()
             // card effect()
             // card UI
         }
-
     }
     public void onMiscCardClick()
     {
         if (state == BattleState.PLAYERTURN)
         {
-             Attack.Effect(heroUnit, enemyUnit, 3);
+             Attack.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS, 3);
              checkHP();
-            string tmpp="sdsdsd ";
-            string tmp = deck.CardDraw(tmpp);
-            HUDSystem.DeckUpdate(tmp);
+            string tmpp=" ";
+            string tmp = battlegenerator_CS.deck_CS.CardDraw(tmpp);
+            battlegenerator_CS.hud_CS.DeckUpdate(tmp);
         }
 
     }
@@ -160,7 +136,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            Weaponer.Effect(heroUnit, enemyUnit);
+            battlegenerator_CS.weapon_CS.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS);
 
             checkHP();
         }
@@ -170,12 +146,40 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            Shielder.Effect(heroUnit, enemyUnit);
+            battlegenerator_CS.shield_CS.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS);
 
             checkHP();
         }
 
     }
 
+    public void onCardClickOne() 
+    {
+        if (state == BattleState.PLAYERTURN)
+        {
+            battlegenerator_CS.cardObjectOne.GetComponent<CardTemplate>().Effect();
+            checkHP();
+            // CardDraw(cardOnePlace);  // dobierz karte
+        }
+    }
 
+    public void onCardClickTwo()
+    {
+        if (state == BattleState.PLAYERTURN)
+        {
+            battlegenerator_CS.cardObjectTwo.GetComponent<CardTemplate>().Effect();
+            checkHP();
+            // CardDraw(cardOnePlace);  // dobierz karte
+        }
+    }
+
+    public void onCardClickThree()
+    {
+        if (state == BattleState.PLAYERTURN)
+        {
+            battlegenerator_CS.cardObjectThree.GetComponent<CardTemplate>().Effect();
+            checkHP();
+            // CardDraw(cardOnePlace);  // dobierz karte
+        }
+    }
 }

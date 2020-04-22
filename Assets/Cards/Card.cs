@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PaperCut
-{
     //mała nieistniejąca zmiana
     //tutaj jest placeholder na mechanikę główną, niżej są już karty o które szymon prosił
     public class Card : MonoBehaviour
     {
-
+        public BattleSystem bs;
         public int Id = 1;
         public string Name = "Attack";
         public string Description = "Deal 5 dmg.";
@@ -20,6 +18,7 @@ namespace PaperCut
                 case 1:
                     if (HeroUnit.energy >= 1)
                     {
+                        HeroUnit.energy--;
                         EnemyUnit.substractHP(5+HeroUnit.AttackUp);
                         HeroUnit.energy--;
                     }
@@ -64,15 +63,12 @@ namespace PaperCut
                 EnemyUnit.Stun = 1;
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
-
-            
-
         }
-
-
     }
+
     public class CardMaxHealth : MonoBehaviour
     {
+        public Hero bs;
         public int Id = 3;
         public string Name = "Health";
         public string Description = "Raise max health by 10";
@@ -81,6 +77,7 @@ namespace PaperCut
         {
             if (HeroUnit.energy >= 2)
             {
+                
                 HeroUnit.HP += 10;
                 HeroUnit.MaxHP += 10;
                 HeroUnit.energy -= 2;
@@ -863,17 +860,6 @@ namespace PaperCut
 
 
 
-
-
-
-
-
-
-
-
-
-
-}
 public class CardTMP : MonoBehaviour
 {
     public int Id = 4;

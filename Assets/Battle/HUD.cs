@@ -17,21 +17,21 @@ public class HUD : MonoBehaviour
     public Text Durability;
     public Text cards;
 
-
-    public void UpdateHUD(Enemy enemyUnit,Hero heroUnit,Weapon Weaponer,Shield Shielder)
+    public BattleGenerator battlegenerator_CS;
+    public void UpdateHUD()
     {
-         enemyHPText.text = enemyUnit.HP + "/" + enemyUnit.MaxHP;
-        heroHPText.text = heroUnit.HP + "/" + heroUnit.MaxHP;
-        enemyShieldText.text = "Shield: " + enemyUnit.Shield;
-        heroShieldText.text = "Shield: " + heroUnit.Shield;
-        heroEnergy.text = "Energy:" + heroUnit.energy + "/" + heroUnit.maxenergy;
-        enemyStrength.text = "Strength : " + enemyUnit.AttackUp;
-        heroStrength.text = "Strength : " + heroUnit.AttackUp;
-        Durability.text = "Durability : "+ Weaponer.CurrDurrability+ "/"+Weaponer.MaxDurability + " Durability : " + Shielder.CurrDurrability + "/" + Shielder.MaxDurability;
-        switch (enemyUnit.intent)
+         enemyHPText.text = battlegenerator_CS.enemy_CS.HP + "/" + battlegenerator_CS.enemy_CS.MaxHP;
+        heroHPText.text = battlegenerator_CS.hero_CS.HP + "/" + battlegenerator_CS.hero_CS.MaxHP;
+        enemyShieldText.text = "Shield: " + battlegenerator_CS.enemy_CS.Shield;
+        heroShieldText.text = "Shield: " + battlegenerator_CS.hero_CS.Shield;
+        heroEnergy.text = "Energy:" + battlegenerator_CS.hero_CS.energy + "/" + battlegenerator_CS.hero_CS.maxenergy;
+        enemyStrength.text = "Strength : " + battlegenerator_CS.enemy_CS.AttackUp;
+        heroStrength.text = "Strength : " + battlegenerator_CS.hero_CS.AttackUp;
+       // Durability.text = "Durability : "+ battlegenerator_CS.weaponObject.CurrDurrability+ "/"+battlegenerator_CS.weaponObject.MaxDurability + " Durability : " + battlegenerator_CS.shieldObject.CurrDurrability + "/" + battlegenerator_CS.shieldObject.MaxDurability;
+        switch (battlegenerator_CS.enemy_CS.intent) // cały ten switch ma być u przeciwnika a nie tutaj
         {
             case 1:
-                enemyIntent.text = "Attack for " +(int) (enemyUnit.AttackUp + 5);
+                enemyIntent.text = "Attack for " +(int) (battlegenerator_CS.enemy_CS.AttackUp + 5);
                 break;
             case 2:
                 enemyIntent.text = "Defend for 10";

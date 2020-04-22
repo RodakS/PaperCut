@@ -515,6 +515,7 @@ MonoBehaviour:
   heroStrength: {fileID: 0}
   Durability: {fileID: 0}
   cards: {fileID: 0}
+  battlegenerator_CS: {fileID: 0}
 --- !u!114 &657040514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,6 +657,16 @@ MonoBehaviour:
   Shield: 0
   SetOnFire: 0
   Sleep: 0
+  AttackDown: 0
+  Vulnerable: 0
+  ShieldUp: 0
+  ShieldDown: 0
+  Bounty: 0
+  Stun: 0
+  Strength: 0
+  Weak: 0
+  Dexterous: 0
+  Frail: 0
 --- !u!1 &685632662
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +728,7 @@ MonoBehaviour:
   heroStrength: {fileID: 0}
   Durability: {fileID: 0}
   cards: {fileID: 0}
+  battlegenerator_CS: {fileID: 0}
 --- !u!114 &685632665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,6 +870,7 @@ MonoBehaviour:
   heroStrength: {fileID: 0}
   Durability: {fileID: 0}
   cards: {fileID: 0}
+  battlegenerator_CS: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1141,7 @@ MonoBehaviour:
   heroStrength: {fileID: 0}
   Durability: {fileID: 0}
   cards: {fileID: 0}
+  battlegenerator_CS: {fileID: 0}
 --- !u!1 &899095867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1454,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -638.65, y: -292.8}
+  m_AnchoredPosition: {x: -681, y: -291.86}
   m_SizeDelta: {x: 121.35, y: 139.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1066350419
@@ -1573,6 +1587,7 @@ MonoBehaviour:
   heroStrength: {fileID: 2101838366}
   Durability: {fileID: 685632665}
   cards: {fileID: 1249079406}
+  battlegenerator_CS: {fileID: 1254924813}
 --- !u!4 &1172852786
 Transform:
   m_ObjectHideFlags: 0
@@ -1717,6 +1732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1254924812}
   - component: {fileID: 1254924811}
+  - component: {fileID: 1254924813}
   m_Layer: 0
   m_Name: BattleSystem
   m_TagString: Untagged
@@ -1736,12 +1752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686b8059f98255745bc5247abe24e552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroPrefab: {fileID: 1535149835}
-  enemyPrefab: {fileID: 667122386}
-  HUDPrefab: {fileID: 1172852784}
-  playerPlace: {fileID: 1535149838}
-  enemyPlace: {fileID: 667122388}
-  HUDPlace: {fileID: 1172852786}
   state: 0
 --- !u!4 &1254924812
 Transform:
@@ -1757,6 +1767,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1254924813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254924810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d897f76ffd2524243898d2db58fd72b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 667122386}
+  enemyPlace: {fileID: 667122388}
+  hero_CS: {fileID: 1535149836}
+  enemy_CS: {fileID: 667122389}
+  hud_CS: {fileID: 1172852785}
+  deck_CS: {fileID: 1172945548}
+  shield_CS: {fileID: 0}
+  weapon_CS: {fileID: 0}
+  cardObjectOne: {fileID: 1066350417}
+  cardObjectTwo: {fileID: 2098595209}
+  cardObjectThree: {fileID: 478795353}
 --- !u!1 &1280969010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,6 +1851,7 @@ MonoBehaviour:
   heroStrength: {fileID: 0}
   Durability: {fileID: 0}
   cards: {fileID: 0}
+  battlegenerator_CS: {fileID: 0}
 --- !u!114 &1280969013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1919,6 +1953,7 @@ MonoBehaviour:
   heroStrength: {fileID: 0}
   Durability: {fileID: 0}
   cards: {fileID: 0}
+  battlegenerator_CS: {fileID: 0}
 --- !u!114 &1441930975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1998,6 +2033,18 @@ MonoBehaviour:
   energy: 3
   Regeneration: 0
   Gold: 0
+  AttackDown: 0
+  Vulnerable: 0
+  ShieldUp: 0
+  ShieldDown: 0
+  Bounty: 0
+  SetOnFire: 0
+  Sleep: 0
+  Stun: 0
+  Strength: 0
+  Weak: 0
+  Dexterous: 0
+  Frail: 0
 --- !u!212 &1535149837
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2056,7 +2103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535149835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 243, y: 222, z: 0}
+  m_LocalPosition: {x: 172.5, y: 227.4, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2238,6 +2285,7 @@ MonoBehaviour:
   heroStrength: {fileID: 0}
   Durability: {fileID: 0}
   cards: {fileID: 0}
+  battlegenerator_CS: {fileID: 0}
 --- !u!114 &1767293885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2467,6 +2515,7 @@ MonoBehaviour:
   heroStrength: {fileID: 0}
   Durability: {fileID: 0}
   cards: {fileID: 0}
+  battlegenerator_CS: {fileID: 0}
 --- !u!114 &2101838366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2697,6 +2746,7 @@ MonoBehaviour:
   heroStrength: {fileID: 0}
   Durability: {fileID: 0}
   cards: {fileID: 0}
+  battlegenerator_CS: {fileID: 0}
 --- !u!114 &2137067403
 MonoBehaviour:
   m_ObjectHideFlags: 0
