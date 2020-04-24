@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BattleGenerator : MonoBehaviour
 {
-    public GameObject enemyPrefab; // przeciwnika
+    public GameObject enemyPrefab;
     public Transform enemyPlace;
 
-    public Hero hero_CS;   //kopie bohatera/przeciwnika
+    public Hero hero_CS;
     public Enemy enemy_CS;
     public HUD hud_CS;
     public Deck deck_CS;
@@ -15,11 +15,7 @@ public class BattleGenerator : MonoBehaviour
     public Shield shield_CS = new Shield();
     public Weapon weapon_CS = new Weapon();
 
-    public GameObject cardObjectOne;
-    public GameObject cardObjectTwo;
-    public GameObject cardObjectThree;
-
-    public void battleGenerate()
+    public void BattleGenerate()
     {
         GameObject enemyGameObject = Instantiate(enemyPrefab, enemyPlace);
         enemy_CS = enemyGameObject.GetComponent<Enemy>();

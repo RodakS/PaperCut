@@ -280,7 +280,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1254924811}
-        m_MethodName: onShieldClick
+        m_MethodName: OnShieldClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -565,7 +565,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1254924811}
-        m_MethodName: onMiscCardClick
+        m_MethodName: OnCardClickThree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -670,8 +670,9 @@ MonoBehaviour:
   heroEnergy: {fileID: 0}
   enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
-  Durability: {fileID: 0}
+  durability: {fileID: 0}
   cards: {fileID: 0}
+  cardDescriptionTexts: []
   battlegenerator_CS: {fileID: 0}
 --- !u!114 &657040514
 MonoBehaviour:
@@ -960,8 +961,9 @@ MonoBehaviour:
   heroEnergy: {fileID: 0}
   enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
-  Durability: {fileID: 0}
+  durability: {fileID: 0}
   cards: {fileID: 0}
+  cardDescriptionTexts: []
   battlegenerator_CS: {fileID: 0}
 --- !u!114 &685632665
 MonoBehaviour:
@@ -1102,8 +1104,9 @@ MonoBehaviour:
   heroEnergy: {fileID: 0}
   enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
-  Durability: {fileID: 0}
+  durability: {fileID: 0}
   cards: {fileID: 0}
+  cardDescriptionTexts: []
   battlegenerator_CS: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
@@ -1450,8 +1453,9 @@ MonoBehaviour:
   heroEnergy: {fileID: 0}
   enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
-  Durability: {fileID: 0}
+  durability: {fileID: 0}
   cards: {fileID: 0}
+  cardDescriptionTexts: []
   battlegenerator_CS: {fileID: 0}
 --- !u!1 &899095867
 GameObject:
@@ -1554,8 +1558,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.4273318, g: 0.6243548, b: 0.9339623, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1684,7 +1688,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1254924811}
-        m_MethodName: onWeaponClick
+        m_MethodName: OnWeaponClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1815,7 +1819,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1254924811}
-        m_MethodName: onAttackCardClick
+        m_MethodName: OnCardClickOne
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1976,8 +1980,18 @@ MonoBehaviour:
   heroEnergy: {fileID: 2137067403}
   enemyIntent: {fileID: 1767293885}
   heroStrength: {fileID: 2101838366}
-  Durability: {fileID: 685632665}
+  durability: {fileID: 685632665}
   cards: {fileID: 1249079406}
+  cardDescriptionTexts:
+  - {fileID: 1854180931}
+  - {fileID: 1315238013}
+  - {fileID: 364186188}
+  - {fileID: 1664749207}
+  - {fileID: 1161419167}
+  - {fileID: 670448908}
+  - {fileID: 69530171}
+  - {fileID: 2032487126}
+  - {fileID: 739657147}
   battlegenerator_CS: {fileID: 1254924813}
 --- !u!4 &1172852786
 Transform:
@@ -1987,7 +2001,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172852784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 402.60706, y: 290.80893, z: -251.79437}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2022,18 +2036,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62230c752bfda53439fcca30c4faa897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Card: {fileID: 0}
-  texts:
-  - {fileID: 1854180931}
-  - {fileID: 1315238013}
-  - {fileID: 364186188}
-  - {fileID: 1664749207}
-  - {fileID: 1161419167}
-  - {fileID: 670448908}
-  - {fileID: 69530171}
-  - {fileID: 2032487126}
-  - {fileID: 739657147}
-  Klasy: []
+  battlegenerator_CS: {fileID: 1254924813}
+  deckList: []
 --- !u!4 &1172945549
 Transform:
   m_ObjectHideFlags: 0
@@ -2190,9 +2194,6 @@ MonoBehaviour:
   deck_CS: {fileID: 1172945548}
   shield_CS: {fileID: 0}
   weapon_CS: {fileID: 0}
-  cardObjectOne: {fileID: 1066350417}
-  cardObjectTwo: {fileID: 2098595209}
-  cardObjectThree: {fileID: 478795353}
 --- !u!1 &1280969010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,8 +2253,9 @@ MonoBehaviour:
   heroEnergy: {fileID: 0}
   enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
-  Durability: {fileID: 0}
+  durability: {fileID: 0}
   cards: {fileID: 0}
+  cardDescriptionTexts: []
   battlegenerator_CS: {fileID: 0}
 --- !u!114 &1280969013
 MonoBehaviour:
@@ -2431,8 +2433,9 @@ MonoBehaviour:
   heroEnergy: {fileID: 0}
   enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
-  Durability: {fileID: 0}
+  durability: {fileID: 0}
   cards: {fileID: 0}
+  cardDescriptionTexts: []
   battlegenerator_CS: {fileID: 0}
 --- !u!114 &1441930975
 MonoBehaviour:
@@ -2840,8 +2843,9 @@ MonoBehaviour:
   heroEnergy: {fileID: 0}
   enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
-  Durability: {fileID: 0}
+  durability: {fileID: 0}
   cards: {fileID: 0}
+  cardDescriptionTexts: []
   battlegenerator_CS: {fileID: 0}
 --- !u!114 &1767293885
 MonoBehaviour:
@@ -3122,7 +3126,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1254924811}
-        m_MethodName: onDefendCardClick
+        m_MethodName: OnCardClickTwo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3227,8 +3231,9 @@ MonoBehaviour:
   heroEnergy: {fileID: 0}
   enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
-  Durability: {fileID: 0}
+  durability: {fileID: 0}
   cards: {fileID: 0}
+  cardDescriptionTexts: []
   battlegenerator_CS: {fileID: 0}
 --- !u!114 &2101838366
 MonoBehaviour:
@@ -3353,7 +3358,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1254924811}
-        m_MethodName: onEndTurnClick
+        m_MethodName: OnEndTurnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3458,8 +3463,9 @@ MonoBehaviour:
   heroEnergy: {fileID: 0}
   enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
-  Durability: {fileID: 0}
+  durability: {fileID: 0}
   cards: {fileID: 0}
+  cardDescriptionTexts: []
   battlegenerator_CS: {fileID: 0}
 --- !u!114 &2137067403
 MonoBehaviour:

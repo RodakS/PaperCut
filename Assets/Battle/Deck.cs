@@ -1,57 +1,60 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
 
 public class Deck : MonoBehaviour
 {
-    public GameObject Card;
-   
-    KartaOrginalna t;
+    public BattleGenerator battlegenerator_CS;
+    CardTemplate cardFromDeck;
+    CardTemplate[] cardOnSlot = new CardTemplate[3];
 
-    public Text[] texts;
-    public List<KartaOrginalna>Klasy = new List<KartaOrginalna>();
-    public void Generate(BattleGenerator battlegenerator_CS)
+    public List<CardTemplate>deckList = new List<CardTemplate>();
+    public void Generate()
     {
-        t = new KartaPierwsza();
-        //functions.Add(Card);
-       // GameObject karta = functions[new System.Random().Next(0, functions.Count)];
-        //cardTemplate_CS.CardReplace(karta);
+        deckList.Add(new KartaPierwsza());      //tusie dodaje do decka
+        deckList.Add(new KartaPierwsza());
+        deckList.Add(new KartaPierwsza());
+        deckList.Add(new KartaPierwsza());
 
-        Klasy.Add(t);
-        Klasy.Add(t);
-        t = Klasy[new System.Random().Next(0, Klasy.Count)];
-        t.Effect(battlegenerator_CS);
+        deckList.Add(new KartaDruga());
+        deckList.Add(new KartaDruga());
+        deckList.Add(new KartaDruga());
+        deckList.Add(new KartaDruga());
 
-        //      functions.Add(cardFlip);
-        //      CardOneObject = functions[new System.Random().Next(0, functions.Count)];
-        //      Debug.Log("siema " + CardOneObject);
-        // tmp.Effect() = cardsss.AttackEffect();
-        //   functions.Add(Attack.Effect);
-
-    }
-    public void CardDraw(int cardNumer)//(CardObject)
-    {
-        texts[3 * (cardNumer-1) + 0].text = t.Name;
-        texts[3 * (cardNumer-1) + 1].text = t.Description;
-        texts[3 * (cardNumer-1) + 2].text = t.Cost.ToString();
-        // GameObject playerGameObject = Instantiate(karta, playerPlace);
-        // heroUnit = playerGameObject.GetComponent<Hero>();
-
-
-
-        //Action randomFunc = functions[new System.Random().Next(0, functions.Count)];
-        //randomFunc();
-        //functions.Remove(randomFunc);
-        //text = "Cards: " + functions.Count;
-        //return text;
-
-        //Action cardtemplateObject = functions[new System.Random().Next(0, functions.Count)];
-        // cardtemplateObject
-        // functions.Remove(cardtemplateObject);
-        // text = "Cards: " + functions.Count;
-
+        DrawStartCards();
     }
 
+    void DrawStartCards()
+    {
+        for (int cardNumer = 1; cardNumer < 4; cardNumer++)
+        {
+            int i=Random.Range(0, deckList.Count);
+            cardFromDeck = deckList[i];
+            cardFromDeck.Replace();
+            battlegenerator_CS.hud_CS.CardUpdate(cardFromDeck, cardNumer);
+            cardOnSlot[cardNumer - 1] = cardFromDeck;
+            deckList.RemoveAt(i);
+        }
+        battlegenerator_CS.hud_CS.DeckUpdate(deckList.Count);
+    }
+
+    public void CardPlay(BattleGenerator battlegenerator_CS,int cardNumer)
+    {
+        if (cardOnSlot[cardNumer - 1].cardCost <= battlegenerator_CS.hero_CS.energy)
+        {
+            cardOnSlot[cardNumer - 1].Effect(battlegenerator_CS);           //zagraj effect karty
+            CardDraw(cardNumer);
+        }
+    }
+
+    public void CardDraw(int cardNumer)
+    {
+        int i= Random.Range(0, deckList.Count);
+        cardFromDeck = deckList[i];
+        cardFromDeck.Replace();                                            // podmieniam wlasciwosci karty
+        cardOnSlot[cardNumer - 1] = cardFromDeck;
+        battlegenerator_CS.hud_CS.CardUpdate(cardFromDeck, cardNumer);
+        deckList.RemoveAt(i);   //usuwam zagrana karte
+        battlegenerator_CS.hud_CS.DeckUpdate(deckList.Count);
+    }
 }

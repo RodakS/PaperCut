@@ -13,37 +13,30 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         battlegenerator_CS = GetComponent<BattleGenerator>(); //podłączam battlegenerator.cs 
-        battlegenerator_CS.battleGenerate();                    //uruchamiam battlegenerator.cs 
+        battlegenerator_CS.BattleGenerate();                   //uruchamiam battlegenerate.cs 
         state = BattleState.START;
-        battleSetUp();
+        BattleSetUp();
     }
 
-
-    void battleSetUp() 
+    void BattleSetUp() 
     {
-
-        battlegenerator_CS.deck_CS.Generate(battlegenerator_CS);  // tworze deck
-        battlegenerator_CS.deck_CS.CardDraw(1);
-        battlegenerator_CS.deck_CS.CardDraw(2);
-        battlegenerator_CS.deck_CS.CardDraw(3);
-        checkHP();
-        playerTurn();
-
+        battlegenerator_CS.deck_CS.Generate();  // tworze deck
+        CheckHP();
+        PlayerTurn();
     }
 
-    void playerTurn()
+    void PlayerTurn()
     {
-
         state= BattleState.PLAYERTURN;
 
-       // battlegenerator_CS.hero_CS.energy = battlegenerator_CS.hero_CS.maxenergy; // to ma robic bohater a nie battlesystem -->
+        battlegenerator_CS.hero_CS.energy = battlegenerator_CS.hero_CS.maxenergy; // to ma robic bohater a nie battlesystem -->
 
-        checkHP();
+        CheckHP();
     }
 
     
 
-    void checkHP()
+    void CheckHP()
     {
        
         battlegenerator_CS.hud_CS.UpdateHUD();
@@ -65,108 +58,74 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-    public void onEndTurnClick()
+    public void OnEndTurnClick()
     {
         if (state != BattleState.PLAYERTURN)
         {
             return;
         }
-        enemyTurn();
+        EnemyTurn();
     }
 
-    void enemyTurn()
+    void EnemyTurn()
     {
         state = BattleState.ENEMYTURN;
 
         battlegenerator_CS.enemy_CS.Turn(battlegenerator_CS.hero_CS);
         battlegenerator_CS.hud_CS.StatusUpdate(state);
 
-        checkHP();
+        CheckHP();
         if(state == BattleState.ENEMYTURN)
         { 
-             playerTurn();
+             PlayerTurn();
         }
     }
 
-    public void onAttackCardClick()
-    {
-        if (state == BattleState.PLAYERTURN)
-        {
-            Attack.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS, 1);
-            checkHP();
-            // CardDraw(cardOnePlace);
-        }
-    }
-    public void onDefendCardClick()
-    {
-        if (state == BattleState.PLAYERTURN)
-        {
-           Attack.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS, 2);
-            checkHP();
-            // draw a card()
-            // card effect()
-            // card UI
-        }
-    }
-    public void onMiscCardClick()
-    {
-        if (state == BattleState.PLAYERTURN)
-        {
-             Attack.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS, 3);
-             checkHP();
-        }
-
-    }
-
-    public void onWeaponClick()
+    public void OnWeaponClick()
     {
         if (state == BattleState.PLAYERTURN)
         {
             battlegenerator_CS.weapon_CS.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS);
 
-            checkHP();
+            CheckHP();
         }
 
     }
-    public void onShieldClick()
+    public void OnShieldClick()
     {
         if (state == BattleState.PLAYERTURN)
         {
             battlegenerator_CS.shield_CS.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS);
 
-            checkHP();
+            CheckHP();
         }
 
     }
 
-    public void onCardClickOne() 
+    public void OnCardClickOne() 
     {
         if (state == BattleState.PLAYERTURN)
         {
-            battlegenerator_CS.deck_CS.CardDraw(1);
-           // battlegenerator_CS.cardObjectOne.GetComponent<CardTemplate>().Effect();
-            checkHP();
-            // CardDraw(cardOnePlace);  // dobierz karte
+            battlegenerator_CS.deck_CS.CardPlay(battlegenerator_CS,1);
+            CheckHP();
         }
     }
 
-    public void onCardClickTwo()
+    public void OnCardClickTwo()
     {
         if (state == BattleState.PLAYERTURN)
         {
-           // battlegenerator_CS.cardObjectTwo.GetComponent<CardTemplate>().Effect();
-            checkHP();
-            // CardDraw(cardOnePlace);  // dobierz karte
+            battlegenerator_CS.deck_CS.CardPlay(battlegenerator_CS,2);
+            CheckHP();
         }
     }
 
-    public void onCardClickThree()
+    public void OnCardClickThree()
     {
         if (state == BattleState.PLAYERTURN)
         {
-           // battlegenerator_CS.cardObjectThree.GetComponent<CardTemplate>().Effect();
-            checkHP();
-            // CardDraw(cardOnePlace);  // dobierz karte
+            battlegenerator_CS.deck_CS.CardPlay(battlegenerator_CS,3);
+            CheckHP();
         }
     }
 }

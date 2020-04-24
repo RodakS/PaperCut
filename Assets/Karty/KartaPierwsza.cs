@@ -2,25 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KartaPierwsza : KartaOrginalna
+public class KartaPierwsza : CardTemplate
 {
-   // public BattleGenerator battlegenerator_CS;
-    void Start()
+    public override void Replace()
     {
-        //battlegenerator_CS = GameObject.FindGameObjectWithTag("GameController").GetComponent<BattleGenerator>();
-        Name = " Pierwsza";
-        Description = " costam";
-        Cost = 2;
+        cardName = " Pierwsza";
+        cardDescription = " costam";
+        cardCost = 2;
     }
 
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        if (battlegenerator_CS.hero_CS.energy >= 1)
-        {
             battlegenerator_CS.enemy_CS.substractHP(10);
-            battlegenerator_CS.hero_CS.energy -= 1;
-        }
+            battlegenerator_CS.hero_CS.energy -= cardCost;
+    }
+}
+
+public class KartaDruga : CardTemplate
+{
+    public override void Replace()
+    {
+        cardName = "Druga";
+        cardDescription = " itede";
+        cardCost = 1;
     }
 
+    public override void Effect(BattleGenerator battlegenerator_CS)
+    {
+        battlegenerator_CS.enemy_CS.substractHP(5);
+        battlegenerator_CS.hero_CS.energy -= cardCost;
+    }
 }
+
 

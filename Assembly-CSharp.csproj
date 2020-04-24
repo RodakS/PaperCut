@@ -70,7 +70,7 @@
     <Compile Include="Assets\Cards\Card.cs" />
     <Compile Include="Assets\Cards\WeaponShield.cs" />
     <Compile Include="Assets\Enemies\Enemy.cs" />
-    <Compile Include="Assets\Karty\KartaOrginalna.cs" />
+    <Compile Include="Assets\Karty\CardTemplate.cs" />
     <Compile Include="Assets\Karty\KartaPierwsza.cs" />
     <Compile Include="Assets\Player\Hero.cs" />
     <Reference Include="Unity.Timeline.Editor">
