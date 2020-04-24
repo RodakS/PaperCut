@@ -65,12 +65,13 @@
   <ItemGroup>
     <Compile Include="Assets\Battle\BattleGenerator.cs" />
     <Compile Include="Assets\Battle\BattleSystem.cs" />
-    <Compile Include="Assets\Battle\CardTemplate.cs" />
     <Compile Include="Assets\Battle\Deck.cs" />
     <Compile Include="Assets\Battle\HUD.cs" />
     <Compile Include="Assets\Cards\Card.cs" />
     <Compile Include="Assets\Cards\WeaponShield.cs" />
     <Compile Include="Assets\Enemies\Enemy.cs" />
+    <Compile Include="Assets\Karty\KartaOrginalna.cs" />
+    <Compile Include="Assets\Karty\KartaPierwsza.cs" />
     <Compile Include="Assets\Player\Hero.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Unity projekty/PaperCut/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

@@ -6,8 +6,9 @@ using UnityEngine;
     //tutaj jest placeholder na mechanikę główną, niżej są już karty o które szymon prosił
     public class Card : MonoBehaviour
     {
-        public BattleSystem bs;
-        public int Id = 1;
+        public BattleGenerator battlegenerator_CS;
+         public BattleSystem bs;
+         public int Id = 1;
         public string Name = "Attack";
         public string Description = "Deal 5 dmg.";
         public int Cost = 1;
@@ -632,12 +633,12 @@ using UnityEngine;
             if (HeroUnit.energy >= 0 && HeroUnit.Gold >= 15)
             {
                 HeroUnit.Gold -= 15;
-                //Enemy.GiveModifier(Hero.TakeRandomModifier);
+                EnemyUnit.GiveModifier(HeroUnit.TakeRandomModifier());
                 EnemyUnit.Bounty = 20;           
                 //tutaj funkcja na ciągnięcie kolejnej karty
             }
         }
-    }
+}
     public class CardMoneyIsPower : MonoBehaviour
     {
         public int Id = 33;

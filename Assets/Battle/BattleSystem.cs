@@ -14,7 +14,6 @@ public class BattleSystem : MonoBehaviour
     {
         battlegenerator_CS = GetComponent<BattleGenerator>(); //podłączam battlegenerator.cs 
         battlegenerator_CS.battleGenerate();                    //uruchamiam battlegenerator.cs 
-
         state = BattleState.START;
         battleSetUp();
     }
@@ -23,8 +22,10 @@ public class BattleSystem : MonoBehaviour
     void battleSetUp() 
     {
 
-        battlegenerator_CS.deck_CS.Generate();  // tworze deck
-        
+        battlegenerator_CS.deck_CS.Generate(battlegenerator_CS);  // tworze deck
+        battlegenerator_CS.deck_CS.CardDraw(1);
+        battlegenerator_CS.deck_CS.CardDraw(2);
+        battlegenerator_CS.deck_CS.CardDraw(3);
         checkHP();
         playerTurn();
 
@@ -35,19 +36,7 @@ public class BattleSystem : MonoBehaviour
 
         state= BattleState.PLAYERTURN;
 
-        battlegenerator_CS.hero_CS.energy = battlegenerator_CS.hero_CS.maxenergy; // to ma robic bohater a nie battlesystem -->
-
-
-        if (battlegenerator_CS.hero_CS.Regeneration > 0)
-        {
-            battlegenerator_CS.hero_CS.HP += 3;
-            if (battlegenerator_CS.hero_CS.HP > battlegenerator_CS.hero_CS.MaxHP)
-            {
-                battlegenerator_CS.hero_CS.HP = battlegenerator_CS.hero_CS.MaxHP;
-            }
-            battlegenerator_CS.hero_CS.Regeneration--;
-        }                                                                       // <--
-            
+       // battlegenerator_CS.hero_CS.energy = battlegenerator_CS.hero_CS.maxenergy; // to ma robic bohater a nie battlesystem -->
 
         checkHP();
     }
@@ -125,9 +114,6 @@ public class BattleSystem : MonoBehaviour
         {
              Attack.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS, 3);
              checkHP();
-            string tmpp=" ";
-            string tmp = battlegenerator_CS.deck_CS.CardDraw(tmpp);
-            battlegenerator_CS.hud_CS.DeckUpdate(tmp);
         }
 
     }
@@ -157,7 +143,8 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            battlegenerator_CS.cardObjectOne.GetComponent<CardTemplate>().Effect();
+            battlegenerator_CS.deck_CS.CardDraw(1);
+           // battlegenerator_CS.cardObjectOne.GetComponent<CardTemplate>().Effect();
             checkHP();
             // CardDraw(cardOnePlace);  // dobierz karte
         }
@@ -167,7 +154,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            battlegenerator_CS.cardObjectTwo.GetComponent<CardTemplate>().Effect();
+           // battlegenerator_CS.cardObjectTwo.GetComponent<CardTemplate>().Effect();
             checkHP();
             // CardDraw(cardOnePlace);  // dobierz karte
         }
@@ -177,7 +164,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            battlegenerator_CS.cardObjectThree.GetComponent<CardTemplate>().Effect();
+           // battlegenerator_CS.cardObjectThree.GetComponent<CardTemplate>().Effect();
             checkHP();
             // CardDraw(cardOnePlace);  // dobierz karte
         }
