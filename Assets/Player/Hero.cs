@@ -4,62 +4,60 @@ using UnityEngine;
 
 
 
+
     public class Hero : MonoBehaviour
     {
-        public int MaxHP = 80;
-        public int HP = 80;
-        public int AttackUp = 0;
-        public int Shield=0;
+    public BattleGenerator battlegenerator_CS;
+    public int maxhp = 80;
+        public int hp = 80;
+        public int shield=0;
         public int cardDraw = 5;
         public int maxenergy = 3;
         public int energy = 3;
         private const int maxCards = 10;
-        public int Regeneration = 0;
-        public int Gold = 0;
-        public int AttackDown = 0;
-        public int Vulnerable = 0;
-        public int ShieldUp = 0;
-        public int ShieldDown = 0;
-        public int Bounty = 0;
-        public int SetOnFire = 0;
-        public int Sleep = 0;
-        public int Stun = 0;
-        public int Strength = 0;
-        public int Weak = 0;
-        public int Dexterous = 0;
-        public int Frail = 0;
+        public int regeneration = 0;
+        public int gold = 0;
+        public int vulnerable = 0;
+        public int bounty = 0;
+        public int setOnFire = 0;
+        public int sleep = 0;
+        public int stun = 0;
+        public int strength = 0;
+        public int weak = 0;
+        public int dexterous = 0;
+        public int frail = 0;
 
     void Start()
         {
 
         }
-    public void Acquire(int gold)
+    public void AcquireGold(int goldGained)
     {
-        this.Gold += gold;
+        this.gold += goldGained;
     }
 
     public bool CheckCash(int check)
     {
-        if (this.Gold >= check)
+        if (this.gold >= check)
         { return true; }
         else return false;
     }
     public void Pay(int payment)
     {
-        this.Gold -= payment;
+        this.gold -= payment;
     }
 
-        public  void substractHP(int Damage)
+        public  void SubstractHP(int damage)
         {
-            if (Damage <= this.Shield)
+            if (damage <= this.shield)
             {
-                this.Shield -= Damage;
+                this.shield -= damage;
             }
             else
             {
-                Damage -= this.Shield;
-                this.Shield = 0;
-                this.HP -= Damage;
+                damage -= this.shield;
+                this.shield = 0;
+                this.hp -= damage;
             }
         }
 
@@ -67,76 +65,51 @@ using UnityEngine;
 
     public int TakeRandomModifier()
     {
+
         List<int> returnee = new List<int>();
 
-        for (int i = 0; i < AttackUp; i++)
-            returnee.Add(0);
-        for (int i = 0; i < SetOnFire; i++)
-            returnee.Add(1);
-        for (int i = 0; i < Sleep; i++)
-            returnee.Add(2);
-        for (int i = 0; i < AttackDown; i++)
-            returnee.Add(3);
-        for (int i = 0; i < Vulnerable; i++)
-            returnee.Add(4);
-        for (int i = 0; i < ShieldUp; i++)
-            returnee.Add(5);
-        for (int i = 0; i < ShieldDown; i++)
-            returnee.Add(6);
-        for (int i = 0; i < Bounty; i++)
-            returnee.Add(7);
-        for (int i = 0; i < Stun; i++)
-            returnee.Add(8);
-        for (int i = 0; i < Strength; i++)
-            returnee.Add(9);
-        for (int i = 0; i < Weak; i++)
-            returnee.Add(10);
-        for (int i = 0; i < Dexterous; i++)
-            returnee.Add(11);
-        for (int i = 0; i < Frail; i++)
-            returnee.Add(12);
+        returnee.Add(this.strength);
+        returnee.Add(this.setOnFire);
+        returnee.Add(this.sleep);
+        returnee.Add(this.weak);
+        returnee.Add(this.vulnerable);
+        returnee.Add(this.dexterous);
+        returnee.Add(this.frail);
+        returnee.Add(this.bounty);
+        returnee.Add(this.stun);
 
-        int randomInt = returnee[new System.Random().Next(0, returnee.Count)];
+        int randomInt = 0;
+        while (randomInt < 1)
+            randomInt = returnee[new System.Random().Next(0, returnee.Count)];
+        
         switch (randomInt)
         {
             case 0:
-                this.AttackUp--;
+                this.strength--;
                 break;
             case 1:
-                this.SetOnFire--;
+                this.setOnFire--;
                 break;
             case 2:
-                this.Sleep--;
+                this.sleep--;
                 break;
             case 3:
-                this.AttackDown--;
+                this.weak--;
                 break;
             case 4:
-                this.Vulnerable--;
+                this.vulnerable--;
                 break;
             case 5:
-                this.ShieldUp--;
+                this.dexterous--;
                 break;
             case 6:
-                this.ShieldDown--;
+                this.frail--;
                 break;
             case 7:
-                this.Bounty--;
+                this.bounty--;
                 break;
             case 8:
-                this.Stun--;
-                break;
-            case 9:
-                this.Strength --;
-                break;
-            case 10:
-                this.Weak--;
-                break;
-            case 11:
-                this.Dexterous--;
-                break;
-            case 12:
-                this.Frail--;
+                this.stun--;
                 break;
         }
 
@@ -149,49 +122,37 @@ using UnityEngine;
         switch (modifier)
         {
             case 0:
-                this.AttackUp++;
+                this.strength++;
                 break;
             case 1:
-                this.SetOnFire++;
+                this.setOnFire++;
                 break;
             case 2:
-                this.Sleep++;
+                this.sleep++;
                 this.energy = -1;
                 break;
             case 3:
-                this.AttackDown++;
+                this.weak++;
                 break;
             case 4:
-                this.Vulnerable++;
+                this.vulnerable++;
                 break;
             case 5:
-                this.ShieldUp++;
+                this.dexterous++;
                 break;
             case 6:
-                this.ShieldDown++;
+                this.frail++;
                 break;
             case 7:
-                this.Bounty++;
+                this.bounty++;
                 break;
             case 8:
-                this.Stun++;
+                this.stun++;
                 this.energy = -1;
                 break;
-            case 9:
-                this.Strength++;
-                break;
-            case 10:
-                this.Weak++;
-                break;
-            case 11:
-                this.Dexterous++;
-                break;
-            case 12:
-                this.Frail++;
-                break;
+
+
         }
-
-
     }
 
 

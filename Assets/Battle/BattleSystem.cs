@@ -40,7 +40,7 @@ public class BattleSystem : MonoBehaviour
     {
        
         battlegenerator_CS.hud_CS.UpdateHUD();
-        if (battlegenerator_CS.enemy_CS.HP <= 0)       // to ma sprawdzać przeciwnik
+        if (battlegenerator_CS.enemy_CS.hp <= 0)       // to ma sprawdzać przeciwnik
         {
             state = BattleState.WON;
             //goto ekran koncowy
@@ -48,7 +48,7 @@ public class BattleSystem : MonoBehaviour
 
         }
 
-        if (battlegenerator_CS.hero_CS.HP <= 0)  // to ma sprawdzać bohater
+        if (battlegenerator_CS.hero_CS.hp <= 0)  // to ma sprawdzać bohater
         {
             state = BattleState.LOST;
             // goto ekran koncowy
@@ -71,7 +71,7 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.ENEMYTURN;
 
-        battlegenerator_CS.enemy_CS.Turn(battlegenerator_CS.hero_CS);
+        battlegenerator_CS.enemy_CS.ExecuteTurn();
         battlegenerator_CS.hud_CS.StatusUpdate(state);
 
         CheckHP();
@@ -85,7 +85,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            battlegenerator_CS.weapon_CS.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS);
+            battlegenerator_CS.weapon_CS.ExecuteEffect();
 
             CheckHP();
         }
@@ -95,7 +95,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            battlegenerator_CS.shield_CS.Effect(battlegenerator_CS.hero_CS, battlegenerator_CS.enemy_CS);
+            battlegenerator_CS.shield_CS.ExecuteEffect();
 
             CheckHP();
         }

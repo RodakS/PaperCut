@@ -21,32 +21,14 @@ public class HUD : MonoBehaviour
     public BattleGenerator battlegenerator_CS;
     public void UpdateHUD()
     {
-         enemyHPText.text = battlegenerator_CS.enemy_CS.HP + "/" + battlegenerator_CS.enemy_CS.MaxHP;
-        heroHPText.text = battlegenerator_CS.hero_CS.HP + "/" + battlegenerator_CS.hero_CS.MaxHP;
-        enemyShieldText.text = "Shield: " + battlegenerator_CS.enemy_CS.Shield;
-        heroShieldText.text = "Shield: " + battlegenerator_CS.hero_CS.Shield;
+         enemyHPText.text = battlegenerator_CS.enemy_CS.hp + "/" + battlegenerator_CS.enemy_CS.maxhp;
+        heroHPText.text = battlegenerator_CS.hero_CS.hp + "/" + battlegenerator_CS.hero_CS.maxhp;
+        enemyShieldText.text = "Shield: " + battlegenerator_CS.enemy_CS.shield;
+        heroShieldText.text = "Shield: " + battlegenerator_CS.hero_CS.shield;
         heroEnergy.text = "Energy:" + battlegenerator_CS.hero_CS.energy + "/" + battlegenerator_CS.hero_CS.maxenergy;
-        enemyStrength.text = "Strength : " + battlegenerator_CS.enemy_CS.AttackUp;
-        heroStrength.text = "Strength : " + battlegenerator_CS.hero_CS.AttackUp;
-       // Durability.text = "Durability : "+ battlegenerator_CS.weaponObject.CurrDurrability+ "/"+battlegenerator_CS.weaponObject.MaxDurability + " Durability : " + battlegenerator_CS.shieldObject.CurrDurrability + "/" + battlegenerator_CS.shieldObject.MaxDurability;
-        switch (battlegenerator_CS.enemy_CS.intent) // cały ten switch ma być u przeciwnika a nie tutaj
-        {
-            case 1:
-                enemyIntent.text = "Attack for " +(int) (battlegenerator_CS.enemy_CS.AttackUp + 5);
-                break;
-            case 2:
-                enemyIntent.text = "Defend for 10";
-                break;
-            case 3:
-                enemyIntent.text = "Defend for 6, 2 strength up";
-                break;
-            case -1:
-                enemyIntent.text = "Fuck I'm stunned";
-                break;
-            case -2:
-                enemyIntent.text = "zZzZzZz";
-                break;
-        }
+        enemyStrength.text = "Strength : " + battlegenerator_CS.enemy_CS.strength;
+        heroStrength.text = "Strength : " + battlegenerator_CS.hero_CS.strength;
+        enemyIntent.text = battlegenerator_CS.enemy_CS.IntentText();
 
        
     }

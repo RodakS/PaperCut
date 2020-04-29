@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 272842818}
   - component: {fileID: 272842817}
   - component: {fileID: 272842816}
+  - component: {fileID: 272842819}
   m_Layer: 5
   m_Name: Shieldbutton
   m_TagString: Untagged
@@ -326,6 +327,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272842814}
   m_CullTransparentMesh: 0
+--- !u!114 &272842819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272842814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea13c224c40ab6348b96aa4df9a4a36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battlegenerator_CS: {fileID: 1254924813}
+  maxDurability: 5
+  currDurrability: 5
+  armor: 5
+  cost: 1
 --- !u!1 &301654888
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,23 +826,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f34fe4716a1ecb43ad28f08e636faa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battlegenerator_CS: {fileID: 1254924813}
   intent: 1
-  MaxHP: 80
-  HP: 80
-  AttackUp: 0
-  Shield: 0
-  SetOnFire: 0
-  Sleep: 0
-  AttackDown: 0
-  Vulnerable: 0
-  ShieldUp: 0
-  ShieldDown: 0
-  Bounty: 0
-  Stun: 0
-  Strength: 0
-  Weak: 0
-  Dexterous: 0
-  Frail: 0
+  maxhp: 80
+  hp: 80
+  shield: 0
+  setOnFire: 0
+  sleep: 0
+  vulnerable: 0
+  bounty: 0
+  stun: 0
+  strength: 0
+  weak: 0
+  dexterous: 0
+  frail: 0
 --- !u!1 &670448906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,6 +1633,7 @@ GameObject:
   - component: {fileID: 985458424}
   - component: {fileID: 985458423}
   - component: {fileID: 985458422}
+  - component: {fileID: 985458425}
   m_Layer: 5
   m_Name: WeaponButton
   m_TagString: Untagged
@@ -1734,6 +1750,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985458420}
   m_CullTransparentMesh: 0
+--- !u!114 &985458425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985458420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616fccc1fb57da4fa00a0b651d59b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battlegenerator_CS: {fileID: 1254924813}
+  maxDurability: 5
+  currDurrability: 5
+  damage: 5
+  cost: 1
 --- !u!1 &1066350417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,8 +2225,8 @@ MonoBehaviour:
   enemy_CS: {fileID: 667122389}
   hud_CS: {fileID: 1172852785}
   deck_CS: {fileID: 1172945548}
-  shield_CS: {fileID: 0}
-  weapon_CS: {fileID: 0}
+  shield_CS: {fileID: 272842819}
+  weapon_CS: {fileID: 985458425}
 --- !u!1 &1280969010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,27 +2540,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778cdee712bdf3b42a3c95a7d1c66cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 80
-  HP: 80
-  AttackUp: 0
-  Shield: 0
+  battlegenerator_CS: {fileID: 1254924813}
+  maxhp: 80
+  hp: 80
+  shield: 0
   cardDraw: 5
   maxenergy: 3
   energy: 3
-  Regeneration: 0
-  Gold: 0
-  AttackDown: 0
-  Vulnerable: 0
-  ShieldUp: 0
-  ShieldDown: 0
-  Bounty: 0
-  SetOnFire: 0
-  Sleep: 0
-  Stun: 0
-  Strength: 0
-  Weak: 0
-  Dexterous: 0
-  Frail: 0
+  regeneration: 0
+  gold: 0
+  vulnerable: 0
+  bounty: 0
+  setOnFire: 0
+  sleep: 0
+  stun: 0
+  strength: 0
+  weak: 0
+  dexterous: 0
+  frail: 0
 --- !u!212 &1535149837
 SpriteRenderer:
   m_ObjectHideFlags: 0

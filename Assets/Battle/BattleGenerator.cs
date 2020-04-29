@@ -12,8 +12,8 @@ public class BattleGenerator : MonoBehaviour
     public HUD hud_CS;
     public Deck deck_CS;
 
-    public Shield shield_CS = new Shield();
-    public Weapon weapon_CS = new Weapon();
+    public ShieldObject shield_CS;
+    public WeaponObject weapon_CS;
 
     public void BattleGenerate()
     {

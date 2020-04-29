@@ -13,7 +13,7 @@ public class KartaPierwsza : CardTemplate
 
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-            battlegenerator_CS.enemy_CS.substractHP(10);
+            battlegenerator_CS.enemy_CS.SubstractHP(10);
             battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -29,7 +29,7 @@ public class KartaDruga : CardTemplate
 
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.substractHP(5);
+        battlegenerator_CS.enemy_CS.SubstractHP(5);
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }

@@ -5,88 +5,85 @@ using UnityEngine;
 
     public class Enemy : MonoBehaviour
     {
-        public int intent = 1;
-        public int MaxHP = 80;
-        public int HP = 80;
-        public int AttackUp = 0;
-        public int Shield=0;
-        public int SetOnFire = 0;
-        public int Sleep = 0;
-        public int AttackDown = 0;
-        public int Vulnerable = 0;
-        public int ShieldUp = 0;
-        public int ShieldDown = 0;
-        public int Bounty = 0;
-        public int Stun = 0;
-        public int Strength = 0;
-        public int Weak = 0;
-        public int Dexterous = 0;
-        public int Frail = 0;
 
-    public void substractHP(int Damage)
+    public BattleGenerator battlegenerator_CS;
+    public int intent = 1;
+        public int maxhp = 80;
+        public int hp = 80;
+        public int shield=0;
+        public int setOnFire = 0;
+        public int sleep = 0;
+        public int vulnerable = 0;
+        public int bounty = 0;
+        public int stun = 0;
+        public int strength = 0;
+        public int weak = 0;
+        public int dexterous = 0;
+        public int frail = 0;
+
+    public void SubstractHP(int Damage)
         {
-            if (Damage <= this.Shield)
+            if (Damage <= this.shield)
             {
-            this.Shield -= Damage;
+            this.shield -= Damage;
             }
             else
             {
-                Damage -= this.Shield;
-                this.Shield = 0;
-                this.HP -= Damage;
+                Damage -= this.shield;
+                this.shield = 0;
+                this.hp -= Damage;
             if (this.intent == -2)
             {
-                this.calculateMove(new Hero());
+                this.CalculateMove();
             }
         }
         }
 
-        public void Turn(Hero Target)
+        public void ExecuteTurn()
     {
-        if (this.SetOnFire > 0)
+        if (this.setOnFire > 0)
         {
-            this.substractHP(3);
-            this.SetOnFire--;
+            this.SubstractHP(3);
+            this.setOnFire--;
         }
-        if (this.Sleep > 0)
+        if (this.sleep > 0)
         {
             this.intent = -2;
-            this.Sleep--;
+            this.sleep--;
         }
 
         switch (intent)
             {
                 case 1:
-                    //tutaj czekam aż zostanie stworzona instancja bohatera
-                   Target.substractHP(6 + AttackUp-AttackDown);
+                   battlegenerator_CS.hero_CS.SubstractHP(6 + strength-weak);
                     break;
                 case 2:
-                    this.Shield += (10+ShieldUp-ShieldDown);
+                    this.shield += (10+dexterous-frail);
                     break;
                 case 3:
-                    this.Shield += (6 + ShieldUp - ShieldDown);
-                this.AttackUp += 2;
+                    this.shield += (6 + dexterous - frail);
+                this.frail += 2;
                     break;
 
 
             }
            // this.Shield = 0;
-            this.calculateMove(Target);
+            this.CalculateMove();
             //tutaj kończymy turę
         }
 
-        public void calculateMove(Hero Target)
+        public void CalculateMove()
         {
-        Stun = 0;
-        int AttackMove = 5;
-        int DefenseMove = 8;
+        stun = 0;
+        int attackMove = 5;
+        int defenseMove = 8;
         //tutaj czekam aż zostanie stworzona instancja bohatera
-        if (Target.HP < Target.HP / 2) AttackMove++;
-        if (this.HP < this.HP / 2) DefenseMove--;
-        int Decision = Random.Range(0, 11);
-        if (Decision < AttackMove)
+        if (battlegenerator_CS.hero_CS.hp < battlegenerator_CS.hero_CS.hp / 2) attackMove++;
+        if (this.hp < this.hp / 2) defenseMove--;
+        int decision = Random.Range(0, 11);
+        if (decision < attackMove)
             intent = 1;
-        else if (Decision > DefenseMove)
+        else if (decision > defenseMove)
             intent = 2;
         else intent = 3;
         }
@@ -95,79 +92,54 @@ using UnityEngine;
     {
         List<int> returnee = new List<int>();
 
-        for (int i = 0; i < AttackUp; i++)
-            returnee.Add(0);
-        for (int i = 0; i < SetOnFire; i++)
-            returnee.Add(1);
-        for (int i = 0; i < Sleep; i++)
-            returnee.Add(2);
-        for (int i = 0; i < AttackDown; i++)
-            returnee.Add(3);
-        for (int i = 0; i < Vulnerable; i++)
-            returnee.Add(4);
-        for (int i = 0; i < ShieldUp; i++)
-            returnee.Add(5);
-        for (int i = 0; i < ShieldDown; i++)
-            returnee.Add(6);
-        for (int i = 0; i < Bounty; i++)
-            returnee.Add(7);
-        for (int i = 0; i < Stun; i++)
-            returnee.Add(8);
-        for (int i = 0; i < Strength; i++)
-            returnee.Add(9);
-        for (int i = 0; i < Weak; i++)
-            returnee.Add(10);
-        for (int i = 0; i < Dexterous; i++)
-            returnee.Add(11);
-        for (int i = 0; i < Frail; i++)
-            returnee.Add(12);
+        returnee.Add(this.strength);
+        returnee.Add(this.setOnFire);
+        returnee.Add(this.sleep);
+        returnee.Add(this.weak);
+        returnee.Add(this.vulnerable);
+        returnee.Add(this.dexterous);
+        returnee.Add(this.frail);
+        returnee.Add(this.bounty);
+        returnee.Add(this.stun);
 
-        int randomInt = returnee[new System.Random().Next(0, returnee.Count)];
+        int randomInt = 0;
+        while (randomInt<1)
+            randomInt = returnee[new System.Random().Next(0, returnee.Count)];
+
+
         switch (randomInt)
         {
             case 0:
-                this.AttackUp--;
+                this.strength--;
                 break;
             case 1:
-                this.SetOnFire--;
+                this.setOnFire--;
                 break;
             case 2:
-                this.Sleep--;
-                if (this.Sleep < 1)
-                    this.calculateMove(new Hero());
+                this.sleep--;
+                if (this.sleep < 1)
+                    this.CalculateMove();
                 break;
             case 3:
-                this.AttackDown--;
+                this.weak--;
                 break;
             case 4:
-                this.Vulnerable--;
+                this.vulnerable--;
                 break;
             case 5:
-                this.ShieldUp--;
+                this.dexterous--;
                 break;
             case 6:
-                this.ShieldDown--;
+                this.frail--;
                 break;
             case 7:
-                this.Bounty--;
+                this.bounty--;
                 break;
             case 8:
-                this.Stun--;
-                if (this.Stun < 1)
-                    this.calculateMove(new Hero());
-                break;            
-            case 9:
-                this.Strength--;
-                break;
-            case 10:
-                this.Weak--;
-                break;
-            case 11:
-                this.Dexterous--;
-                break;
-            case 12:
-                this.Frail--;
-                break;
+                this.stun--;
+                if (this.stun < 1)
+                    this.CalculateMove();
+                break;         
         }
 
         return randomInt;
@@ -175,52 +147,66 @@ using UnityEngine;
     }
     public void GiveModifier(int modifier)
     {
-       
+
         switch (modifier)
         {
             case 0:
-                this.AttackUp++;
+                this.strength++;
                 break;
             case 1:
-                this.SetOnFire++;
+                this.setOnFire++;
                 break;
             case 2:
-                this.Sleep++;
-                this.intent = -2;
+                this.sleep++;
+                this.intent=-2;
                 break;
             case 3:
-                this.AttackDown++;
+                this.weak++;
                 break;
             case 4:
-                this.Vulnerable++;
+                this.vulnerable++;
                 break;
             case 5:
-                this.ShieldUp++;
+                this.dexterous++;
                 break;
             case 6:
-                this.ShieldDown++;
+                this.frail++;
                 break;
             case 7:
-                this.Bounty++;
+                this.bounty++;
                 break;
             case 8:
-                this.Stun++;
-                this.intent = -1;
-                break;
-            case 9:
-                this.Strength++;
-                break;
-            case 10:
-                this.Weak++;
-                break;
-            case 11:
-                this.Dexterous++;
-                break;
-            case 12:
-                this.Frail++;
+                this.stun++;
+                this.intent=-1;
                 break;
         }
-        
+
+
+    }
+
+    public string IntentText()
+    {
+        string text="";
+        switch (this.intent) 
+        {
+           
+            case 1:
+                text = "Attack for " + (int)(battlegenerator_CS.enemy_CS.strength + 5);
+                break;
+            case 2:
+               text = "Defend for 10";
+                break;
+            case 3:
+               text = "Defend for 6, 2 strength up";
+                break;
+            case -1:
+             text = "Fuck I'm stunned";
+                break;
+            case -2:
+               text = "zZzZzZz";
+                break;
+        }
+        return text;
 
     }
 
