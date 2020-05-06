@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card2 : CardTemplate
+public class CardStun : CardTemplate
 {
     public override void Replace()
     {
         cardName = "Stun";
-        cardDescription = "Stun and deal 5 dmg.";
+        cardDescription = "Stun and deal 10 dmg.";
         cardCost = 3;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         //Stun (Enemy, 1) 
-        battlegenerator_CS.enemy_CS.SubstractHP(5);        
+        battlegenerator_CS.enemy_CS.SubstractHP(10);        
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
 
-public class Card3 : CardTemplate
+public class CardHealth : CardTemplate
 {
     public override void Replace()
     {
@@ -34,7 +34,7 @@ public class Card3 : CardTemplate
     }
 }
 
-public class Card4 : CardTemplate
+public class CardHeal : CardTemplate
 {
     public override void Replace()
     {
@@ -49,7 +49,7 @@ public class Card4 : CardTemplate
     }
 }
 
-public class Card5 : CardTemplate
+public class CardDamage1 : CardTemplate
 {
     public override void Replace()
     {
@@ -64,7 +64,7 @@ public class Card5 : CardTemplate
     }
 }
 
-public class Card6 : CardTemplate
+public class CardDamage2 : CardTemplate
 {
     public override void Replace()
     {
@@ -79,7 +79,7 @@ public class Card6 : CardTemplate
     }
 }
 
-public class Card7 : CardTemplate
+public class CardDamage3 : CardTemplate
 {
     public override void Replace()
     {
@@ -94,7 +94,7 @@ public class Card7 : CardTemplate
     }
 }
 
-public class Card8 : CardTemplate
+public class CardBlock1 : CardTemplate
 {
     public override void Replace()
     {
@@ -109,7 +109,7 @@ public class Card8 : CardTemplate
     }
 }
 
-public class Card9 : CardTemplate
+public class CardEnergy1 : CardTemplate
 {
     public override void Replace()
     {
@@ -124,7 +124,7 @@ public class Card9 : CardTemplate
     }
 }
 
-public class Card10 : CardTemplate
+public class CardPenetratingHit : CardTemplate
 {
     public override void Replace()
     {
@@ -139,7 +139,7 @@ public class Card10 : CardTemplate
     }
 }
 
-public class Card11 : CardTemplate
+public class CardSweepingEdge : CardTemplate
 {
     public override void Replace()
     {
@@ -156,7 +156,7 @@ public class Card11 : CardTemplate
     }
 }
 
-public class Card12 : CardTemplate
+public class CardFinishingBlow : CardTemplate
 {
     public override void Replace()
     {
@@ -178,7 +178,7 @@ public class Card12 : CardTemplate
     }
 }
 
-public class Card13 : CardTemplate
+public class CardFire : CardTemplate
 {
     public override void Replace()
     {
@@ -194,7 +194,7 @@ public class Card13 : CardTemplate
     }
 }
 
-public class Card14 : CardTemplate
+public class CardFiraga : CardTemplate
 {
     public override void Replace()
     {
@@ -214,7 +214,7 @@ public class Card14 : CardTemplate
     }
 }
 
-public class Card15 : CardTemplate
+public class CardChloroform : CardTemplate
 {
     public override void Replace()
     {
@@ -229,7 +229,7 @@ public class Card15 : CardTemplate
     }
 }
 
-public class Card16 : CardTemplate
+public class CardRegeneration : CardTemplate
 {
     public override void Replace()
     {
@@ -244,7 +244,7 @@ public class Card16 : CardTemplate
     }
 }
 
-public class Card17 : CardTemplate
+public class CardPanic : CardTemplate
 {
     public override void Replace()
     {
@@ -261,7 +261,7 @@ public class Card17 : CardTemplate
     }
 }
 
-public class Card18 : CardTemplate
+public class CardShareTheWeakness : CardTemplate
 {
     public override void Replace()
     {
@@ -278,7 +278,7 @@ public class Card18 : CardTemplate
     }
 }
 
-public class Card19 : CardTemplate
+public class CardQuestionableStab : CardTemplate
 {
     public override void Replace()
     {
@@ -295,7 +295,7 @@ public class Card19 : CardTemplate
     }
 }
 
-public class Card20 : CardTemplate
+public class CardGainTheUpperHand : CardTemplate
 {
     public override void Replace()
     {
@@ -312,7 +312,7 @@ public class Card20 : CardTemplate
     }
 }
 
-public class Card21 : CardTemplate
+public class CardPickpocket : CardTemplate
 {
     public override void Replace()
     {
@@ -332,7 +332,7 @@ public class Card21 : CardTemplate
     }
 }
 
-public class Card22 : CardTemplate
+public class CardDaylightRobbery : CardTemplate
 {
     public override void Replace()
     {
@@ -352,7 +352,7 @@ public class Card22 : CardTemplate
     }
 }
 
-public class Card23 : CardTemplate
+public class CardShoplift : CardTemplate
 {
     public override void Replace()
     {
@@ -372,7 +372,7 @@ public class Card23 : CardTemplate
     }
 }
 
-public class Card24 : CardTemplate
+public class CardTheGrandHeist : CardTemplate
 {
     public override void Replace()
     {
@@ -405,7 +405,7 @@ public class Card24 : CardTemplate
     }
 }
 
-public class Card25 : CardTemplate
+public class CardQuickMoney : CardTemplate
 {
     public override void Replace()
     {
@@ -421,7 +421,7 @@ public class Card25 : CardTemplate
     }
 }
 
-public class Card26 : CardTemplate
+public class CardOneTimeChance : CardTemplate
 {
     public override void Replace()
     {
@@ -438,7 +438,7 @@ public class Card26 : CardTemplate
     }
 }
 
-public class Card27 : CardTemplate
+public class CardSuddenBossfight : CardTemplate
 {
     public override void Replace()
     {
@@ -458,7 +458,7 @@ public class Card27 : CardTemplate
     }
 }
 
-public class Card28 : CardTemplate
+public class CardGoldenSlash : CardTemplate
 {
     public override void Replace()
     {
@@ -474,11 +474,11 @@ public class Card28 : CardTemplate
     }
 }
 
-public class Card29 : CardTemplate
+public class CardSilverSword : CardTemplate
 {
     public override void Replace()
     {
-        cardName = "Silver Slash";
+        cardName = "Silver Sword";
         cardDescription = "Deal 18 damage, Pay 8.";
         cardCost = 2;
     }
@@ -493,7 +493,7 @@ public class Card29 : CardTemplate
     }
 }
 
-public class Card30 : CardTemplate
+public class CardAegisOfGold : CardTemplate
 {
     public override void Replace()
     {
@@ -512,7 +512,7 @@ public class Card30 : CardTemplate
     }
 }
 
-public class Card31 : CardTemplate
+public class CardMoneyPunch : CardTemplate
 {
     public override void Replace()
     {
@@ -532,7 +532,7 @@ public class Card31 : CardTemplate
     }
 }
 
-public class Card32 : CardTemplate
+public class CardFairTrade : CardTemplate
 {
     public override void Replace()
     {
@@ -554,7 +554,7 @@ public class Card32 : CardTemplate
     }
 }
 
-public class Card33 : CardTemplate
+public class CardMoneyIsPower : CardTemplate
 {
     public override void Replace()
     {
@@ -573,7 +573,7 @@ public class Card33 : CardTemplate
     }
 }
 
-public class Card34 : CardTemplate
+public class CardBasicEconomy : CardTemplate
 {
     public override void Replace()
     {
@@ -590,11 +590,11 @@ public class Card34 : CardTemplate
     }
 }
 
-public class Card35 : CardTemplate
+public class CardTargetPractice : CardTemplate
 {
     public override void Replace()
     {
-        cardName = "Target practicey";
+        cardName = "Target practice";
         cardDescription = "Gain 8 shield, get a Bounty 5.";
         cardCost = 1;
     }
@@ -606,7 +606,7 @@ public class Card35 : CardTemplate
     }
 }
 
-public class Card36 : CardTemplate
+public class CardFluidExchange : CardTemplate
 {
     public override void Replace()
     {
@@ -636,7 +636,7 @@ public class Card36 : CardTemplate
     }
 }
 
-public class Card37 : CardTemplate
+public class CardBastion : CardTemplate
 {
     public override void Replace()
     {
@@ -652,7 +652,7 @@ public class Card37 : CardTemplate
     }
 }
 
-public class Card38 : CardTemplate
+public class CardOneForAll : CardTemplate
 {
     public override void Replace()
     {
@@ -670,11 +670,11 @@ public class Card38 : CardTemplate
     }
 }
 
-public class Card39 : CardTemplate
+public class CardAllForOne : CardTemplate
 {
     public override void Replace()
     {
-        cardName = "One for all";
+        cardName = "All for one";
         cardDescription = "Give 1 strength, 1 dexterous to all enemies, steal 2 from each.";
         cardCost = 2;
     }
@@ -686,14 +686,14 @@ public class Card39 : CardTemplate
         //Dexterous (Enemy1, 1)
         //Dexterous (Enemy2, 1)
         //Dexterous (Enemy3, 1)
-        //Steal (Hero, Enemy1, 1)
+        //Steal (Hero, Enemy1, 2)
         //Steal (Hero, Enemy2, 2)
-        //Steal (Hero, Enemy3, 3)
+        //Steal (Hero, Enemy3, 2)
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
 
-public class Card40 : CardTemplate
+public class CardBasicMovements : CardTemplate
 {
     public override void Replace()
     {
@@ -711,7 +711,7 @@ public class Card40 : CardTemplate
     }
 }
 
-public class Card41 : CardTemplate
+public class CardFinishingThrust : CardTemplate
 {
     public override void Replace()
     {
@@ -726,7 +726,7 @@ public class Card41 : CardTemplate
     }
 }
 
-public class Card42 : CardTemplate
+public class CardFinalDefence : CardTemplate
 {
     public override void Replace()
     {
@@ -741,7 +741,7 @@ public class Card42 : CardTemplate
     }
 }
 
-public class Card43 : CardTemplate
+public class CardGamblingHeart : CardTemplate
 {
     public override void Replace()
     {
@@ -757,7 +757,7 @@ public class Card43 : CardTemplate
     }
 }
 
-public class Card44 : CardTemplate
+public class CardAceInTheHole : CardTemplate
 {
     public override void Replace()
     {
