@@ -17,7 +17,7 @@ public class HUD : MonoBehaviour
     public Text durability;
     public Text cards;
     public Text[] cardDescriptionTexts;
-
+    public Image[] cardImageHUD;
     public BattleGenerator battlegenerator_CS;
     public void UpdateHUD()
     {
@@ -45,5 +45,6 @@ public class HUD : MonoBehaviour
         cardDescriptionTexts[3 * (cardNumer - 1) + 0].text = cardFromDeck.cardName;           //wyswietlam nowe wlasiwosci
         cardDescriptionTexts[3 * (cardNumer - 1) + 1].text = cardFromDeck.cardDescription;
         cardDescriptionTexts[3 * (cardNumer - 1) + 2].text = cardFromDeck.cardCost.ToString();
+        cardImageHUD[cardNumer - 1].sprite = cardFromDeck.cardSprite;
     }
 }

@@ -4,49 +4,49 @@ using UnityEngine;
 
 //mała nieistniejąca zmiana
 //tutaj jest placeholder na mechanikę główną, niżej są już karty o które szymon prosił
-public class Card : MonoBehaviour
-{
-    public BattleGenerator battlegenerator_CS;
-    public BattleSystem bs;
-    public int Id = 1;
-    public string Name = "Attack";
-    public string Description = "Deal 5 dmg.";
-    public int Cost = 1;
-    public void Effect(int ID)
-    {
-        switch (ID)
-        {
-            case 1:
-                if (battlegenerator_CS.hero_CS.energy >= 1)
-                {
-                    battlegenerator_CS.hero_CS.energy--;
-                    battlegenerator_CS.enemy_CS.SubstractHP(5 + battlegenerator_CS.hero_CS.strength);
-                    battlegenerator_CS.hero_CS.energy--;
-                }
-                break;
-            case 2:
-                if (battlegenerator_CS.hero_CS.energy >= 1)
-                {
-                    battlegenerator_CS.hero_CS.shield += 5;
-                    battlegenerator_CS.hero_CS.energy--;
-                }
-                break;
-            case 3:
-                if (battlegenerator_CS.hero_CS.energy >= 2)
-                {
-                    battlegenerator_CS.hero_CS.strength += 5;
-                    battlegenerator_CS.hero_CS.energy -= 2;
-                    battlegenerator_CS.enemy_CS.stun = 1;
-                    battlegenerator_CS.enemy_CS.intent = -1;
-                }
-                break;
+//public class Card : MonoBehaviour
+//{
+//    public BattleGenerator battlegenerator_CS;
+//    public BattleSystem bs;
+//    public int Id = 1;
+//    public string Name = "Attack";
+//    public string Description = "Deal 5 dmg.";
+//    public int Cost = 1;
+//    public void Effect(int ID)
+//    {
+//        switch (ID)
+//        {
+//            case 1:
+//                if (battlegenerator_CS.hero_CS.energy >= 1)
+//                {
+//                    battlegenerator_CS.hero_CS.energy--;
+//                    battlegenerator_CS.enemy_CS.SubstractHP(5 + battlegenerator_CS.hero_CS.strength);
+//                    battlegenerator_CS.hero_CS.energy--;
+//                }
+//                break;
+//            case 2:
+//                if (battlegenerator_CS.hero_CS.energy >= 1)
+//                {
+//                    battlegenerator_CS.hero_CS.shield += 5;
+//                    battlegenerator_CS.hero_CS.energy--;
+//                }
+//                break;
+//            case 3:
+//                if (battlegenerator_CS.hero_CS.energy >= 2)
+//                {
+//                    battlegenerator_CS.hero_CS.strength += 5;
+//                    battlegenerator_CS.hero_CS.energy -= 2;
+//                    battlegenerator_CS.enemy_CS.stun = 1;
+//                    battlegenerator_CS.enemy_CS.intent = -1;
+//                }
+//                break;
 
-        }
+//        }
 
-    }
+//    }
 
 
-}
+//}
 
 //    public class CardStun : MonoBehaviour
 //    {

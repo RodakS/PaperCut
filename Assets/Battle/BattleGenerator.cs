@@ -15,9 +15,11 @@ public class BattleGenerator : MonoBehaviour
     public ShieldObject shield_CS;
     public WeaponObject weapon_CS;
 
+
     public void BattleGenerate()
     {
         GameObject enemyGameObject = Instantiate(enemyPrefab, enemyPlace);
         enemy_CS = enemyGameObject.GetComponent<Enemy>();
+
     }
 }

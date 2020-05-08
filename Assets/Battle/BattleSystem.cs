@@ -8,7 +8,6 @@ public class BattleSystem : MonoBehaviour
 {
     private BattleGenerator battlegenerator_CS;
     public BattleState state;
-    Card Attack = new Card();
 
     void Start()
     {
