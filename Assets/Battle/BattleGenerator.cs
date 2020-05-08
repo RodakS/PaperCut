@@ -8,18 +8,21 @@ public class BattleGenerator : MonoBehaviour
     public Transform enemyPlace;
 
     public Hero hero_CS;
+    public Hero hero_CS2;
+    public Hero hero_CS3;
     public Enemy enemy_CS;
     public HUD hud_CS;
     public Deck deck_CS;
 
-    public ShieldObject shield_CS;
-    public WeaponObject weapon_CS;
+    public Shield shield_CS;
+    public Weapon weapon_CS;
+    public Enemy targeted_enemy;
 
 
     public void BattleGenerate()
     {
-        GameObject enemyGameObject = Instantiate(enemyPrefab, enemyPlace);
-        enemy_CS = enemyGameObject.GetComponent<Enemy>();
+        //GameObject enemyGameObject = Instantiate(enemyPrefab, enemyPlace);
+      //  enemy_CS = enemyGameObject.GetComponent<Enemy>();
 
     }
 }
