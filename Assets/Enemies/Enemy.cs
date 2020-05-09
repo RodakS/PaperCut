@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
-    public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour
     {
 
+    public Text enemyHP;
+    public Text enemyShield;
+    public Text enemyStrength;
+    public Text intentText;
     public BattleGenerator battlegenerator_CS;
     public int intent = 1;
         public int maxhp = 80;
@@ -67,9 +72,7 @@ using UnityEngine;
 
 
             }
-           // this.Shield = 0;
             this.CalculateMove();
-            //tutaj kończymy turę
         }
 
         public void CalculateMove()
@@ -77,7 +80,6 @@ using UnityEngine;
         stun = 0;
         int attackMove = 5;
         int defenseMove = 8;
-        //tutaj czekam aż zostanie stworzona instancja bohatera
         if (battlegenerator_CS.hero_CS.hp < battlegenerator_CS.hero_CS.hp / 2) attackMove++;
         if (this.hp < this.hp / 2) defenseMove--;
         int decision = Random.Range(0, 11);
@@ -208,6 +210,13 @@ using UnityEngine;
         }
         return text;
 
+    }
+    public void UpdateEnemyHUD()
+    {
+        enemyHP.text = this.hp + "/" + this.maxhp;
+        enemyShield.text = "Shield: " + this.shield;
+        enemyStrength.text = "Strength : " + this.strength;
+        intentText.text = this.IntentText();
     }
 
    

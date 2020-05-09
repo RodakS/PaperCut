@@ -63,7 +63,9 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
+
         EnemyTurn();
+ 
     }
 
     void EnemyTurn()
@@ -71,6 +73,8 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.ENEMYTURN;
 
         battlegenerator_CS.enemy_CS.ExecuteTurn();
+        battlegenerator_CS.enemy_CS2.ExecuteTurn();
+        battlegenerator_CS.enemy_CS3.ExecuteTurn();
         battlegenerator_CS.hud_CS.StatusUpdate(state);
 
         CheckHP();

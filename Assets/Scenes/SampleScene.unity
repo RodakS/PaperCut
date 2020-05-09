@@ -1127,14 +1127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -1652,14 +1648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -1756,14 +1748,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -1937,14 +1925,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -2081,14 +2065,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -2856,14 +2836,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -3572,6 +3548,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f34fe4716a1ecb43ad28f08e636faa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHP: {fileID: 705027067}
+  enemyShield: {fileID: 1280969013}
+  enemyStrength: {fileID: 1441930975}
+  intentText: {fileID: 1767293885}
   battlegenerator_CS: {fileID: 1254924813}
   intent: 1
   maxhp: 80
@@ -3769,14 +3749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 705027067}
   heroHPText: {fileID: 884116020}
-  enemyShieldText: {fileID: 1280969013}
   heroShieldText: {fileID: 657040514}
   statusText: {fileID: 301654890}
-  enemyStrength: {fileID: 1441930975}
   heroEnergy: {fileID: 2137067403}
-  enemyIntent: {fileID: 1767293885}
   heroStrength: {fileID: 2101838366}
   durability: {fileID: 685632665}
   cards: {fileID: 788289412}
@@ -4002,14 +3978,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -4193,9 +4165,9 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1146598772}
   enemyPlace: {fileID: 1146598773}
   hero_CS: {fileID: 1535149836}
-  hero_CS2: {fileID: 0}
-  hero_CS3: {fileID: 0}
   enemy_CS: {fileID: 1146598777}
+  enemy_CS2: {fileID: 2006904665}
+  enemy_CS3: {fileID: 1705051702}
   hud_CS: {fileID: 1172852785}
   deck_CS: {fileID: 1172945548}
   shield_CS: {fileID: 272842819}
@@ -4251,14 +4223,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -4355,14 +4323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -4459,6 +4423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b18d5cf234a3243a8ff03bc970f58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battlegenerator_CS: {fileID: 0}
   arrow: {fileID: 1313540206}
 --- !u!114 &1313540209
 MonoBehaviour:
@@ -4623,14 +4588,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -4727,14 +4688,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -5252,6 +5209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f34fe4716a1ecb43ad28f08e636faa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHP: {fileID: 388135511}
+  enemyShield: {fileID: 1270336038}
+  enemyStrength: {fileID: 1739937061}
+  intentText: {fileID: 1199265648}
   battlegenerator_CS: {fileID: 1254924813}
   intent: 1
   maxhp: 80
@@ -5537,14 +5498,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -5641,14 +5598,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -5824,14 +5777,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -6005,14 +5954,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -6114,6 +6059,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f34fe4716a1ecb43ad28f08e636faa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHP: {fileID: 1864576948}
+  enemyShield: {fileID: 1800265949}
+  enemyStrength: {fileID: 1315864233}
+  intentText: {fileID: 581354620}
   battlegenerator_CS: {fileID: 1254924813}
   intent: 1
   maxhp: 80
@@ -6476,14 +6425,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}
@@ -6700,6 +6645,17 @@ MonoBehaviour:
           m_StringArgument: onEndTurnClick
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1313540208}
+        m_MethodName: HideThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2106086556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6863,14 +6819,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8a5fe6047b9e7489eaf8d1706f9605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPText: {fileID: 0}
   heroHPText: {fileID: 0}
-  enemyShieldText: {fileID: 0}
   heroShieldText: {fileID: 0}
   statusText: {fileID: 0}
-  enemyStrength: {fileID: 0}
   heroEnergy: {fileID: 0}
-  enemyIntent: {fileID: 0}
   heroStrength: {fileID: 0}
   durability: {fileID: 0}
   cards: {fileID: 0}

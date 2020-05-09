@@ -8,9 +8,9 @@ public class BattleGenerator : MonoBehaviour
     public Transform enemyPlace;
 
     public Hero hero_CS;
-    public Hero hero_CS2;
-    public Hero hero_CS3;
     public Enemy enemy_CS;
+    public Enemy enemy_CS2;
+    public Enemy enemy_CS3;
     public HUD hud_CS;
     public Deck deck_CS;
 

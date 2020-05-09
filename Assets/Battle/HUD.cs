@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public Text enemyHPText; 
+   // public Text enemyHPText; 
     public Text heroHPText;
-    public Text enemyShieldText; 
+  //  public Text enemyShieldText; 
     public Text heroShieldText;
     public Text statusText;
-    public Text enemyStrength;
+ //   public Text enemyStrength;
     public Text heroEnergy;
-    public Text enemyIntent;
+  //  public Text enemyIntent;
     public Text heroStrength;
     public Text durability;
     public Text cards;
@@ -21,16 +21,19 @@ public class HUD : MonoBehaviour
     public BattleGenerator battlegenerator_CS;
     public void UpdateHUD()
     {
-         enemyHPText.text = battlegenerator_CS.enemy_CS.hp + "/" + battlegenerator_CS.enemy_CS.maxhp;
+       
         heroHPText.text = battlegenerator_CS.hero_CS.hp + "/" + battlegenerator_CS.hero_CS.maxhp;
-        enemyShieldText.text = "Shield: " + battlegenerator_CS.enemy_CS.shield;
+       
         heroShieldText.text = "Shield: " + battlegenerator_CS.hero_CS.shield;
         heroEnergy.text = "Energy:" + battlegenerator_CS.hero_CS.energy + "/" + battlegenerator_CS.hero_CS.maxenergy;
-        enemyStrength.text = "Strength : " + battlegenerator_CS.enemy_CS.strength;
-        heroStrength.text = "Strength : " + battlegenerator_CS.hero_CS.strength;
-        enemyIntent.text = battlegenerator_CS.enemy_CS.IntentText();
-
        
+        heroStrength.text = "Strength : " + battlegenerator_CS.hero_CS.strength;
+
+        battlegenerator_CS.enemy_CS.UpdateEnemyHUD();
+        battlegenerator_CS.enemy_CS2.UpdateEnemyHUD();
+        battlegenerator_CS.enemy_CS3.UpdateEnemyHUD();
+
+
     }
     public void StatusUpdate(BattleState STATE)
     {
