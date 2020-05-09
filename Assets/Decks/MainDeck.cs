@@ -21,32 +21,65 @@ public class MainDeck : MonoBehaviour
     public void GenerateAllCards() // tu pododawać wszystkie karty po 1sztuce do odpowiedniej rzadkosci
     {
         //COMMONY
-        cardsCommonList.Add(new CardStun());
-        cardsCommonList.Add(new CardHealth());
-        cardsCommonList.Add(new CardHeal());
+        cardsCommonList.Add(new CardDamage2());
         cardsCommonList.Add(new CardDamage1());
+        cardsCommonList.Add(new CardDamage3());
+        cardsCommonList.Add(new CardBlock1());
+        cardsCommonList.Add(new CardRegeneration());
+        cardsCommonList.Add(new CardPanic());
+        cardsCommonList.Add(new CardShareTheWeakness());
+        cardsCommonList.Add(new CardQuestionableStab());
+        cardsCommonList.Add(new CardGainTheUpperHand());
+        cardsCommonList.Add(new CardPickpocket());
+        cardsCommonList.Add(new CardDaylightRobbery());
+        cardsCommonList.Add(new CardMoneyPunch());
+        cardsCommonList.Add(new CardFairTrade());
+        cardsCommonList.Add(new CardBastion());
+        cardsCommonList.Add(new CardGamblingHeart());
+        cardsCommonList.Add(new CardAceInTheHole());
+        //cardsCommonList.Add(new Card());
         //RARY
         cardsRareList.Add(new CardPenetratingHit());
         cardsRareList.Add(new CardStun());
         cardsRareList.Add(new CardHealth());
         cardsRareList.Add(new CardHeal());
-        cardsRareList.Add(new CardDamage1());
+        cardsRareList.Add(new CardSweepingEdge());
+        cardsRareList.Add(new CardFire());
+        cardsRareList.Add(new CardChloroform());
+        cardsRareList.Add(new CardFinishingBlow());
+        cardsRareList.Add(new CardShoplift());
+        cardsRareList.Add(new CardQuickMoney());
+        cardsRareList.Add(new CardSilverSword());
+        cardsRareList.Add(new CardBasicEconomy());
+        cardsRareList.Add(new CardTargetPractice());
+        //cardsRareList.Add(new Card());
         // LEGENDY
-        cardsLegendaryList.Add(new CardDamage1());
-        cardsLegendaryList.Add(new CardDamage1());
-        cardsLegendaryList.Add(new CardDamage1());
+        cardsLegendaryList.Add(new CardFiraga());
+        cardsLegendaryList.Add(new CardTheGrandHeist());
+        cardsLegendaryList.Add(new CardOneTimeChance());
+        cardsLegendaryList.Add(new CardSuddenBossfight());
+        cardsLegendaryList.Add(new CardGoldenSlash());
+        cardsLegendaryList.Add(new CardAegisOfGold());
+        cardsLegendaryList.Add(new CardMoneyIsPower());
+        cardsLegendaryList.Add(new CardFluidExchange());
+        cardsLegendaryList.Add(new CardOneForAll());
+        cardsLegendaryList.Add(new CardAllForOne());
+        cardsLegendaryList.Add(new CardBasicMovements());
+        cardsLegendaryList.Add(new CardFinishingThrust());
+        cardsLegendaryList.Add(new CardFinalDefence());
+        //cardsLegendaryList.Add(new Card());
     }
     public void GenerateStartingDeck()  // tu sa startowe karty
     {
-        mainDeckList.Add(new CardPenetratingHit());     
-        mainDeckList.Add(new CardPenetratingHit());
-        mainDeckList.Add(new CardPenetratingHit());
-        mainDeckList.Add(new CardPenetratingHit());
+        mainDeckList.Add(new CardHeal());     
+        mainDeckList.Add(new CardBlock1());
+        mainDeckList.Add(new CardPanic());
+        mainDeckList.Add(new CardShareTheWeakness());
 
-        mainDeckList.Add(new CardSweepingEdge());
-        mainDeckList.Add(new CardSweepingEdge());
-        mainDeckList.Add(new CardSweepingEdge());
-        mainDeckList.Add(new CardSweepingEdge());
+        mainDeckList.Add(new CardDamage1());
+        mainDeckList.Add(new CardDamage3());
+        mainDeckList.Add(new CardPickpocket());
+        mainDeckList.Add(new CardPenetratingHit());
 
     }
 
@@ -64,12 +97,12 @@ public class MainDeck : MonoBehaviour
             else if (rarityRandomNumber < 90)  // 30% na wyciągnięcie rara
             {
                 int j = Random.Range(0, cardsRareList.Count);
-                cardsToChooseList.Add(cardsCommonList[j]);
+                cardsToChooseList.Add(cardsRareList[j]);
             }
             else                                     // 10% na wyciągnięcie lengendara
             {
                 int j = Random.Range(0, cardsLegendaryList.Count);
-                cardsToChooseList.Add(cardsCommonList[j]);
+                cardsToChooseList.Add(cardsLegendaryList[j]);
             }
 
             cardsToChooseList[i].Replace();
