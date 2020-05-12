@@ -11,6 +11,12 @@ public class CardStun : CardTemplate
         cardDescription = "Stun and deal 10 dmg.";
         cardCost = 3;
         cardSprite = Resources.Load<Sprite>("Stun_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
