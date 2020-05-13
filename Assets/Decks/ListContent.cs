@@ -35,8 +35,8 @@ public class ListContent : MonoBehaviour
                 tmpList = deck_CS.graveyardList;
                 break;
 
-            case "Show Fatigue Cards":
-              //  tmpList = deck_CS.deckList;
+            case "Show Exhaust Cards":
+                tmpList = deck_CS.exhaustList;
                 break;
         }
 

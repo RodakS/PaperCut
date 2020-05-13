@@ -560,9 +560,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Fatigued
-
-'
+  m_Text: Exhaust
 --- !u!222 &98685112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1657,6 +1655,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -2268,7 +2267,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Show Fatigue Cards
+          m_StringArgument: Show Exhaust Cards
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &537651224
@@ -2365,6 +2364,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -2466,6 +2466,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -2644,6 +2645,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -2785,6 +2787,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -3798,6 +3801,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -4712,6 +4716,7 @@ MonoBehaviour:
   durability: {fileID: 685632665}
   cards: {fileID: 788289412}
   GraveyardCardsNumber: {fileID: 1432725385}
+  ExhaustCardsNumber: {fileID: 1748609934}
   cardDescriptionTexts:
   - {fileID: 1854180931}
   - {fileID: 1315238013}
@@ -4775,6 +4780,7 @@ MonoBehaviour:
   battlegenerator_CS: {fileID: 1254924813}
   deckList: []
   graveyardList: []
+  exhaustList: []
 --- !u!4 &1172945549
 Transform:
   m_ObjectHideFlags: 0
@@ -5037,6 +5043,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -5283,6 +5290,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -5384,6 +5392,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -5650,6 +5659,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -5828,6 +5838,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -6673,6 +6684,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -6950,6 +6962,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -7130,6 +7143,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -7308,6 +7322,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -8061,6 +8076,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}
@@ -8456,6 +8472,7 @@ MonoBehaviour:
   durability: {fileID: 0}
   cards: {fileID: 0}
   GraveyardCardsNumber: {fileID: 0}
+  ExhaustCardsNumber: {fileID: 0}
   cardDescriptionTexts: []
   cardImageHUD: []
   battlegenerator_CS: {fileID: 0}

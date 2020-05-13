@@ -17,6 +17,7 @@ public class HUD : MonoBehaviour
     public Text durability;
     public Text cards;
     public Text GraveyardCardsNumber;
+    public Text ExhaustCardsNumber;
     public Text[] cardDescriptionTexts;
     public Image[] cardImageHUD;
     public BattleGenerator battlegenerator_CS;
@@ -40,10 +41,11 @@ public class HUD : MonoBehaviour
     {
             statusText.text = STATE + " ";
     }
-    public void DeckUpdate(int s, int t)
+    public void DeckUpdate(int s, int t, int p)
     {
         cards.text = "Cards in: " + s;
         GraveyardCardsNumber.text = "Cards in: " + t;
+        ExhaustCardsNumber.text = "Cards in: " + p;
     }
     public void CardUpdate(CardTemplate cardFromDeck, int cardNumer)
     {

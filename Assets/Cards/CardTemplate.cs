@@ -10,7 +10,8 @@ public abstract class CardTemplate : MonoBehaviour
     public int cardCost = 12;
     public Sprite cardSprite;
     public int isUpgraded = 0;
-
+    public bool isExhaust = false;
+    public bool isFragile = false;
     public void CardUpgrade()
     {
         isUpgraded = 1;

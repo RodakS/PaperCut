@@ -10,6 +10,7 @@ public class Deck : MonoBehaviour
     CardTemplate[] cardOnSlot = new CardTemplate[3];
     public List<CardTemplate> deckList;
     public List<CardTemplate> graveyardList;
+    public List<CardTemplate> exhaustList;
     public void Generate()
     {
         maindeck_CS = GetComponent<MainDeck>();
@@ -29,7 +30,7 @@ public class Deck : MonoBehaviour
 
             deckList.RemoveAt(i);
         }
-        battlegenerator_CS.hud_CS.DeckUpdate(deckList.Count,graveyardList.Count);
+        battlegenerator_CS.hud_CS.DeckUpdate(deckList.Count,graveyardList.Count, exhaustList.Count);
     }
 
     public void CardPlay(BattleGenerator battlegenerator_CS,int cardNumer)
@@ -38,7 +39,12 @@ public class Deck : MonoBehaviour
         {
 
             cardOnSlot[cardNumer - 1].Effect(battlegenerator_CS);
-            graveyardList.Add(cardOnSlot[cardNumer - 1]);
+            if(cardOnSlot[cardNumer - 1].isExhaust == true)
+            {
+                exhaustList.Add(cardOnSlot[cardNumer - 1]);
+            }
+            else { graveyardList.Add(cardOnSlot[cardNumer - 1]); }
+            
             if (deckList.Count == 0)
             {
                 cardOnSlot[cardNumer - 1] = new BlankCard();
@@ -56,7 +62,11 @@ public class Deck : MonoBehaviour
             cardFromDeck.Replace();
             cardOnSlot[cardNumer - 1] = cardFromDeck;
             battlegenerator_CS.hud_CS.CardUpdate(cardFromDeck, cardNumer);
+            if (cardOnSlot[cardNumer - 1].isFragile == true)
+            {
+             maindeck_CS.mainDeckList.RemoveAt(i);
+            }
             deckList.RemoveAt(i);   //usuwam zagrana karte
-            battlegenerator_CS.hud_CS.DeckUpdate(deckList.Count, graveyardList.Count);
+            battlegenerator_CS.hud_CS.DeckUpdate(deckList.Count, graveyardList.Count, exhaustList.Count);
     }
 }
