@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     public void ExecuteEffect()
     {
 
-        if (battlegenerator_CS.hero_CS.energy >= 1 && this.currDurrability >= 1)
+        if (battlegenerator_CS.hero_CS.energy >= 1 && this.currDurrability >= 1 && !(battlegenerator_CS.targetedEnemy is null))
         {
             battlegenerator_CS.targetedEnemy.SubstractHP(this.damage+battlegenerator_CS.hero_CS.strength-battlegenerator_CS.hero_CS.weak);
             this.currDurrability--;

@@ -9,6 +9,7 @@ public class PointerArrow : MonoBehaviour
     public void HideThis()
     {
         arrow.SetActive(false);
+        battlegenerator_CS.targetedEnemy = null;
     }
     public void PointTo1()
     {
