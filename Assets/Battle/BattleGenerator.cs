@@ -16,7 +16,7 @@ public class BattleGenerator : MonoBehaviour
 
     public Shield shield_CS;
     public Weapon weapon_CS;
-    public Enemy targeted_enemy;
+    public Enemy targetedEnemy;
 
 
     public void BattleGenerate()

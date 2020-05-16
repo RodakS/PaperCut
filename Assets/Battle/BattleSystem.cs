@@ -32,6 +32,7 @@ public class BattleSystem : MonoBehaviour
 
         CheckHP();
     }
+    
 
     
 

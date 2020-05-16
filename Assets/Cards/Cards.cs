@@ -20,9 +20,11 @@ public class CardStun : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //Stun (Enemy, 1) 
-        battlegenerator_CS.enemy_CS.SubstractHP(10);        
-        battlegenerator_CS.hero_CS.energy -= cardCost;
+       
+            //Stun (Enemy, 1) 
+            battlegenerator_CS.targetedEnemy.SubstractHP(10);
+            battlegenerator_CS.hero_CS.energy -= cardCost;
+        
     }
 }
 
@@ -71,8 +73,10 @@ public class CardDamage1 : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.SubstractHP(5);
-        battlegenerator_CS.hero_CS.energy -= cardCost;
+        
+            battlegenerator_CS.targetedEnemy.SubstractHP(5);
+            battlegenerator_CS.hero_CS.energy -= cardCost;
+        
     }
 }
 
@@ -87,8 +91,10 @@ public class CardDamage2 : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.SubstractHP(10);
-        battlegenerator_CS.hero_CS.energy -= cardCost;
+        
+            battlegenerator_CS.targetedEnemy.SubstractHP(10);
+            battlegenerator_CS.hero_CS.energy -= cardCost;
+        
     }
 }
 
@@ -103,7 +109,7 @@ public class CardDamage3 : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.SubstractHP(20);
+        battlegenerator_CS.targetedEnemy.SubstractHP(20);
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -151,7 +157,7 @@ public class CardPenetratingHit : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.hp -= 3;
+        battlegenerator_CS.targetedEnemy.hp -= 3;
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -167,9 +173,9 @@ public class CardSweepingEdge : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //battlegenerator_CS.enemy1_CS.substractHP(5);
-        //battlegenerator_CS.enemy2_CS.substractHP(5);
-        //battlegenerator_CS.enemy3_CS.substractHP(5);
+        battlegenerator_CS.enemy_CS.SubstractHP(5);
+        battlegenerator_CS.enemy_CS2.SubstractHP(5);
+        battlegenerator_CS.enemy_CS3.SubstractHP(5);
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -185,13 +191,13 @@ public class CardFinishingBlow : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        if (battlegenerator_CS.enemy_CS.hp < battlegenerator_CS.enemy_CS.maxhp * 30 / 100)
+        if (battlegenerator_CS.targetedEnemy.hp < battlegenerator_CS.targetedEnemy.maxhp * 30 / 100)
         {
-            battlegenerator_CS.enemy_CS.SubstractHP(15);
+            battlegenerator_CS.targetedEnemy.SubstractHP(15);
         }
         else
         {
-            battlegenerator_CS.enemy_CS.SubstractHP(5);
+            battlegenerator_CS.targetedEnemy.SubstractHP(5);
         }
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
@@ -208,7 +214,7 @@ public class CardFire : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.SubstractHP(5);
+        battlegenerator_CS.targetedEnemy.SubstractHP(5);
         //Set on fire (Enemy, 3, 3)
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
@@ -314,7 +320,7 @@ public class CardQuestionableStab : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.SubstractHP(9);
+        battlegenerator_CS.targetedEnemy.SubstractHP(9);
         //Weak (Enemy, 2)
         //Steal (Hero, Enemy, 2)
         battlegenerator_CS.hero_CS.energy -= cardCost;
@@ -332,7 +338,7 @@ public class CardGainTheUpperHand : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.SubstractHP(7);
+        battlegenerator_CS.targetedEnemy.SubstractHP(7);
         //Strength (Enemy, 1)
         //Steal (Hero, Enemy, 1)
         battlegenerator_CS.hero_CS.energy -= cardCost;
@@ -351,9 +357,9 @@ public class CardPickpocket : CardTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         //int x1, x2;
-        //x1 = battlegenerator_CS.enemy_CS.HP;
-        battlegenerator_CS.enemy_CS.SubstractHP(3);
-        //x2 = battlegenerator_CS.enemy_CS.HP;
+        //x1 = battlegenerator_CS.targetedEnemy.HP;
+        battlegenerator_CS.targetedEnemy.SubstractHP(3);
+        //x2 = battlegenerator_CS.targetedEnemy.HP;
         //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
         //rob
         battlegenerator_CS.hero_CS.energy -= cardCost;
@@ -372,9 +378,9 @@ public class CardDaylightRobbery : CardTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         //int x1, x2;
-        //x1 = battlegenerator_CS.enemy_CS.HP;
-        battlegenerator_CS.enemy_CS.SubstractHP(6);
-        //x2 = battlegenerator_CS.enemy_CS.HP;
+        //x1 = battlegenerator_CS.targetedEnemy.HP;
+        battlegenerator_CS.targetedEnemy.SubstractHP(6);
+        //x2 = battlegenerator_CS.targetedEnemy.HP;
         //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
         //rob
         battlegenerator_CS.hero_CS.energy -= cardCost;
@@ -393,9 +399,9 @@ public class CardShoplift : CardTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         //int x1, x2;
-        //x1 = battlegenerator_CS.enemy_CS.HP;
-        battlegenerator_CS.enemy_CS.SubstractHP(12);
-        //x2 = battlegenerator_CS.enemy_CS.HP;
+        //x1 = battlegenerator_CS.targetedEnemy.HP;
+        battlegenerator_CS.targetedEnemy.SubstractHP(12);
+        //x2 = battlegenerator_CS.targetedEnemy.HP;
         //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
         //rob
         battlegenerator_CS.hero_CS.energy -= cardCost;
@@ -483,8 +489,8 @@ public class CardSuddenBossfight : CardTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         //Stun (Enemy, 1)
-        battlegenerator_CS.enemy_CS.maxhp *= 2;
-        battlegenerator_CS.enemy_CS.hp = battlegenerator_CS.enemy_CS.maxhp;
+        battlegenerator_CS.targetedEnemy.maxhp *= 2;
+        battlegenerator_CS.targetedEnemy.hp = battlegenerator_CS.targetedEnemy.maxhp;
         //Stength (Enemy, 10)
         battlegenerator_CS.hero_CS.gold += 50;
         //Bounty (Enemy, 20)
@@ -503,7 +509,7 @@ public class CardGoldenSlash : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.SubstractHP(battlegenerator_CS.hero_CS.gold);
+        battlegenerator_CS.targetedEnemy.SubstractHP(battlegenerator_CS.hero_CS.gold);
         battlegenerator_CS.hero_CS.gold = 0;        
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
@@ -522,7 +528,7 @@ public class CardSilverSword : CardTemplate
     {
         if (battlegenerator_CS.hero_CS.gold >= 8)
         {
-            battlegenerator_CS.enemy_CS.SubstractHP(18);
+            battlegenerator_CS.targetedEnemy.SubstractHP(18);
             battlegenerator_CS.hero_CS.gold -= 8;
             battlegenerator_CS.hero_CS.energy -= cardCost;
         }
@@ -564,7 +570,7 @@ public class CardMoneyPunch : CardTemplate
         if (battlegenerator_CS.hero_CS.gold >= 150)
         {
             battlegenerator_CS.hero_CS.gold -= 150;
-            battlegenerator_CS.enemy_CS.SubstractHP(8);            
+            battlegenerator_CS.targetedEnemy.SubstractHP(8);            
             battlegenerator_CS.hero_CS.gold += 150;
             battlegenerator_CS.hero_CS.energy -= cardCost;
         }
@@ -586,7 +592,7 @@ public class CardFairTrade : CardTemplate
             battlegenerator_CS.hero_CS.gold -= 15;
             //Steal (Hero, Enemy, 1)
             //Bounty (Enemy, 15)
-            battlegenerator_CS.enemy_CS.SubstractHP(8);
+            battlegenerator_CS.targetedEnemy.SubstractHP(8);
             battlegenerator_CS.hero_CS.gold += 150;
             battlegenerator_CS.hero_CS.energy -= cardCost;
         }
@@ -660,9 +666,9 @@ public class CardFluidExchange : CardTemplate
             battlegenerator_CS.hero_CS.gold -= 15;
 
             //int x1, x2;
-            //x1 = battlegenerator_CS.enemy_CS.HP;
-            battlegenerator_CS.enemy_CS.SubstractHP(10);
-            //x2 = battlegenerator_CS.enemy_CS.HP;
+            //x1 = battlegenerator_CS.targetedEnemy.HP;
+            battlegenerator_CS.targetedEnemy.SubstractHP(10);
+            //x2 = battlegenerator_CS.targetedEnemy.HP;
             //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
             //rob
 
@@ -742,7 +748,7 @@ public class CardBasicMovements : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.SubstractHP(1);
+        battlegenerator_CS.targetedEnemy.SubstractHP(1);
         battlegenerator_CS.hero_CS.shield += 1;
         //Strength (Hero, 1)
         //Dexterous (Hero, 1)        
@@ -760,7 +766,7 @@ public class CardFinishingThrust : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //battlegenerator_CS.enemy_CS.substractHP(2 * battlegenerator_CS.enemy_CS.NumberOfModifiers);
+        //battlegenerator_CS.targetedEnemy.substractHP(2 * battlegenerator_CS.targetedEnemy.NumberOfModifiers);
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -806,7 +812,7 @@ public class CardAceInTheHole : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.SubstractHP(3);        
+        battlegenerator_CS.targetedEnemy.SubstractHP(3);        
         //GetRandom Modifier (Enemy, 1)
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }

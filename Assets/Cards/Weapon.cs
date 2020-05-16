@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
 
         if (battlegenerator_CS.hero_CS.energy >= 1 && this.currDurrability >= 1)
         {
-            battlegenerator_CS.enemy_CS.SubstractHP(this.damage);
+            battlegenerator_CS.targetedEnemy.SubstractHP(this.damage+battlegenerator_CS.hero_CS.strength-battlegenerator_CS.hero_CS.weak);
             this.currDurrability--;
             battlegenerator_CS.hero_CS.energy--;
         }

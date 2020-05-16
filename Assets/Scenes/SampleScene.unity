@@ -5231,7 +5231,7 @@ MonoBehaviour:
   deck_CS: {fileID: 1172945548}
   shield_CS: {fileID: 272842819}
   weapon_CS: {fileID: 985458425}
-  targeted_enemy: {fileID: 0}
+  targetedEnemy: {fileID: 0}
 --- !u!1 &1270336035
 GameObject:
   m_ObjectHideFlags: 0
@@ -5486,7 +5486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b18d5cf234a3243a8ff03bc970f58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battlegenerator_CS: {fileID: 0}
+  battlegenerator_CS: {fileID: 1254924813}
   arrow: {fileID: 1313540206}
 --- !u!114 &1313540209
 MonoBehaviour:
