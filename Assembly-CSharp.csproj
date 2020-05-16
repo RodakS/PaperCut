@@ -74,7 +74,9 @@
     <Compile Include="Assets\Decks\Deck.cs" />
     <Compile Include="Assets\Decks\ListContent.cs" />
     <Compile Include="Assets\Decks\MainDeck.cs" />
+    <Compile Include="Assets\Enemies\Ectocobra.cs" />
     <Compile Include="Assets\Enemies\Enemy.cs" />
+    <Compile Include="Assets\Enemies\Rogue Bat.cs" />
     <Compile Include="Assets\Player\Hero.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/adipo/OneDrive/Documents/GitHub/PaperCut/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

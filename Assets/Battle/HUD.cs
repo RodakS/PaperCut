@@ -18,9 +18,11 @@ public class HUD : MonoBehaviour
     public Text cards;
     public Text GraveyardCardsNumber;
     public Text ExhaustCardsNumber;
+    public Text WeaponShieldDurability;
     public Text[] cardDescriptionTexts;
     public Image[] cardImageHUD;
     public BattleGenerator battlegenerator_CS;
+    
     public void UpdateHUD()
     {
        
@@ -30,7 +32,7 @@ public class HUD : MonoBehaviour
         heroEnergy.text = "Energy:" + battlegenerator_CS.hero_CS.energy + "/" + battlegenerator_CS.hero_CS.maxenergy;
        
         heroStrength.text = "Strength : " + battlegenerator_CS.hero_CS.strength;
-
+        WeaponShieldDurability.text = "Durability " + battlegenerator_CS.weapon_CS.currDurability + "/" + battlegenerator_CS.weapon_CS.maxDurability + " Durability " + battlegenerator_CS.shield_CS.currDurability + "/" + battlegenerator_CS.shield_CS.maxDurability;
         battlegenerator_CS.enemy_CS.UpdateEnemyHUD();
         battlegenerator_CS.enemy_CS2.UpdateEnemyHUD();
         battlegenerator_CS.enemy_CS3.UpdateEnemyHUD();

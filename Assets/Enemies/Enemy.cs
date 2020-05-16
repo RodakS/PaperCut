@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         }
         }
 
-        public void ExecuteTurn()
+        public virtual void ExecuteTurn()
     {
         if (this.setOnFire > 0)
         {
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
                     break;
                 case 3:
                     this.shield += (6 + dexterous - frail);
-                this.frail += 2;
+                this.strength += 2;
                     break;
 
 
@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
             this.CalculateMove();
         }
 
-        public void CalculateMove()
+        public virtual void CalculateMove()
         {
         stun = 0;
         int attackMove = 5;
@@ -186,7 +186,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public string IntentText()
+    public virtual string IntentText()
     {
         string text="";
         switch (this.intent) 
