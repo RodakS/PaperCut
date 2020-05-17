@@ -24,10 +24,10 @@ public class BlankCard : CardTemplate
 {
     public override void Replace()
     {
-        cardName = " ";
-        cardDescription = " ";
+        cardName = "Void";
+        cardDescription = "You have no more cards";
         cardCost = 99;
-        cardSprite = null;
+        cardSprite = Resources.Load<Sprite>("Tombstone");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
