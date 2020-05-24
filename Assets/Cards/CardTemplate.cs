@@ -12,6 +12,7 @@ public abstract class CardTemplate : MonoBehaviour
     public int isUpgraded = 0;
     public bool isExhaust = false;
     public bool isFragile = false;
+    public bool requiresTarget = false;
     public void CardUpgrade()
     {
         isUpgraded = 1;

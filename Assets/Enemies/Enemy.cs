@@ -193,7 +193,7 @@ public class Enemy : MonoBehaviour
         {
            
             case 1:
-                text = "Attack for " + (int)(battlegenerator_CS.enemy_CS.strength + 5);
+                text = "Attack for " + (int)(this.strength + 5);
                 break;
             case 2:
                text = "Defend for 10";

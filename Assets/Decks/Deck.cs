@@ -35,23 +35,28 @@ public class Deck : MonoBehaviour
 
     public void CardPlay(BattleGenerator battlegenerator_CS,int cardNumer)
     {
-        if (cardOnSlot[cardNumer - 1].cardCost <= battlegenerator_CS.hero_CS.energy)
+        if (!(cardOnSlot[cardNumer - 1].requiresTarget) || !(battlegenerator_CS.targetedEnemy is null))
         {
+            if (cardOnSlot[cardNumer - 1].cardCost <= battlegenerator_CS.hero_CS.energy)
+            {
 
-            cardOnSlot[cardNumer - 1].Effect(battlegenerator_CS);
-            if(cardOnSlot[cardNumer - 1].isExhaust == true)
-            {
-                exhaustList.Add(cardOnSlot[cardNumer - 1]);
+                
+                cardOnSlot[cardNumer - 1].Effect(battlegenerator_CS);
+                if (cardOnSlot[cardNumer - 1].isExhaust == true)
+                {
+                    exhaustList.Add(cardOnSlot[cardNumer - 1]);
+                }
+                else { graveyardList.Add(cardOnSlot[cardNumer - 1]); }
+
+                if (deckList.Count == 0)
+                {
+                    cardOnSlot[cardNumer - 1] = new BlankCard();
+                    cardOnSlot[cardNumer - 1].Replace();
+                    battlegenerator_CS.hud_CS.CardUpdate(cardOnSlot[cardNumer - 1], cardNumer);
+                }
+                else { CardDraw(cardNumer); }
+                battlegenerator_CS.pointer_CS.HideThis();
             }
-            else { graveyardList.Add(cardOnSlot[cardNumer - 1]); }
-            
-            if (deckList.Count == 0)
-            {
-                cardOnSlot[cardNumer - 1] = new BlankCard();
-                cardOnSlot[cardNumer - 1].Replace();
-                battlegenerator_CS.hud_CS.CardUpdate(cardOnSlot[cardNumer - 1], cardNumer);
-            }
-            else { CardDraw(cardNumer); }
         }
     }
 

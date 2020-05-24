@@ -6,6 +6,7 @@ public class BattleGenerator : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public Transform enemyPlace;
+    public EnemyGenerator enemyGenerator_CS;
 
     public Hero hero_CS;
     public Enemy enemy_CS;
@@ -17,6 +18,7 @@ public class BattleGenerator : MonoBehaviour
     public Shield shield_CS;
     public Weapon weapon_CS;
     public Enemy targetedEnemy;
+    public PointerArrow pointer_CS;
 
 
     public void BattleGenerate()

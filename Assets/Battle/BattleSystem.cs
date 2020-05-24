@@ -20,6 +20,7 @@ public class BattleSystem : MonoBehaviour
     void BattleSetUp() 
     {
         battlegenerator_CS.deck_CS.Generate();  // tworze deck
+        battlegenerator_CS.enemyGenerator_CS.GenerateCombat();
         CheckHP();
         PlayerTurn();
     }
@@ -108,7 +109,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnCardClickOne() 
     {
-        if (state == BattleState.PLAYERTURN&& !(battlegenerator_CS.targetedEnemy is null))
+        if (state == BattleState.PLAYERTURN)
         {
             battlegenerator_CS.deck_CS.CardPlay(battlegenerator_CS,1);
             CheckHP();
@@ -117,7 +118,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnCardClickTwo()
     {
-        if (state == BattleState.PLAYERTURN&& !(battlegenerator_CS.targetedEnemy is null))
+        if (state == BattleState.PLAYERTURN)
         {
             battlegenerator_CS.deck_CS.CardPlay(battlegenerator_CS,2);
             CheckHP();
@@ -126,7 +127,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnCardClickThree()
     {
-        if (state == BattleState.PLAYERTURN&& !(battlegenerator_CS.targetedEnemy is null))
+        if (state == BattleState.PLAYERTURN)
         {
             battlegenerator_CS.deck_CS.CardPlay(battlegenerator_CS,3);
             CheckHP();

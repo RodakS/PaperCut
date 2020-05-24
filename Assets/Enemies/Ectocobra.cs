@@ -6,7 +6,13 @@ using UnityEngine.UI;
 
 public class Ectocobra : Enemy
 {
-
+    public Ectocobra()
+    {
+        this.maxhp = 45;
+        this.hp = 45;
+        this.shield = 10;
+    }
+     
   
 
    public override void ExecuteTurn()
@@ -71,10 +77,10 @@ public class Ectocobra : Enemy
         {
 
             case 1:
-                text = "Attack five times for " + (int)(battlegenerator_CS.enemy_CS.strength + 1- battlegenerator_CS.enemy_CS.weak) ;
+                text = "Attack five times for " + (int)(this.strength + 1- this.weak) ;
                 break;
             case 2:
-                text = "Defend five times for" + (int)(battlegenerator_CS.enemy_CS.dexterous + 1 - battlegenerator_CS.enemy_CS.frail); ;
+                text = "Defend five times for" + (int)(this.dexterous + 1 - this.frail); ;
                 break;
             case 3:
                 text = "2 strength up, 2 dexterous up";
@@ -89,6 +95,8 @@ public class Ectocobra : Enemy
         return text;
 
     }
+
+   
    
 
 

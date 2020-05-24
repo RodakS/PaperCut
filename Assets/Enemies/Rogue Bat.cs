@@ -7,9 +7,15 @@ using UnityEngine.UI;
 public class RogueBat : Enemy
 {
 
+    public RogueBat()
+    {
+        this.maxhp = 80;
+        this.hp = 80;
+        this.shield = 0;
+    }
 
 
-     public override void ExecuteTurn()
+    public override void ExecuteTurn()
     {
         if (this.setOnFire > 0)
         {
@@ -64,7 +70,7 @@ public class RogueBat : Enemy
         {
 
             case 1:
-                text = "Attack for " + (int)(battlegenerator_CS.enemy_CS.strength + 5);
+                text = "Attack for " + (int)(this.strength + 5);
                 break;
             case 2:
                 text = "Defend for 10";
