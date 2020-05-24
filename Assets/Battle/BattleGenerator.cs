@@ -5,6 +5,8 @@ using UnityEngine;
 public class BattleGenerator : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public GameObject enemyPrefab2;
+    public GameObject enemyPrefab3;
     public Transform enemyPlace;
     public EnemyGenerator enemyGenerator_CS;
 

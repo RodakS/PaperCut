@@ -33,55 +33,31 @@ public class EnemyGenerator : MonoBehaviour
             case 1:
                 enemy3.GetComponent<Image>().sprite = enemySprites[0];
                 RogueBat RogueBatPrefab3 = new RogueBat();
-                RogueBatPrefab3.intentText = battleGenerator_CS.enemy_CS3.intentText;
-                RogueBatPrefab3.enemyHP = battleGenerator_CS.enemy_CS3.enemyHP;
-                RogueBatPrefab3.enemyShield = battleGenerator_CS.enemy_CS3.enemyShield;
-                RogueBatPrefab3.enemyStrength = battleGenerator_CS.enemy_CS3.enemyStrength;
-                battleGenerator_CS.enemy_CS3 = RogueBatPrefab3;
+                battleGenerator_CS.enemy_CS3 = RogueBatPrefab3.copyIntoThis(battleGenerator_CS.enemy_CS3);
 
                 enemy2.GetComponent<Image>().sprite = enemySprites[0];
                 RogueBat RogueBatPrefab2 = new RogueBat();
-                RogueBatPrefab2.intentText = battleGenerator_CS.enemy_CS2.intentText;
-                RogueBatPrefab2.enemyHP = battleGenerator_CS.enemy_CS2.enemyHP;
-                RogueBatPrefab2.enemyShield = battleGenerator_CS.enemy_CS2.enemyShield;
-                RogueBatPrefab2.enemyStrength = battleGenerator_CS.enemy_CS2.enemyStrength;
-                battleGenerator_CS.enemy_CS2 = RogueBatPrefab2;
+                battleGenerator_CS.enemy_CS2 = RogueBatPrefab2.copyIntoThis(battleGenerator_CS.enemy_CS2);
 
                 enemy1.GetComponent<Image>().sprite = enemySprites[1];
                 Ectocobra ectocobraPrefab = new Ectocobra();
-                ectocobraPrefab.intentText = battleGenerator_CS.enemy_CS.intentText;
-                ectocobraPrefab.enemyHP = battleGenerator_CS.enemy_CS.enemyHP;
-                ectocobraPrefab.enemyShield = battleGenerator_CS.enemy_CS.enemyShield;
-                ectocobraPrefab.enemyStrength = battleGenerator_CS.enemy_CS.enemyStrength;
-                battleGenerator_CS.enemy_CS = ectocobraPrefab;
+                battleGenerator_CS.enemy_CS = ectocobraPrefab.copyIntoThis(battleGenerator_CS.enemy_CS);
 
 
                 break;
             case 2:
                 enemy3.GetComponent<Image>().sprite = enemySprites[1];
                 Ectocobra ectocobraPrefab3 = new Ectocobra();
-                ectocobraPrefab3.intentText = battleGenerator_CS.enemy_CS3.intentText;
-                ectocobraPrefab3.enemyHP = battleGenerator_CS.enemy_CS3.enemyHP;
-                ectocobraPrefab3.enemyShield = battleGenerator_CS.enemy_CS3.enemyShield;
-                ectocobraPrefab3.enemyStrength = battleGenerator_CS.enemy_CS3.enemyStrength;
-                battleGenerator_CS.enemy_CS3 = ectocobraPrefab3;
+                battleGenerator_CS.enemy_CS3 = ectocobraPrefab3.copyIntoThis(battleGenerator_CS.enemy_CS3);
 
                 enemy2.GetComponent<Image>().sprite = enemySprites[1];
                 Ectocobra ectocobraPrefab2 = new Ectocobra();
-                ectocobraPrefab2.intentText = battleGenerator_CS.enemy_CS2.intentText;
-                ectocobraPrefab2.enemyHP = battleGenerator_CS.enemy_CS2.enemyHP;
-                ectocobraPrefab2.enemyShield = battleGenerator_CS.enemy_CS2.enemyShield;
-                ectocobraPrefab2.enemyStrength = battleGenerator_CS.enemy_CS2.enemyStrength;
-                battleGenerator_CS.enemy_CS2 = ectocobraPrefab2;
+                battleGenerator_CS.enemy_CS2 = ectocobraPrefab2.copyIntoThis(battleGenerator_CS.enemy_CS3);
 
 
                 enemy1.GetComponent<Image>().sprite = enemySprites[0];
                 RogueBat RogueBatPrefab = new RogueBat();
-                RogueBatPrefab.intentText = battleGenerator_CS.enemy_CS.intentText;
-                RogueBatPrefab.enemyHP = battleGenerator_CS.enemy_CS.enemyHP;
-                RogueBatPrefab.enemyShield = battleGenerator_CS.enemy_CS.enemyShield;
-                RogueBatPrefab.enemyStrength = battleGenerator_CS.enemy_CS.enemyStrength;
-                battleGenerator_CS.enemy_CS = RogueBatPrefab;
+                battleGenerator_CS.enemy_CS = RogueBatPrefab.copyIntoThis(battleGenerator_CS.enemy_CS3);
 
                 break;
         }

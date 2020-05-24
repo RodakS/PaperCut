@@ -219,6 +219,16 @@ public class Enemy : MonoBehaviour
         intentText.text = this.IntentText();
     }
 
+    public Enemy copyIntoThis(Enemy copiedFrom)
+    {
+        this.intentText = copiedFrom.intentText;
+        this.enemyHP = copiedFrom.enemyHP;
+        this.enemyShield = copiedFrom.enemyShield;
+        this.enemyStrength = copiedFrom.enemyStrength;
+        this.battlegenerator_CS = copiedFrom.battlegenerator_CS;
+        return this;
+    }
+
    
 
 }

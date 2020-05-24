@@ -41,7 +41,7 @@ public class BattleSystem : MonoBehaviour
     {
        
         battlegenerator_CS.hud_CS.UpdateHUD();
-        if (battlegenerator_CS.enemy_CS.hp <= 0)       // to ma sprawdzać przeciwnik
+        if (battlegenerator_CS.enemy_CS.hp <= 0&& battlegenerator_CS.enemy_CS2.hp <= 0 && battlegenerator_CS.enemy_CS2.hp <= 0  )       // to ma sprawdzać przeciwnik
         {
             state = BattleState.WON;
             //goto ekran koncowy
@@ -56,6 +56,14 @@ public class BattleSystem : MonoBehaviour
             battlegenerator_CS.hud_CS.StatusUpdate(state);
 
         }
+
+
+        if (battlegenerator_CS.enemy_CS.hp <= 0)
+        battlegenerator_CS.enemyPrefab.SetActive(false);
+        if (battlegenerator_CS.enemy_CS2.hp <= 0)
+            battlegenerator_CS.enemyPrefab2.SetActive(false);
+        if (battlegenerator_CS.enemy_CS3.hp <= 0)
+            battlegenerator_CS.enemyPrefab3.SetActive(false);
 
     }
 
@@ -73,10 +81,12 @@ public class BattleSystem : MonoBehaviour
     void EnemyTurn()
     {
         state = BattleState.ENEMYTURN;
-
-        battlegenerator_CS.enemy_CS.ExecuteTurn();
+        if (battlegenerator_CS.enemy_CS.hp > 0)
+            battlegenerator_CS.enemy_CS.ExecuteTurn();
+        if (battlegenerator_CS.enemy_CS2.hp>0)
         battlegenerator_CS.enemy_CS2.ExecuteTurn();
-        battlegenerator_CS.enemy_CS3.ExecuteTurn();
+        if (battlegenerator_CS.enemy_CS3.hp > 0)
+            battlegenerator_CS.enemy_CS3.ExecuteTurn();
         battlegenerator_CS.hud_CS.StatusUpdate(state);
 
         CheckHP();
