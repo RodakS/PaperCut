@@ -33,12 +33,19 @@ public class CardHealth : CardTemplate
 {
     public override void Replace()
     {
+        int healthUp = 10;
         cardName = "Health";
-        cardDescription = "Raise max health by 10.";
+        cardDescription = "Raise max health by " + healthUp + ".";
         cardCost = 2;
         cardSprite = Resources.Load<Sprite>("Health_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            healthUp = 15;
+        }
     }
-    public override void Effect(BattleGenerator battlegenerator_CS)
+public override void Effect(BattleGenerator battlegenerator_CS)
     {
         battlegenerator_CS.hero_CS.maxhp += 10;
         battlegenerator_CS.hero_CS.hp += 10;        
@@ -51,10 +58,17 @@ public class CardHeal : CardTemplate
 {
     public override void Replace()
     {
+        int healUp = 5;
         cardName = "Heal";
-        cardDescription = "Heal 5 dmg.";
+        cardDescription = "Heal " + healUp +" dmg.";
         cardCost = 1;
         cardSprite = Resources.Load<Sprite>("Heal_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            healUp = 10;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -67,11 +81,18 @@ public class CardDamage1 : CardTemplate
 {
     public override void Replace()
     {
+        int damageUp = 5;
         cardName = "Damage1";
         cardDescription = "Deal 5 damage.";
         cardCost = 0;
         cardSprite = Resources.Load<Sprite>("Damage1_2");
         this.requiresTarget = true;
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            damageUp = 10;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -91,6 +112,12 @@ public class CardDamage2 : CardTemplate
         cardCost = 1;
         cardSprite = Resources.Load<Sprite>("Damage2_2");
         this.requiresTarget = true;
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -110,6 +137,12 @@ public class CardDamage3 : CardTemplate
         cardCost = 2;
         cardSprite = Resources.Load<Sprite>("Damage3_2");
         this.requiresTarget = true;
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -126,6 +159,12 @@ public class CardBlock1 : CardTemplate
         cardDescription = "Block 10 damage.";
         cardCost = 1;
         cardSprite = Resources.Load<Sprite>("Block1_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -142,6 +181,12 @@ public class CardEnergy1 : CardTemplate
         cardDescription = "Increase max energy by 2.";
         cardCost = 3;
         //cardSprite = Resources.Load<Sprite>("Damage1_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        } //TODO upgrade dla pozostalych kart
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
