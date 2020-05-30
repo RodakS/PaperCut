@@ -39,9 +39,24 @@ public class BattleSystem : MonoBehaviour
 
     void CheckHP()
     {
-       
+        if (battlegenerator_CS.enemy_CS.hp <= 0)
+        {
+            battlegenerator_CS.enemy_CS.isDed = true;
+            battlegenerator_CS.enemyPrefab.SetActive(false);
+        }
+        if (battlegenerator_CS.enemy_CS2.hp <= 0)
+        {
+            battlegenerator_CS.enemy_CS2.isDed = true;
+            battlegenerator_CS.enemyPrefab2.SetActive(false);
+        }
+        if (battlegenerator_CS.enemy_CS3.hp <= 0)
+        {
+            battlegenerator_CS.enemy_CS3.isDed = true;
+            battlegenerator_CS.enemyPrefab3.SetActive(false);
+        }
+
         battlegenerator_CS.hud_CS.UpdateHUD();
-        if (battlegenerator_CS.enemy_CS.hp <= 0&& battlegenerator_CS.enemy_CS2.hp <= 0 && battlegenerator_CS.enemy_CS2.hp <= 0  )       // to ma sprawdzać przeciwnik
+        if (battlegenerator_CS.enemy_CS.isDed && battlegenerator_CS.enemy_CS2.isDed && battlegenerator_CS.enemy_CS2.isDed )       // to ma sprawdzać przeciwnik
         {
             state = BattleState.WON;
             //goto ekran koncowy
@@ -58,12 +73,7 @@ public class BattleSystem : MonoBehaviour
         }
 
 
-        if (battlegenerator_CS.enemy_CS.hp <= 0)
-        battlegenerator_CS.enemyPrefab.SetActive(false);
-        if (battlegenerator_CS.enemy_CS2.hp <= 0)
-            battlegenerator_CS.enemyPrefab2.SetActive(false);
-        if (battlegenerator_CS.enemy_CS3.hp <= 0)
-            battlegenerator_CS.enemyPrefab3.SetActive(false);
+     
 
     }
 

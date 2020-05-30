@@ -21,43 +21,57 @@ public class EnemyGenerator : MonoBehaviour
     public void GenerateCombat()
     {
         System.Random rnd = new System.Random();
-        this.SetEnemies(rnd.Next(1,3));
+        this.SetEnemies(rnd.Next(1,4));
     }
 
 
     public void SetEnemies(int scenario)
     {
-
+        Ectocobra ectocobraPrefab = new Ectocobra();
         switch (scenario)
         {
             case 1:
+                enemy1.SetActive(true);
                 enemy3.GetComponent<Image>().sprite = enemySprites[0];
-                RogueBat RogueBatPrefab3 = new RogueBat();
-                battleGenerator_CS.enemy_CS3 = RogueBatPrefab3.copyIntoThis(battleGenerator_CS.enemy_CS3);
+                battleGenerator_CS.enemy_CS3 = new RogueBat().copyIntoThis(battleGenerator_CS.enemy_CS3);
 
+                enemy1.SetActive(true);
                 enemy2.GetComponent<Image>().sprite = enemySprites[0];
-                RogueBat RogueBatPrefab2 = new RogueBat();
-                battleGenerator_CS.enemy_CS2 = RogueBatPrefab2.copyIntoThis(battleGenerator_CS.enemy_CS2);
+                battleGenerator_CS.enemy_CS2 = new RogueBat().copyIntoThis(battleGenerator_CS.enemy_CS2);
 
+                enemy1.SetActive(true);
                 enemy1.GetComponent<Image>().sprite = enemySprites[1];
-                Ectocobra ectocobraPrefab = new Ectocobra();
-                battleGenerator_CS.enemy_CS = ectocobraPrefab.copyIntoThis(battleGenerator_CS.enemy_CS);
+                battleGenerator_CS.enemy_CS = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS);
 
 
                 break;
             case 2:
+                enemy1.SetActive(true);
                 enemy3.GetComponent<Image>().sprite = enemySprites[1];
-                Ectocobra ectocobraPrefab3 = new Ectocobra();
-                battleGenerator_CS.enemy_CS3 = ectocobraPrefab3.copyIntoThis(battleGenerator_CS.enemy_CS3);
+                battleGenerator_CS.enemy_CS3 = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS3);
 
+                enemy1.SetActive(true);
                 enemy2.GetComponent<Image>().sprite = enemySprites[1];
-                Ectocobra ectocobraPrefab2 = new Ectocobra();
-                battleGenerator_CS.enemy_CS2 = ectocobraPrefab2.copyIntoThis(battleGenerator_CS.enemy_CS3);
+                battleGenerator_CS.enemy_CS2 = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS2);
 
-
+                enemy1.SetActive(true);
                 enemy1.GetComponent<Image>().sprite = enemySprites[0];
-                RogueBat RogueBatPrefab = new RogueBat();
-                battleGenerator_CS.enemy_CS = RogueBatPrefab.copyIntoThis(battleGenerator_CS.enemy_CS3);
+                battleGenerator_CS.enemy_CS = new RogueBat().copyIntoThis(battleGenerator_CS.enemy_CS);
+
+                break;
+            case 3:
+                enemy1.SetActive(true);
+                enemy3.GetComponent<Image>().sprite = enemySprites[1];
+                battleGenerator_CS.enemy_CS3 = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS3);
+
+                enemy2.SetActive(false);
+                battleGenerator_CS.enemy_CS2.isDed = true;
+                battleGenerator_CS.enemy_CS2 = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS2);
+
+
+                enemy1.SetActive(false);
+                battleGenerator_CS.enemy_CS.isDed = true;
+                battleGenerator_CS.enemy_CS = new RogueBat().copyIntoThis(battleGenerator_CS.enemy_CS);
 
                 break;
         }

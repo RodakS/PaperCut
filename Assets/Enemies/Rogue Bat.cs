@@ -9,41 +9,44 @@ public class RogueBat : Enemy
 
     public RogueBat()
     {
-        this.maxhp = 80;
-        this.hp = 80;
+        this.maxhp = 10;
+        this.hp = 10;
         this.shield = 0;
     }
 
 
     public override void ExecuteTurn()
     {
-        if (this.setOnFire > 0)
+        if (!(this.isDed))
         {
-            this.SubstractHP(3);
-            this.setOnFire--;
-        }
-        if (this.sleep > 0)
-        {
-            this.intent = -2;
-            this.sleep--;
-        }
+            if (this.setOnFire > 0)
+            {
+                this.SubstractHP(3);
+                this.setOnFire--;
+            }
+            if (this.sleep > 0)
+            {
+                this.intent = -2;
+                this.sleep--;
+            }
 
-        switch (intent)
-        {
-            case 1:
-                battlegenerator_CS.hero_CS.SubstractHP(6 + strength - weak);
-                break;
-            case 2:
-                this.shield += (10 + dexterous - frail);
-                break;
-            case 3:
-                this.shield += (6 + dexterous - frail);
-                this.strength += 2;
-                break;
+            switch (intent)
+            {
+                case 1:
+                    battlegenerator_CS.hero_CS.SubstractHP(6 + strength - weak);
+                    break;
+                case 2:
+                    this.shield += (10 + dexterous - frail);
+                    break;
+                case 3:
+                    this.shield += (6 + dexterous - frail);
+                    this.strength += 2;
+                    break;
 
 
+            }
+            this.CalculateMove();
         }
-        this.CalculateMove();
     }
 
 

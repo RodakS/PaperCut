@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
         public int strength = 0;
         public int weak = 0;
         public int dexterous = 0;
+    public bool isDed = false;
         public int frail = 0;
 
     public void SubstractHP(int Damage)
@@ -46,7 +47,9 @@ public class Enemy : MonoBehaviour
 
         public virtual void ExecuteTurn()
     {
-        if (this.setOnFire > 0)
+        if (!(this.isDed))
+        {
+            if (this.setOnFire > 0)
         {
             this.SubstractHP(3);
             this.setOnFire--;
@@ -56,23 +59,24 @@ public class Enemy : MonoBehaviour
             this.intent = -2;
             this.sleep--;
         }
-
-        switch (intent)
+      
+            switch (intent)
             {
                 case 1:
-                   battlegenerator_CS.hero_CS.SubstractHP(6 + strength-weak);
+                    battlegenerator_CS.hero_CS.SubstractHP(6 + strength - weak);
                     break;
                 case 2:
-                    this.shield += (10+dexterous-frail);
+                    this.shield += (10 + dexterous - frail);
                     break;
                 case 3:
                     this.shield += (6 + dexterous - frail);
-                this.strength += 2;
+                    this.strength += 2;
                     break;
 
 
             }
             this.CalculateMove();
+        }
         }
 
         public virtual void CalculateMove()

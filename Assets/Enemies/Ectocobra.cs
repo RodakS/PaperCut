@@ -8,50 +8,53 @@ public class Ectocobra : Enemy
 {
     public Ectocobra()
     {
-        this.maxhp = 45;
-        this.hp = 45;
-        this.shield = 10;
+        this.maxhp = 10;
+        this.hp = 10;
+        this.shield = 5;
     }
      
   
 
    public override void ExecuteTurn()
     {
-        if (this.setOnFire > 0)
+        if (!(this.isDed))
         {
-            this.SubstractHP(3);
-            this.setOnFire--;
-        }
-        if (this.sleep > 0)
-        {
-            this.intent = -2;
-            this.sleep--;
-        }
+            if (this.setOnFire > 0)
+            {
+                this.SubstractHP(3);
+                this.setOnFire--;
+            }
+            if (this.sleep > 0)
+            {
+                this.intent = -2;
+                this.sleep--;
+            }
 
-        switch (intent)
-        {
-            case 1:
-                battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
-                battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
-                battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
-                battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
-                battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
-                break;
-            case 2:
-                this.shield += (1 + dexterous - frail);
-                this.shield += (1 + dexterous - frail);
-                this.shield += (1 + dexterous - frail);
-                this.shield += (1 + dexterous - frail);
-                this.shield += (1 + dexterous - frail);
-                break;
-            case 3:
-                this.strength += 2;
-                this.dexterous += 2;
-                break;
+            switch (intent)
+            {
+                case 1:
+                    battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
+                    battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
+                    battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
+                    battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
+                    battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
+                    break;
+                case 2:
+                    this.shield += (1 + dexterous - frail);
+                    this.shield += (1 + dexterous - frail);
+                    this.shield += (1 + dexterous - frail);
+                    this.shield += (1 + dexterous - frail);
+                    this.shield += (1 + dexterous - frail);
+                    break;
+                case 3:
+                    this.strength += 2;
+                    this.dexterous += 2;
+                    break;
 
 
+            }
+            this.CalculateMove();
         }
-        this.CalculateMove();
     }
 
    public override void CalculateMove()
