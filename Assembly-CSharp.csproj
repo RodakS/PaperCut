@@ -77,7 +77,10 @@
     <Compile Include="Assets\Enemies\Ectocobra.cs" />
     <Compile Include="Assets\Enemies\Enemy.cs" />
     <Compile Include="Assets\Enemies\EnemyGenerator.cs" />
+    <Compile Include="Assets\Enemies\Jello.cs" />
+    <Compile Include="Assets\Enemies\OblivionOrb.cs" />
     <Compile Include="Assets\Enemies\Rogue Bat.cs" />
+    <Compile Include="Assets\Enemies\Rzdżór.cs" />
     <Compile Include="Assets\Map\Locations.cs" />
     <Compile Include="Assets\Map\Map.cs" />
     <Compile Include="Assets\Player\Hero.cs" />

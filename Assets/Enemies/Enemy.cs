@@ -24,12 +24,20 @@ public class Enemy : MonoBehaviour
         public int strength = 0;
         public int weak = 0;
         public int dexterous = 0;
-    public bool isDed = false;
         public int frail = 0;
+    
+
+    public bool IsDead()
+    {
+        if (this.hp <= 0)
+            return true;
+        else return false;
+    }
 
     public void SubstractHP(int Damage)
         {
-            if (Damage <= this.shield)
+        Damage += this.vulnerable;
+        if (Damage <= this.shield)
             {
             this.shield -= Damage;
             }
@@ -47,7 +55,7 @@ public class Enemy : MonoBehaviour
 
         public virtual void ExecuteTurn()
     {
-        if (!(this.isDed))
+        if (!(this.IsDead()))
         {
             if (this.setOnFire > 0)
         {

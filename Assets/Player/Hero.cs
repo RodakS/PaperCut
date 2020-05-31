@@ -35,7 +35,17 @@ using UnityEngine;
     {
         this.gold += goldGained;
     }
+    public void ResetEnergy()
+    {
+        this.energy = this.maxenergy;
+    }
 
+    public bool IsDead()
+    {
+        if (this.hp <= 0)
+            return true;
+        else return false;
+    }
     public bool CheckCash(int check)
     {
         if (this.gold >= check)
@@ -49,6 +59,7 @@ using UnityEngine;
 
         public  void SubstractHP(int damage)
         {
+        damage += this.vulnerable;
             if (damage <= this.shield)
             {
                 this.shield -= damage;

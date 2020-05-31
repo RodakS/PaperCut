@@ -17,7 +17,7 @@ public class RogueBat : Enemy
 
     public override void ExecuteTurn()
     {
-        if (!(this.isDed))
+        if (!(this.IsDead()))
         {
             if (this.setOnFire > 0)
             {

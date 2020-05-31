@@ -5374,6 +5374,7 @@ MonoBehaviour:
   strength: 0
   weak: 0
   dexterous: 0
+  isDed: 0
   frail: 0
 --- !u!4 &973401097
 Transform:
@@ -6154,6 +6155,7 @@ MonoBehaviour:
   strength: 0
   weak: 0
   dexterous: 0
+  isDed: 0
   frail: 0
 --- !u!1 &1148398566
 GameObject:
@@ -7005,6 +7007,10 @@ MonoBehaviour:
   enemySprites:
   - {fileID: 21300000, guid: 19142bce6f650c04aa286058c2f8f63a, type: 3}
   - {fileID: 21300000, guid: c9e5ee13e2df98348a0672169eaf7116, type: 3}
+  - {fileID: 21300000, guid: 543c5fec4e5570a4d847427bad67833f, type: 3}
+  - {fileID: 21300000, guid: f54cc4392b8c6774880d731c936d674a, type: 3}
+  - {fileID: 21300000, guid: 09874b5584d6d2742b1d42b698df26ba, type: 3}
+  - {fileID: 21300000, guid: 079f16c266a06ce409f6c8d9c5547d14, type: 3}
 --- !u!1 &1270336035
 GameObject:
   m_ObjectHideFlags: 0
@@ -9078,6 +9084,7 @@ MonoBehaviour:
   strength: 0
   weak: 0
   dexterous: 0
+  isDed: 0
   frail: 0
 --- !u!114 &1705051703
 MonoBehaviour:
@@ -10550,6 +10557,7 @@ MonoBehaviour:
   strength: 0
   weak: 0
   dexterous: 0
+  isDed: 0
   frail: 0
 --- !u!114 &2006904666
 MonoBehaviour:
