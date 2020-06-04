@@ -18,7 +18,7 @@ public class BattleSystem : MonoBehaviour
     }
 
     void BattleSetUp() 
-    {
+    {        
         battlegenerator_CS.deck_CS.Generate();  // tworze deck
         battlegenerator_CS.enemyGenerator_CS.GenerateCombat();
         CheckHP();

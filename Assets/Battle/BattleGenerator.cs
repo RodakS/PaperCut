@@ -22,6 +22,9 @@ public class BattleGenerator : MonoBehaviour
     public Enemy targetedEnemy;
     public PointerArrow pointer_CS;
 
+    public Map map_CS;
+    public MapSystem mapsystem_CS;
+
 
     public void BattleGenerate()
     {
