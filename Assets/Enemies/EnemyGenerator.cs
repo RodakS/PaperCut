@@ -65,14 +65,14 @@ public class EnemyGenerator : MonoBehaviour
                 enemy3.GetComponent<Image>().sprite = enemySprites[1];
                 battleGenerator_CS.enemy_CS3 = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS3);
 
-                enemy2.SetActive(false);
+           
                 battleGenerator_CS.enemy_CS2.hp = -10;
-                battleGenerator_CS.enemy_CS2 = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS2);
+                enemy2.SetActive(false);
 
 
-                enemy1.SetActive(false);
+                
                 battleGenerator_CS.enemy_CS.hp = -10;
-                battleGenerator_CS.enemy_CS = new RogueBat().copyIntoThis(battleGenerator_CS.enemy_CS);
+                enemy1.SetActive(false);
 
                 break;
             case 4:
@@ -96,12 +96,10 @@ public class EnemyGenerator : MonoBehaviour
 
                 enemy2.SetActive(false);
                 battleGenerator_CS.enemy_CS2.hp = -10;
-                battleGenerator_CS.enemy_CS2 = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS2);
 
 
                 enemy1.SetActive(false);
                 battleGenerator_CS.enemy_CS.hp = -10;
-                battleGenerator_CS.enemy_CS = new RogueBat().copyIntoThis(battleGenerator_CS.enemy_CS);
 
                 break;
         }

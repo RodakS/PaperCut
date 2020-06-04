@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public abstract class LocationTemplate : MonoBehaviour
 {
     public string locationName = "Location";
@@ -35,8 +37,8 @@ public class Location1 : LocationTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         battlegenerator_CS.enemyGenerator_CS.SetEnemies(3);
-
-
+        battlegenerator_CS.hud_CS.UpdateHUD();
+        
         //pojedynczy
     }
 }
@@ -55,6 +57,7 @@ public class Location2 : LocationTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         battlegenerator_CS.enemyGenerator_CS.SetEnemies(1);
+        battlegenerator_CS.hud_CS.UpdateHUD();
         //wielu
     }
 }
@@ -143,6 +146,7 @@ public class Location7 : LocationTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         battlegenerator_CS.enemyGenerator_CS.SetEnemies(3);
+        battlegenerator_CS.hud_CS.UpdateHUD();
         //pojedynczy
     }
 }
@@ -161,6 +165,7 @@ public class Location8 : LocationTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         battlegenerator_CS.enemyGenerator_CS.SetEnemies(2);
+        battlegenerator_CS.hud_CS.UpdateHUD();
         //wielu
     }
 }
@@ -179,6 +184,7 @@ public class Location9 : LocationTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         battlegenerator_CS.enemyGenerator_CS.SetEnemies(4);
+        battlegenerator_CS.hud_CS.UpdateHUD();
         //wielu
     }
 }
@@ -213,6 +219,7 @@ public class Location11 : LocationTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         battlegenerator_CS.enemyGenerator_CS.SetEnemies(5);
+        battlegenerator_CS.hud_CS.UpdateHUD();
         //boss
 
     }

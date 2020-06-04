@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
             battlegenerator_CS.targetedEnemy.SubstractHP(this.damage+battlegenerator_CS.hero_CS.strength-battlegenerator_CS.hero_CS.weak);
             this.currDurability--;
             battlegenerator_CS.hero_CS.energy--;
+            battlegenerator_CS.pointer_CS.HideThis();
         }
 
 

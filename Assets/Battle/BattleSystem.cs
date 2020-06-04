@@ -48,14 +48,13 @@ public class BattleSystem : MonoBehaviour
         {
             battlegenerator_CS.enemyPrefab2.SetActive(false);
         }
-        if (battlegenerator_CS.enemy_CS3.hp <= 0)
+        if (battlegenerator_CS.enemy_CS3.IsDead())
         {
-            battlegenerator_CS.enemy_CS3.IsDead();
             battlegenerator_CS.enemyPrefab3.SetActive(false);
         }
 
         battlegenerator_CS.hud_CS.UpdateHUD();
-        if (battlegenerator_CS.enemy_CS.IsDead() && battlegenerator_CS.enemy_CS2.IsDead() && battlegenerator_CS.enemy_CS3.IsDead())       // to ma sprawdzać przeciwnik
+        if (battlegenerator_CS.enemy_CS.IsDead() && battlegenerator_CS.enemy_CS2.IsDead() && battlegenerator_CS.enemy_CS3.IsDead())      
         {
             state = BattleState.WON;
             //goto ekran koncowy
@@ -63,16 +62,16 @@ public class BattleSystem : MonoBehaviour
 
         }
 
-        if (battlegenerator_CS.hero_CS.IsDead())  // to ma sprawdzać bohater
+        if (battlegenerator_CS.hero_CS.IsDead())  
         {
             state = BattleState.LOST;
             // goto ekran koncowy
             battlegenerator_CS.hud_CS.StatusUpdate(state);
 
         }
+        battlegenerator_CS.hud_CS.StatusUpdate(state);
 
 
-     
 
     }
 
