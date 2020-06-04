@@ -608,6 +608,7 @@ public class CardAegisOfGold : CardTemplate
         cardName = "Aegis of gold";
         cardDescription = "Pay 10, gain 20 shield.";
         cardCost = 2;
+        cardSprite = Resources.Load<Sprite>("Aegis_Of_Gold");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -628,6 +629,7 @@ public class CardMoneyPunch : CardTemplate
         cardDescription = "Pay 150, deal 8 damage, Acquire 150.";
         this.requiresTarget = true;
         cardCost = 1;
+        cardSprite = Resources.Load<Sprite>("Money_Punch");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -649,6 +651,7 @@ public class CardFairTrade : CardTemplate
         cardDescription = "Pay 15, Steal 1, Give bounty 15.";
         this.requiresTarget = true;
         cardCost = 0;
+        cardSprite = Resources.Load<Sprite>("Fair_Trade");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -671,6 +674,7 @@ public class CardMoneyIsPower : CardTemplate
         cardName = "Money is Power";
         cardDescription = "Pay 300, gain 1 mana permanently.";
         cardCost = 3;
+        cardSprite = Resources.Load<Sprite>("Money_is_Power");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -691,6 +695,7 @@ public class CardBasicEconomy : CardTemplate
         this.requiresTarget = true;
         cardDescription = "Donate 1, Acquire 5.";
         cardCost = 0;
+        cardSprite = Resources.Load<Sprite>("Basic_Economy");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -708,6 +713,7 @@ public class CardTargetPractice : CardTemplate
         cardName = "Target practice";
         cardDescription = "Gain 8 shield, get a Bounty 5.";
         cardCost = 1;
+        cardSprite = Resources.Load<Sprite>("Target_Practice");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -725,6 +731,7 @@ public class CardFluidExchange : CardTemplate
         cardDescription = "Pay 15, Deal 10 damage to an enemy, gain 10 shield, Steal 1, Donate 1, Rob, Exhaust.";
         this.requiresTarget = true;
         cardCost = 3;
+        cardSprite = Resources.Load<Sprite>("Fluid_Exchange");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -755,6 +762,7 @@ public class CardBastion : CardTemplate
         cardName = "Bastion";
         cardDescription = "Gain 1 Dexterous, gain 6 shieldy.";
         cardCost = 1;
+        cardSprite = Resources.Load<Sprite>("Bastion");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -772,6 +780,7 @@ public class CardOneForAll : CardTemplate
         cardDescription = "Get 2 vulnerable, 2 Frail and 2 Weak, Donate 6.";
         this.requiresTarget = true;
         cardCost = 2;
+        cardSprite = Resources.Load<Sprite>("One_for_All");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -790,6 +799,7 @@ public class CardAllForOne : CardTemplate
         cardName = "All for one";
         cardDescription = "Give 1 strength, 1 dexterous to all enemies, steal 2 from each.";
         cardCost = 2;
+        cardSprite = Resources.Load<Sprite>("All_for_One");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -814,6 +824,7 @@ public class CardBasicMovements : CardTemplate
         cardDescription = "Deal 1 damage, get 1 shield, get 1 strength and 1 dexterous for the rest of this turn.";
         this.requiresTarget = true;
         cardCost = 0;
+        cardSprite = Resources.Load<Sprite>("Basic_Movements");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -833,6 +844,7 @@ public class CardFinishingThrust : CardTemplate
         cardDescription = "Deal 2 damage per modifier an enemy has.";
         this.requiresTarget = true;
         cardCost = 1;
+        cardSprite = Resources.Load<Sprite>("Finishing_Thrust");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -848,6 +860,7 @@ public class CardFinalDefence : CardTemplate
         cardName = "Final Defence";
         cardDescription = "Get 3 shield per modifier you have.";
         cardCost = 1;
+        cardSprite = Resources.Load<Sprite>("Final_Defense");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -863,6 +876,7 @@ public class CardGamblingHeart : CardTemplate
         cardName = "Gambling Heart";
         cardDescription = "Get 3 shield and 1 random modifier.";
         cardCost = 0;
+        cardSprite = Resources.Load<Sprite>("Gambling_Heart");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -880,6 +894,7 @@ public class CardAceInTheHole : CardTemplate
         cardDescription = "Deal 3 damage and give 1 random modifier.";
         this.requiresTarget = true;
         cardCost = 0;
+        cardSprite = Resources.Load<Sprite>("Ace_in_the_Hole");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
