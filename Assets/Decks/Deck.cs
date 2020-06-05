@@ -15,6 +15,7 @@ public class Deck : MonoBehaviour
     {
         maindeck_CS = GetComponent<MainDeck>();
         deckList = new List<CardTemplate> (maindeck_CS.mainDeckList);
+
         DrawStartCards();
     }
 

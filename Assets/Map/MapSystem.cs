@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapSystem : MonoBehaviour
 {
     public BattleGenerator battlegenerator_CS;
+    public BattleSystem battleSystem_CS;
     public Map map_CS;
     public int yourLocation = 0;
 
@@ -29,6 +30,7 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[0].Effect(battlegenerator_CS);            
             BattleCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
     public void OnLocationTwoClick()
@@ -39,6 +41,7 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[1].Effect(battlegenerator_CS);
             BattleCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
     public void OnLocationThreeClick()
@@ -49,6 +52,7 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[2].Effect(battlegenerator_CS);
             BattleCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
     public void OnLocationFourClick()
@@ -59,6 +63,7 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[3].Effect(battlegenerator_CS);
             CardChooseCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
     public void OnLocationFiveClick()
@@ -69,6 +74,7 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[4].Effect(battlegenerator_CS);
             CardChooseCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
     public void OnLocationSixClick()
@@ -79,6 +85,7 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[5].Effect(battlegenerator_CS);
             CardChooseCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
     public void OnLocationSevenClick()
@@ -89,6 +96,7 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[6].Effect(battlegenerator_CS);
             BattleCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
     public void OnLocationEightClick()
@@ -99,6 +107,7 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[7].Effect(battlegenerator_CS);
             BattleCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
     public void OnLocationNineClick()
@@ -109,6 +118,7 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[8].Effect(battlegenerator_CS);
             BattleCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
     public void OnLocationTenClick()
@@ -119,6 +129,7 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[9].Effect(battlegenerator_CS);
             CardChooseCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
     public void OnLocationElevenClick()
@@ -129,16 +140,8 @@ public class MapSystem : MonoBehaviour
             battlegenerator_CS.map_CS.mainLocationsList[10].Effect(battlegenerator_CS);
             BattleCanvas.enabled = true;
             MapCanvas.enabled = false;
+            battleSystem_CS.BattleSetUp();
         }
     }
 
-    void Start()
-    {
-        
-    }
-        
-    void Update()
-    {
-        
-    }
 }

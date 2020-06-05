@@ -85,10 +85,11 @@ public class MainDeck : MonoBehaviour
 
     public void GenerateRandomCard()
     {
-
+        cardsToChooseList.Clear();
         for (int i = 0; i < 4; i++)
         {
             int rarityRandomNumber = Random.Range(1, 100);
+       
             if (rarityRandomNumber < 60)  // 60% na wyciągnięcie commona
             {
                 int j = Random.Range(0, cardsCommonList.Count);
@@ -116,6 +117,7 @@ public class MainDeck : MonoBehaviour
         public void OnChooseButtonClick(int i)
         {
             mainDeckList.Add(cardsToChooseList[i]);
+                GenerateRandomCard();
         }
     
 }

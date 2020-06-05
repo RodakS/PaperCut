@@ -12,13 +12,13 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         battlegenerator_CS = GetComponent<BattleGenerator>(); //podłączam battlegenerator.cs 
-        battlegenerator_CS.BattleGenerate();                   //uruchamiam battlegenerate.cs 
-        state = BattleState.START;
+
         BattleSetUp();
     }
 
-    void BattleSetUp() 
-    {        
+  public  void BattleSetUp() 
+    {
+        state = BattleState.START;
         battlegenerator_CS.deck_CS.Generate();  // tworze deck
         battlegenerator_CS.enemyGenerator_CS.GenerateCombat();
         CheckHP();
@@ -59,6 +59,8 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.WON;
             //goto ekran koncowy
             battlegenerator_CS.hud_CS.StatusUpdate(state);
+
+            battlegenerator_CS.endBattleScript_CS.BattleWon();
 
         }
 

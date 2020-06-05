@@ -9,6 +9,7 @@ public class BattleGenerator : MonoBehaviour
     public GameObject enemyPrefab3;
     public Transform enemyPlace;
     public EnemyGenerator enemyGenerator_CS;
+    public EndBattleScript endBattleScript_CS;
 
     public Hero hero_CS;
     public Enemy enemy_CS;
@@ -25,11 +26,4 @@ public class BattleGenerator : MonoBehaviour
     public Map map_CS;
     public MapSystem mapsystem_CS;
 
-
-    public void BattleGenerate()
-    {
-        //GameObject enemyGameObject = Instantiate(enemyPrefab, enemyPlace);
-      //  enemy_CS = enemyGameObject.GetComponent<Enemy>();
-
-    }
 }
