@@ -36,24 +36,33 @@ public class OblivionOrb : Enemy
                 case 0:
                     battlegenerator_CS.enemyGenerator_CS.GenereateOrbUnderlings();
                     battlegenerator_CS.hero_CS.hp = 80;
+                    battlegenerator_CS.musicsystem_CS.PlayPukPuk();
                     break;
                 case 1:
                     battlegenerator_CS.enemyGenerator_CS.GenereateOrbUnderlings();
                     break;
                 case 2:
                     battlegenerator_CS.hero_CS.SubstractHP(8 + strength - weak);
+                    battlegenerator_CS.musicsystem_CS.PlaySwoosh();
                     this.strength += 1;
                     break;
                 case 3:
                     battlegenerator_CS.hero_CS.SubstractHP(3 + strength - weak);
                     battlegenerator_CS.hero_CS.SubstractHP(3 + strength - weak);
                     battlegenerator_CS.hero_CS.SubstractHP(3 + strength - weak);
+                    battlegenerator_CS.musicsystem_CS.PlayPukPuk();
 
                     break;
 
 
             }
             this.CalculateMove();
+            if (this.stun > 0)
+            {
+                stun--;
+                if (this.stun > 0)
+                    this.intent = -1;
+            }
         }
     }
 

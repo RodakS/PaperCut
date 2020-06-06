@@ -19,6 +19,7 @@ public class Shield : MonoBehaviour
             battlegenerator_CS.hero_CS.shield += this.armor;
             this.currDurability--;
             battlegenerator_CS.hero_CS.energy--;
+            battlegenerator_CS.musicsystem_CS.PlayBam();
         }
 
 

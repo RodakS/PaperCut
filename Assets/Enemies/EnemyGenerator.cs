@@ -34,7 +34,7 @@ public class EnemyGenerator : MonoBehaviour
             case 1:
                 enemy1.SetActive(true);
                 enemy1.GetComponent<Image>().sprite = enemySprites[0];
-                battleGenerator_CS.enemy_CS3 = new RogueBat().copyIntoThis(battleGenerator_CS.enemy_CS3);
+                battleGenerator_CS.enemy_CS = new RogueBat().copyIntoThis(battleGenerator_CS.enemy_CS);
 
                 enemy2.SetActive(true);
                 enemy2.GetComponent<Image>().sprite = enemySprites[0];
@@ -42,14 +42,14 @@ public class EnemyGenerator : MonoBehaviour
 
                 enemy3.SetActive(true);
                 enemy3.GetComponent<Image>().sprite = enemySprites[1];
-                battleGenerator_CS.enemy_CS = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS);
+                battleGenerator_CS.enemy_CS3 = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS3);
 
 
                 break;
             case 2:
                 enemy1.SetActive(true);
                 enemy1.GetComponent<Image>().sprite = enemySprites[1];
-                battleGenerator_CS.enemy_CS3 = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS3);
+                battleGenerator_CS.enemy_CS = new Ectocobra().copyIntoThis(battleGenerator_CS.enemy_CS);
 
                 enemy2.SetActive(true);
                 enemy2.GetComponent<Image>().sprite = enemySprites[1];
@@ -57,7 +57,7 @@ public class EnemyGenerator : MonoBehaviour
 
                 enemy3.SetActive(true);
                 enemy3.GetComponent<Image>().sprite = enemySprites[0];
-                battleGenerator_CS.enemy_CS = new RogueBat().copyIntoThis(battleGenerator_CS.enemy_CS);
+                battleGenerator_CS.enemy_CS3 = new RogueBat().copyIntoThis(battleGenerator_CS.enemy_CS3);
 
                 break;
             case 3:

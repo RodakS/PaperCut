@@ -38,11 +38,18 @@ public class Jello : Enemy
                     battlegenerator_CS.hero_CS.weak += 1;
                     battlegenerator_CS.hero_CS.frail += 1;
                     battlegenerator_CS.hero_CS.vulnerable += 1;
+                    battlegenerator_CS.musicsystem_CS.PlayPukPuk();
                     break;
 
 
             }
             this.CalculateMove();
+            if (this.stun > 0)
+            {
+                stun--;
+                if (this.stun > 0)
+                    this.intent = -1;
+            }
         }
     }
     public bool blocked = false;

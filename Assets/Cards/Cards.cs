@@ -21,11 +21,15 @@ public class CardStun : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-       
-            //Stun (Enemy, 1) 
-            battlegenerator_CS.targetedEnemy.SubstractHP(10);
+
+
+        battlegenerator_CS.targetedEnemy.intent = -1;
+        battlegenerator_CS.targetedEnemy.stun += 1;
+           battlegenerator_CS.targetedEnemy.SubstractHP(10+battlegenerator_CS.hero_CS.strength-battlegenerator_CS.hero_CS.weak);
             battlegenerator_CS.hero_CS.energy -= cardCost;
-        
+        battlegenerator_CS.musicsystem_CS.PlayBam();
+
+
     }
 }
 
@@ -50,6 +54,7 @@ public override void Effect(BattleGenerator battlegenerator_CS)
         battlegenerator_CS.hero_CS.maxhp += 10;
         battlegenerator_CS.hero_CS.hp += 10;        
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlaySus();
     }
 }
 
@@ -74,6 +79,7 @@ public class CardHeal : CardTemplate
     {
         battlegenerator_CS.hero_CS.hp += 5;
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlaySus();
     }
 }
 
@@ -97,9 +103,11 @@ public class CardDamage1 : CardTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         
-            battlegenerator_CS.targetedEnemy.SubstractHP(5);
+            battlegenerator_CS.targetedEnemy.SubstractHP(5 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
             battlegenerator_CS.hero_CS.energy -= cardCost;
-        
+        battlegenerator_CS.musicsystem_CS.PlayKlang();
+
+
     }
 }
 
@@ -122,9 +130,11 @@ public class CardDamage2 : CardTemplate
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         
-            battlegenerator_CS.targetedEnemy.SubstractHP(10);
+            battlegenerator_CS.targetedEnemy.SubstractHP(10 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
             battlegenerator_CS.hero_CS.energy -= cardCost;
-        
+        battlegenerator_CS.musicsystem_CS.PlayBam();
+
+
     }
 }
 
@@ -146,8 +156,10 @@ public class CardDamage3 : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.targetedEnemy.SubstractHP(20);
+        battlegenerator_CS.targetedEnemy.SubstractHP(20 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayPukPuk();
+
     }
 }
 
@@ -168,8 +180,9 @@ public class CardBlock1 : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.hero_CS.shield += 10;
+        battlegenerator_CS.hero_CS.shield += 10 + battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail;
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayKlang();
     }
 }
 
@@ -192,6 +205,7 @@ public class CardEnergy1 : CardTemplate
     {
         battlegenerator_CS.hero_CS.maxenergy += 2;
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlaySus();
     }
 }
 
@@ -209,6 +223,7 @@ public class CardPenetratingHit : CardTemplate
     {
         battlegenerator_CS.targetedEnemy.hp -= 3;
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayPukPuk();
     }
 }
 
@@ -223,10 +238,11 @@ public class CardSweepingEdge : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemy_CS.SubstractHP(5);
-        battlegenerator_CS.enemy_CS2.SubstractHP(5);
-        battlegenerator_CS.enemy_CS3.SubstractHP(5);
+        battlegenerator_CS.enemy_CS.SubstractHP(5 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.enemy_CS2.SubstractHP(5 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.enemy_CS3.SubstractHP(5 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayPukPuk();
     }
 }
 
@@ -244,13 +260,14 @@ public class CardFinishingBlow : CardTemplate
     {
         if (battlegenerator_CS.targetedEnemy.hp < battlegenerator_CS.targetedEnemy.maxhp * 30 / 100)
         {
-            battlegenerator_CS.targetedEnemy.SubstractHP(15);
+            battlegenerator_CS.targetedEnemy.SubstractHP(15 + 3* battlegenerator_CS.hero_CS.strength - 3* battlegenerator_CS.hero_CS.weak);
         }
         else
         {
-            battlegenerator_CS.targetedEnemy.SubstractHP(5);
+            battlegenerator_CS.targetedEnemy.SubstractHP(5 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
         }
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayBam();
     }
 }
 
@@ -266,9 +283,10 @@ public class CardFire : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.targetedEnemy.SubstractHP(5);
-        //Set on fire (Enemy, 3, 3)
+        battlegenerator_CS.targetedEnemy.SubstractHP(5 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.targetedEnemy.setOnFire += 3;
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlaySus();
     }
 }
 
@@ -283,13 +301,14 @@ public class CardFiraga : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //battlegenerator_CS.enemy1_CS.substractHP(5);
-        //battlegenerator_CS.enemy2_CS.substractHP(5);
-        //battlegenerator_CS.enemy3_CS.substractHP(5);
-        //Set on fire (Enemy, 3, 3)
-        //Set on fire (Enemy, 3, 3)
-        //Set on fire (Enemy, 3, 3)
+        battlegenerator_CS.enemy_CS.SubstractHP(5 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.enemy_CS3.SubstractHP(5 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.enemy_CS2.SubstractHP(5 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.enemy_CS.setOnFire += 3;
+        battlegenerator_CS.enemy_CS2.setOnFire += 3;
+        battlegenerator_CS.enemy_CS3.setOnFire += 3;
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlaySwoosh();
     }
 }
 
@@ -305,8 +324,10 @@ public class CardChloroform : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //Sleep (Enemy, 2)
+        battlegenerator_CS.targetedEnemy.intent = -2;
+       battlegenerator_CS.targetedEnemy.sleep += 2;
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayBam();
     }
 }
 
@@ -321,8 +342,9 @@ public class CardRegeneration : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //Regeneration (Hero, 3, 3)
-        battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.hero_CS.regeneration += 3;
+       battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayKlang();
     }
 }
 
@@ -338,10 +360,12 @@ public class CardPanic : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.hero_CS.shield += 8;
-        //Strength (Hero, 2)
-        //Donate (Hero, Enemy, 2)
+        battlegenerator_CS.hero_CS.shield += 8+ battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail;
+        battlegenerator_CS.hero_CS.strength += 2;
+        battlegenerator_CS.targetedEnemy.GiveModifier(battlegenerator_CS.hero_CS.TakeRandomModifier());
+        battlegenerator_CS.targetedEnemy.GiveModifier(battlegenerator_CS.hero_CS.TakeRandomModifier());
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayPukPuk();
     }
 }
 
@@ -357,10 +381,11 @@ public class CardShareTheWeakness : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.hero_CS.shield += 10;
-        //Weak (Hero, 1)
-        //Donate (Hero, Enemy, 1)
+        battlegenerator_CS.hero_CS.shield += 10 + battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail;
+        battlegenerator_CS.hero_CS.weak += 1;
+        battlegenerator_CS.targetedEnemy.GiveModifier(battlegenerator_CS.hero_CS.TakeRandomModifier());
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayBam();
     }
 }
 
@@ -376,10 +401,11 @@ public class CardQuestionableStab : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.targetedEnemy.SubstractHP(9);
-        //Weak (Enemy, 2)
-        //Steal (Hero, Enemy, 2)
+        battlegenerator_CS.targetedEnemy.SubstractHP(9 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.targetedEnemy.weak += 2;
+        battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.targetedEnemy.TakeRandomModifier());
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlaySwoosh();
     }
 }
 
@@ -395,10 +421,11 @@ public class CardGainTheUpperHand : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.targetedEnemy.SubstractHP(7);
-        //Strength (Enemy, 1)
-        //Steal (Hero, Enemy, 1)
+        battlegenerator_CS.targetedEnemy.SubstractHP(7 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.targetedEnemy.strength += 1; ;
+        battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.targetedEnemy.TakeRandomModifier());
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayKlang();
     }
 }
 
@@ -414,13 +441,13 @@ public class CardPickpocket : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //int x1, x2;
-        //x1 = battlegenerator_CS.targetedEnemy.HP;
-        battlegenerator_CS.targetedEnemy.SubstractHP(3);
-        //x2 = battlegenerator_CS.targetedEnemy.HP;
-        //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
-        //rob
+        int x1, x2;
+        x1 = battlegenerator_CS.targetedEnemy.hp;
+        battlegenerator_CS.targetedEnemy.SubstractHP(3 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        x2 = battlegenerator_CS.targetedEnemy.hp;
+        battlegenerator_CS.hero_CS.gold += (x1 - x2);
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayHajs();
     }
 }
 
@@ -436,13 +463,14 @@ public class CardDaylightRobbery : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //int x1, x2;
-        //x1 = battlegenerator_CS.targetedEnemy.HP;
-        battlegenerator_CS.targetedEnemy.SubstractHP(6);
-        //x2 = battlegenerator_CS.targetedEnemy.HP;
-        //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
+        int x1, x2;
+        x1 = battlegenerator_CS.targetedEnemy.hp;
+        battlegenerator_CS.targetedEnemy.SubstractHP(6 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        x2 = battlegenerator_CS.targetedEnemy.hp;
+        battlegenerator_CS.hero_CS.gold += (x1 - x2);
         //rob
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayHajs();
     }
 }
 
@@ -458,13 +486,14 @@ public class CardShoplift : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //int x1, x2;
-        //x1 = battlegenerator_CS.targetedEnemy.HP;
-        battlegenerator_CS.targetedEnemy.SubstractHP(12);
-        //x2 = battlegenerator_CS.targetedEnemy.HP;
-        //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
+        int x1, x2;
+        x1 = battlegenerator_CS.targetedEnemy.hp;
+        battlegenerator_CS.targetedEnemy.SubstractHP(12 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        x2 = battlegenerator_CS.targetedEnemy.hp;
+        battlegenerator_CS.hero_CS.gold += (x1 - x2);
         //rob
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayHajs();
     }
 }
 
@@ -479,26 +508,28 @@ public class CardTheGrandHeist : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //int x1, x2;
-        //x1 = battlegenerator_CS.enemy1_CS.HP;
-        //battlegenerator_CS.enemy1_CS.substractHP(12);
-        //x2 = battlegenerator_CS.enemy1_CS.HP;
-        //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
+        int x1, x2;
+        x1 = battlegenerator_CS.enemy_CS.hp;
+        battlegenerator_CS.enemy_CS.SubstractHP(10 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        x2 = battlegenerator_CS.enemy_CS.hp;
+        battlegenerator_CS.hero_CS.gold += (x1 - x2);
         //rob
 
-        //x1 = battlegenerator_CS.enemy2_CS.HP;
-        //battlegenerator_CS.enemy2_CS.substractHP(12);
-        //x2 = battlegenerator_CS.enemy2_CS.HP;
-        //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
+       
+        x1 = battlegenerator_CS.enemy_CS2.hp;
+        battlegenerator_CS.enemy_CS2.SubstractHP(10 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        x2 = battlegenerator_CS.enemy_CS2.hp;
+        battlegenerator_CS.hero_CS.gold += (x1 - x2);
         //rob
 
-        //x1 = battlegenerator_CS.enemy3_CS.HP;
-        //battlegenerator_CS.enemy3_CS.substractHP(12);
-        //x2 = battlegenerator_CS.enemy3_CS.HP;
-        //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
+        x1 = battlegenerator_CS.enemy_CS3.hp;
+        battlegenerator_CS.enemy_CS3.SubstractHP(10 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        x2 = battlegenerator_CS.enemy_CS3.hp;
+        battlegenerator_CS.hero_CS.gold += (x1 - x2);
         //rob
 
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayHajs();
     }
 }
 
@@ -516,6 +547,7 @@ public class CardQuickMoney : CardTemplate
         battlegenerator_CS.hero_CS.gold += 15;
         //Exhaust
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayHajs();
     }
 }
 
@@ -533,6 +565,7 @@ public class CardOneTimeChance : CardTemplate
         battlegenerator_CS.hero_CS.gold += 200;
         //Fragile
         //Exhaust
+        battlegenerator_CS.musicsystem_CS.PlayHajs();
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -549,13 +582,15 @@ public class CardSuddenBossfight : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //Stun (Enemy, 1)
+        battlegenerator_CS.targetedEnemy.intent = -1;
+        battlegenerator_CS.targetedEnemy.stun += 1;
         battlegenerator_CS.targetedEnemy.maxhp *= 2;
         battlegenerator_CS.targetedEnemy.hp = battlegenerator_CS.targetedEnemy.maxhp;
-        //Stength (Enemy, 10)
+        battlegenerator_CS.targetedEnemy.strength += 10;
         battlegenerator_CS.hero_CS.gold += 50;
-        //Bounty (Enemy, 20)
+        battlegenerator_CS.targetedEnemy.bounty += 20;
         battlegenerator_CS.hero_CS.energy -= cardCost;
+        battlegenerator_CS.musicsystem_CS.PlayBam();
     }
 }
 
@@ -571,7 +606,7 @@ public class CardGoldenSlash : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.targetedEnemy.SubstractHP(battlegenerator_CS.hero_CS.gold);
+        battlegenerator_CS.targetedEnemy.SubstractHP(battlegenerator_CS.hero_CS.gold + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
         battlegenerator_CS.hero_CS.gold = 0;        
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
@@ -614,7 +649,7 @@ public class CardAegisOfGold : CardTemplate
     {
         if (battlegenerator_CS.hero_CS.gold >= 10)
         {
-            battlegenerator_CS.hero_CS.shield += 20;
+            battlegenerator_CS.hero_CS.shield += 20 + battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail;
             battlegenerator_CS.hero_CS.gold -= 10;
             battlegenerator_CS.hero_CS.energy -= cardCost;
         }        
@@ -636,7 +671,7 @@ public class CardMoneyPunch : CardTemplate
         if (battlegenerator_CS.hero_CS.gold >= 150)
         {
             battlegenerator_CS.hero_CS.gold -= 150;
-            battlegenerator_CS.targetedEnemy.SubstractHP(8);            
+            battlegenerator_CS.targetedEnemy.SubstractHP(8 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);            
             battlegenerator_CS.hero_CS.gold += 150;
             battlegenerator_CS.hero_CS.energy -= cardCost;
         }
@@ -658,10 +693,8 @@ public class CardFairTrade : CardTemplate
         if (battlegenerator_CS.hero_CS.gold >= 15)
         {
             battlegenerator_CS.hero_CS.gold -= 15;
-            //Steal (Hero, Enemy, 1)
-            //Bounty (Enemy, 15)
-            battlegenerator_CS.targetedEnemy.SubstractHP(8);
-            battlegenerator_CS.hero_CS.gold += 150;
+            battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.targetedEnemy.TakeRandomModifier());
+            battlegenerator_CS.targetedEnemy.bounty += 15;
             battlegenerator_CS.hero_CS.energy -= cardCost;
         }
     }
@@ -681,7 +714,7 @@ public class CardMoneyIsPower : CardTemplate
         if (battlegenerator_CS.hero_CS.gold >= 300)
         {
             battlegenerator_CS.hero_CS.gold -= 300;
-            battlegenerator_CS.hero_CS.maxenergy += 2;
+            battlegenerator_CS.hero_CS.maxenergy += 1;
             battlegenerator_CS.hero_CS.energy -= cardCost;
         }
     }
@@ -699,7 +732,7 @@ public class CardBasicEconomy : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //Donate (Hero, Enemy, 1)
+        battlegenerator_CS.targetedEnemy.GiveModifier(battlegenerator_CS.hero_CS.TakeRandomModifier());
         battlegenerator_CS.hero_CS.gold += 5;        
         battlegenerator_CS.hero_CS.energy -= cardCost;
         
@@ -717,8 +750,8 @@ public class CardTargetPractice : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //Donate (Hero, Enemy, 1)
-        //Bounty (Hero, 5)
+        battlegenerator_CS.hero_CS.shield += 8 + battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail;
+        battlegenerator_CS.hero_CS.bounty += 5;
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -739,16 +772,16 @@ public class CardFluidExchange : CardTemplate
         {
             battlegenerator_CS.hero_CS.gold -= 15;
 
-            //int x1, x2;
-            //x1 = battlegenerator_CS.targetedEnemy.HP;
-            battlegenerator_CS.targetedEnemy.SubstractHP(10);
-            //x2 = battlegenerator_CS.targetedEnemy.HP;
-            //battlegenerator_CS.hero_CS.Gold += (x2 - x1);    
+            int x1, x2;
+            x1 = battlegenerator_CS.targetedEnemy.hp;
+            battlegenerator_CS.targetedEnemy.SubstractHP(10 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+            x2 = battlegenerator_CS.targetedEnemy.hp;
+            battlegenerator_CS.hero_CS.gold += (x1 - x2);
             //rob
 
-            battlegenerator_CS.hero_CS.shield += 10;
-            //Steal (Hero, Enemy, 1)
-            //Donate (Hero, Enemy, 1)
+            battlegenerator_CS.hero_CS.shield += 10 + battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail;
+            battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.targetedEnemy.TakeRandomModifier());
+            battlegenerator_CS.targetedEnemy.GiveModifier(battlegenerator_CS.hero_CS.TakeRandomModifier());
             //Exhaust
             battlegenerator_CS.hero_CS.energy -= cardCost;
         }
@@ -766,8 +799,8 @@ public class CardBastion : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //Dexterous (Hero, 1)
-        battlegenerator_CS.hero_CS.shield += 6;        
+        battlegenerator_CS.hero_CS.dexterous += 1;
+        battlegenerator_CS.hero_CS.shield += 6 + battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail;        
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -784,10 +817,11 @@ public class CardOneForAll : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //Vulnerable (Hero, 2)
-        //Frail (Hero, 2)
-        //Weak (Hero, 2)
-        //Donate (Hero, Enemy, 6)
+        battlegenerator_CS.hero_CS.vulnerable += 2;
+        battlegenerator_CS.hero_CS.frail += 2;
+        battlegenerator_CS.hero_CS.weak += 2;
+        for (int i = 0; i < 6; i++)
+            battlegenerator_CS.targetedEnemy.GiveModifier(battlegenerator_CS.hero_CS.TakeRandomModifier());
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -803,15 +837,18 @@ public class CardAllForOne : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //Strength (Enemy1, 1)
-        //Strength (Enemy2, 1)
-        //Strength (Enemy3, 1)
-        //Dexterous (Enemy1, 1)
-        //Dexterous (Enemy2, 1)
-        //Dexterous (Enemy3, 1)
-        //Steal (Hero, Enemy1, 2)
-        //Steal (Hero, Enemy2, 2)
-        //Steal (Hero, Enemy3, 2)
+        battlegenerator_CS.enemy_CS.strength += 1;
+        battlegenerator_CS.enemy_CS2.strength += 1;
+        battlegenerator_CS.enemy_CS3.strength += 1;
+        battlegenerator_CS.enemy_CS.dexterous += 1;
+        battlegenerator_CS.enemy_CS2.dexterous += 1;
+        battlegenerator_CS.enemy_CS3.dexterous += 1;
+        battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.enemy_CS.TakeRandomModifier());
+        battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.enemy_CS.TakeRandomModifier());
+        battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.enemy_CS2.TakeRandomModifier());
+        battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.enemy_CS2.TakeRandomModifier());
+        battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.enemy_CS3.TakeRandomModifier());
+        battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.enemy_CS3.TakeRandomModifier());
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -821,17 +858,17 @@ public class CardBasicMovements : CardTemplate
     public override void Replace()
     {
         cardName = "Basic Movements";
-        cardDescription = "Deal 1 damage, get 1 shield, get 1 strength and 1 dexterous for the rest of this turn.";
+        cardDescription = "Deal 1 damage, get 1 shield, get 1 strength and 1 dexterous.";
         this.requiresTarget = true;
         cardCost = 0;
         cardSprite = Resources.Load<Sprite>("Basic_Movements");
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.targetedEnemy.SubstractHP(1);
-        battlegenerator_CS.hero_CS.shield += 1;
-        //Strength (Hero, 1)
-        //Dexterous (Hero, 1)        
+        battlegenerator_CS.targetedEnemy.SubstractHP(1 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.hero_CS.shield += 1 + battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail;
+        battlegenerator_CS.hero_CS.strength += 1;
+        battlegenerator_CS.hero_CS.dexterous += 1;      
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -848,7 +885,7 @@ public class CardFinishingThrust : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //battlegenerator_CS.targetedEnemy.substractHP(2 * battlegenerator_CS.targetedEnemy.NumberOfModifiers);
+        battlegenerator_CS.targetedEnemy.SubstractHP(2 * battlegenerator_CS.targetedEnemy.NumberOfMod() + 2* battlegenerator_CS.hero_CS.strength -2* battlegenerator_CS.hero_CS.weak);
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -864,7 +901,7 @@ public class CardFinalDefence : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        //battlegenerator_CS.hero_CS.Shield += 3 * battlegenerator_CS.hero_CS.NumberOfModifiers;
+        battlegenerator_CS.hero_CS.shield += 3 *( battlegenerator_CS.hero_CS.NumberOfMod() + battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail);
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -880,8 +917,11 @@ public class CardGamblingHeart : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.hero_CS.shield += 3;
-        //GetRandom Modifier (Hero, 1)
+        System.Random rnd = new System.Random();
+        battlegenerator_CS.hero_CS.shield += 3 + battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail;
+        battlegenerator_CS.hero_CS.GiveModifier(rnd.Next(0, 9));
+        if (battlegenerator_CS.hero_CS.stun > 0 || battlegenerator_CS.hero_CS.sleep > 0)
+            battlegenerator_CS.hero_CS.energy = -1;
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }
@@ -898,8 +938,13 @@ public class CardAceInTheHole : CardTemplate
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.targetedEnemy.SubstractHP(3);        
-        //GetRandom Modifier (Enemy, 1)
+        System.Random rnd = new System.Random();
+        battlegenerator_CS.targetedEnemy.SubstractHP(3 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.targetedEnemy.GiveModifier(rnd.Next(0, 9));
+        if (battlegenerator_CS.targetedEnemy.stun > 0)
+            battlegenerator_CS.targetedEnemy.intent = -1;
+        if (battlegenerator_CS.targetedEnemy.sleep > 0)
+            battlegenerator_CS.targetedEnemy.intent = -2;
         battlegenerator_CS.hero_CS.energy -= cardCost;
     }
 }

@@ -38,6 +38,7 @@ public class Ectocobra : Enemy
                     battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
                     battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
                     battlegenerator_CS.hero_CS.SubstractHP(1 + strength - weak);
+                    battlegenerator_CS.musicsystem_CS.PlayPukPuk();
                     break;
                 case 2:
                     this.shield += (1 + dexterous - frail);
@@ -45,15 +46,23 @@ public class Ectocobra : Enemy
                     this.shield += (1 + dexterous - frail);
                     this.shield += (1 + dexterous - frail);
                     this.shield += (1 + dexterous - frail);
+                    battlegenerator_CS.musicsystem_CS.PlayPukPuk();
                     break;
                 case 3:
                     this.strength += 2;
                     this.dexterous += 2;
+                    battlegenerator_CS.musicsystem_CS.PlayKlang();
                     break;
 
 
             }
             this.CalculateMove();
+            if (this.stun > 0)
+            {
+                stun--;
+                if (this.stun > 0)
+                    this.intent = -1;
+            }
         }
     }
 

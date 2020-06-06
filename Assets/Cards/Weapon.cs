@@ -19,6 +19,8 @@ public class Weapon : MonoBehaviour
             this.currDurability--;
             battlegenerator_CS.hero_CS.energy--;
             battlegenerator_CS.pointer_CS.HideThis();
+            battlegenerator_CS.musicsystem_CS.PlaySwoosh();
+
         }
 
 

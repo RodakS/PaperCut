@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
 
     public Text enemyHP;
     public Text enemyShield;
-    public Text enemyStrength;
     public Text intentText;
     public BattleGenerator battlegenerator_CS;
     public int intent = 1;
@@ -49,6 +48,7 @@ public class Enemy : MonoBehaviour
             if (this.intent == -2)
             {
                 this.CalculateMove();
+                this.sleep = 0;
             }
         }
         }
@@ -84,6 +84,12 @@ public class Enemy : MonoBehaviour
 
             }
             this.CalculateMove();
+            if (this.stun > 0)
+            {
+                stun--;
+                if (this.stun > 0)
+                    this.intent = -1;
+            }
         }
         }
 
@@ -101,62 +107,89 @@ public class Enemy : MonoBehaviour
             intent = 2;
         else intent = 3;
         }
+    public bool allModGreaterThan0()
+    {
+        int x = strength + weak + dexterous + frail + setOnFire + vulnerable + bounty + stun + sleep;
+        if (x == 0)
+            return false;
+        else
+            return true;
+    }
+
+    public int NumberOfMod()
+    {
+        int x = strength + weak + dexterous + frail + setOnFire + vulnerable + bounty + stun + sleep;
+        return x;
+    }
 
     public int TakeRandomModifier ()
     {
-        List<int> returnee = new List<int>();
+        if (allModGreaterThan0())
 
-        returnee.Add(this.strength);
-        returnee.Add(this.setOnFire);
-        returnee.Add(this.sleep);
-        returnee.Add(this.weak);
-        returnee.Add(this.vulnerable);
-        returnee.Add(this.dexterous);
-        returnee.Add(this.frail);
-        returnee.Add(this.bounty);
-        returnee.Add(this.stun);
-
-        int randomInt = 0;
-        while (randomInt<1)
-            randomInt = returnee[new System.Random().Next(0, returnee.Count)];
-
-
-        switch (randomInt)
         {
-            case 0:
-                this.strength--;
-                break;
-            case 1:
-                this.setOnFire--;
-                break;
-            case 2:
-                this.sleep--;
-                if (this.sleep < 1)
-                    this.CalculateMove();
-                break;
-            case 3:
-                this.weak--;
-                break;
-            case 4:
-                this.vulnerable--;
-                break;
-            case 5:
-                this.dexterous--;
-                break;
-            case 6:
-                this.frail--;
-                break;
-            case 7:
-                this.bounty--;
-                break;
-            case 8:
-                this.stun--;
-                if (this.stun < 1)
-                    this.CalculateMove();
-                break;         
+            List<int> returnee = new List<int>();
+
+            returnee.Add(this.strength);
+            returnee.Add(this.setOnFire);
+            returnee.Add(this.sleep);
+            returnee.Add(this.weak);
+            returnee.Add(this.vulnerable);
+            returnee.Add(this.dexterous);
+            returnee.Add(this.frail);
+            returnee.Add(this.bounty);
+            returnee.Add(this.stun);
+
+            int randomInt = 9;
+            randomInt = new System.Random().Next(0, returnee.Count);
+            while (returnee[randomInt] < 1)
+            {
+                randomInt = new System.Random().Next(0, returnee.Count);
+            }
+           
+
+
+                switch (randomInt)
+                {
+                    case 0:
+                        this.strength--;
+                        break;
+                    case 1:
+                        this.setOnFire--;
+                        break;
+                    case 2:
+                        this.sleep--;
+                        if (this.sleep < 1)
+                            this.CalculateMove();
+                        break;
+                    case 3:
+                        this.weak--;
+                        break;
+                    case 4:
+                        this.vulnerable--;
+                        break;
+                    case 5:
+                        this.dexterous--;
+                        break;
+                    case 6:
+                        this.frail--;
+                        break;
+                    case 7:
+                        this.bounty--;
+                        break;
+                    case 8:
+                        this.stun--;
+                        if (this.stun < 1)
+                            this.CalculateMove();
+                        break;
+
+                
+                }
+            return randomInt;
+           
+           
         }
 
-        return randomInt;
+        else return -1;
 
     }
     public void GiveModifier(int modifier)
@@ -227,7 +260,6 @@ public class Enemy : MonoBehaviour
     {
         enemyHP.text = this.hp + "/" + this.maxhp;
         enemyShield.text = "Shield: " + this.shield;
-        enemyStrength.text = "Strength : " + this.strength;
         intentText.text = this.IntentText();
     }
 
@@ -236,7 +268,6 @@ public class Enemy : MonoBehaviour
         this.intentText = copiedFrom.intentText;
         this.enemyHP = copiedFrom.enemyHP;
         this.enemyShield = copiedFrom.enemyShield;
-        this.enemyStrength = copiedFrom.enemyStrength;
         this.battlegenerator_CS = copiedFrom.battlegenerator_CS;
         return this;
     }

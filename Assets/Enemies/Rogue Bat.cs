@@ -34,18 +34,27 @@ public class RogueBat : Enemy
             {
                 case 1:
                     battlegenerator_CS.hero_CS.SubstractHP(6 + strength - weak);
+                    battlegenerator_CS.musicsystem_CS.PlayBam();
                     break;
                 case 2:
                     this.shield += (10 + dexterous - frail);
+                    battlegenerator_CS.musicsystem_CS.PlaySus();
                     break;
                 case 3:
                     this.shield += (6 + dexterous - frail);
+                    battlegenerator_CS.musicsystem_CS.PlaySus();
                     this.strength += 2;
                     break;
 
 
             }
             this.CalculateMove();
+            if (this.stun > 0)
+            {
+                stun--;
+                if (this.stun > 0)
+                    this.intent = -1;
+            }
         }
     }
 

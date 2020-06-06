@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-   // public Text enemyHPText; 
+
+    public Text gold;
+    // public Text enemyHPText; 
     public Text heroHPText;
   //  public Text enemyShieldText; 
     public Text heroShieldText;
@@ -13,7 +15,6 @@ public class HUD : MonoBehaviour
  //   public Text enemyStrength;
     public Text heroEnergy;
   //  public Text enemyIntent;
-    public Text heroStrength;
     public Text durability;
     public Text cards;
     public Text GraveyardCardsNumber;
@@ -30,12 +31,13 @@ public class HUD : MonoBehaviour
        
         heroShieldText.text = "Shield: " + battlegenerator_CS.hero_CS.shield;
         heroEnergy.text = "Energy:" + battlegenerator_CS.hero_CS.energy + "/" + battlegenerator_CS.hero_CS.maxenergy;
-       
-        heroStrength.text = "Strength : " + battlegenerator_CS.hero_CS.strength;
+        gold.text = battlegenerator_CS.hero_CS.gold+" ";
         WeaponShieldDurability.text = "Durability " + battlegenerator_CS.weapon_CS.currDurability + "/" + battlegenerator_CS.weapon_CS.maxDurability + " Durability " + battlegenerator_CS.shield_CS.currDurability + "/" + battlegenerator_CS.shield_CS.maxDurability;
         battlegenerator_CS.enemy_CS.UpdateEnemyHUD();
         battlegenerator_CS.enemy_CS2.UpdateEnemyHUD();
         battlegenerator_CS.enemy_CS3.UpdateEnemyHUD();
+
+        battlegenerator_CS.statuscontrol_CS.UpdateWithHero();
 
 
     }

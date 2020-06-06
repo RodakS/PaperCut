@@ -43,14 +43,20 @@ public class BattleSystem : MonoBehaviour
         {
             
             battlegenerator_CS.enemyPrefab.SetActive(false);
+            battlegenerator_CS.hero_CS.gold += battlegenerator_CS.enemy_CS.bounty;
+            battlegenerator_CS.enemy_CS.bounty = 0;
         }
         if (battlegenerator_CS.enemy_CS2.IsDead())
         {
             battlegenerator_CS.enemyPrefab2.SetActive(false);
+            battlegenerator_CS.hero_CS.gold += battlegenerator_CS.enemy_CS.bounty;
+            battlegenerator_CS.enemy_CS.bounty = 0;
         }
         if (battlegenerator_CS.enemy_CS3.IsDead())
         {
             battlegenerator_CS.enemyPrefab3.SetActive(false);
+            battlegenerator_CS.hero_CS.gold += battlegenerator_CS.enemy_CS.bounty;
+            battlegenerator_CS.enemy_CS.bounty = 0;
         }
 
         battlegenerator_CS.hud_CS.UpdateHUD();
@@ -92,9 +98,20 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.ENEMYTURN;
         if (!(battlegenerator_CS.enemy_CS.IsDead()))
+        {
             battlegenerator_CS.enemy_CS.ExecuteTurn();
+            CheckHP();
+            
+           // System.Threading.Thread.Sleep(500);
+        }
+
         if (!(battlegenerator_CS.enemy_CS2.IsDead()))
+        {
             battlegenerator_CS.enemy_CS2.ExecuteTurn();
+            CheckHP();
+           // System.Threading.Thread.Sleep(500);
+        }
+
         if (!(battlegenerator_CS.enemy_CS3.IsDead()))
             battlegenerator_CS.enemy_CS3.ExecuteTurn();
         CheckHP();

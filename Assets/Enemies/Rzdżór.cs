@@ -12,8 +12,7 @@ public class Rzdzor : Enemy
         this.hp = 15;
         this.shield = 0;
     }
-
-    public int stolenMoney=0;
+    
 
     public override void ExecuteTurn()
     {
@@ -33,28 +32,41 @@ public class Rzdzor : Enemy
             switch (intent)
             {
                 case 1:
+                    int hp1, hp2;
+                    hp1 = battlegenerator_CS.hero_CS.hp;
                     battlegenerator_CS.hero_CS.SubstractHP(5 + strength - weak);
-                    battlegenerator_CS.hero_CS.gold-= (5 + strength - weak);
-                    this.stolenMoney+= (5 + strength - weak);
+                    hp2 = battlegenerator_CS.hero_CS.hp;
+                    battlegenerator_CS.hero_CS.gold-= (hp1-hp2);
+                    battlegenerator_CS.musicsystem_CS.PlayHajs();
+                    this.bounty+= (hp1 - hp2);
                     if (battlegenerator_CS.hero_CS.gold <= 0)
                         battlegenerator_CS.hero_CS.gold = 0;
                     break;
                 case 2:
                     this.shield += (10 + dexterous - frail);
+                    battlegenerator_CS.musicsystem_CS.PlayKlang();
                     break;
                 case 3:
+                    this.bounty = 0;
                     this.hp = -10;
+                    battlegenerator_CS.musicsystem_CS.PlaySwoosh();
                     break;
 
 
             }
             this.CalculateMove();
+            if (this.stun > 0)
+            {
+                stun--;
+                if (this.stun > 0)
+                    this.intent = -1;
+            }
         }
     }
     public bool blocked = false;
     public override void CalculateMove()
     {
-        if (this.stolenMoney < 14)
+        if (this.bounty < 14)
             intent = 1;
         else if (!(blocked))
         {

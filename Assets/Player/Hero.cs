@@ -37,7 +37,23 @@ using UnityEngine;
     }
     public void ResetEnergy()
     {
-        this.energy = this.maxenergy;
+
+        if (this.regeneration > 0)
+        {
+            regeneration--;
+            this.hp += this.regeneration;
+            if (this.hp > this.maxhp)
+                this.hp = this.maxhp;
+        }
+        if (this.setOnFire > 0)
+        {
+            setOnFire--;
+            this.hp -= this.setOnFire;
+        }
+        if (this.sleep < 1 && this.stun < 1)
+            this.energy = this.maxenergy;
+        else
+            this.energy = -1;
     }
 
     public bool IsDead()
@@ -69,62 +85,79 @@ using UnityEngine;
                 damage -= this.shield;
                 this.shield = 0;
                 this.hp -= damage;
+            if (this.sleep>0)
+            {
+                this.sleep = 0;
             }
         }
+        }
 
-      
+    public bool allModGreaterThan0()
+    {
+        int x = strength + weak + dexterous + frail + setOnFire + vulnerable + bounty + stun + sleep;
+        if (x == 0)
+            return false;
+        else
+            return true;
+    }
 
     public int TakeRandomModifier()
     {
+        if (allModGreaterThan0())
 
-        List<int> returnee = new List<int>();
-
-        returnee.Add(this.strength);
-        returnee.Add(this.setOnFire);
-        returnee.Add(this.sleep);
-        returnee.Add(this.weak);
-        returnee.Add(this.vulnerable);
-        returnee.Add(this.dexterous);
-        returnee.Add(this.frail);
-        returnee.Add(this.bounty);
-        returnee.Add(this.stun);
-
-        int randomInt = 0;
-        while (randomInt < 1)
-            randomInt = returnee[new System.Random().Next(0, returnee.Count)];
-        
-        switch (randomInt)
         {
-            case 0:
-                this.strength--;
-                break;
-            case 1:
-                this.setOnFire--;
-                break;
-            case 2:
-                this.sleep--;
-                break;
-            case 3:
-                this.weak--;
-                break;
-            case 4:
-                this.vulnerable--;
-                break;
-            case 5:
-                this.dexterous--;
-                break;
-            case 6:
-                this.frail--;
-                break;
-            case 7:
-                this.bounty--;
-                break;
-            case 8:
-                this.stun--;
-                break;
-        }
 
-        return randomInt;
+            List<int> returnee = new List<int>();
+
+            returnee.Add(this.strength);
+            returnee.Add(this.setOnFire);
+            returnee.Add(this.sleep);
+            returnee.Add(this.weak);
+            returnee.Add(this.vulnerable);
+            returnee.Add(this.dexterous);
+            returnee.Add(this.frail);
+            returnee.Add(this.bounty);
+            returnee.Add(this.stun);
+
+            int randomInt = 0;
+            randomInt = new System.Random().Next(0, returnee.Count);
+            while (returnee[randomInt] < 1)
+                randomInt = new System.Random().Next(0, returnee.Count);
+
+            switch (randomInt)
+            {
+                case 0:
+                    this.strength--;
+                    break;
+                case 1:
+                    this.setOnFire--;
+                    break;
+                case 2:
+                    this.sleep--;
+                    break;
+                case 3:
+                    this.weak--;
+                    break;
+                case 4:
+                    this.vulnerable--;
+                    break;
+                case 5:
+                    this.dexterous--;
+                    break;
+                case 6:
+                    this.frail--;
+                    break;
+                case 7:
+                    this.bounty--;
+                    break;
+                case 8:
+                    this.stun--;
+                    break;
+            }
+
+            return randomInt;
+        }
+        else return -1;
 
     }
     public void GiveModifier(int modifier)
@@ -165,16 +198,18 @@ using UnityEngine;
 
         }
     }
+    public int NumberOfMod()
+    {
+        int x = strength + weak + dexterous + frail + setOnFire + vulnerable + bounty + stun + sleep;
+        return x;
+    }
 
 
 
 
 
 
-    void Update()
-        {
-
-        }
+    
     }
 
 

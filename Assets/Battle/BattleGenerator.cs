@@ -22,6 +22,8 @@ public class BattleGenerator : MonoBehaviour
     public Weapon weapon_CS;
     public Enemy targetedEnemy;
     public PointerArrow pointer_CS;
+    public StatusControl statuscontrol_CS;
+    public MusicSystem musicsystem_CS;
 
     public Map map_CS;
     public MapSystem mapsystem_CS;
