@@ -47,9 +47,9 @@ public class HUD : MonoBehaviour
     }
     public void DeckUpdate(int s, int t, int p)
     {
-        cards.text = "Cards in: " + s;
-        GraveyardCardsNumber.text = "Cards in: " + t;
-        ExhaustCardsNumber.text = "Cards in: " + p;
+        cards.text = s+ "";
+        GraveyardCardsNumber.text = t + "";
+        ExhaustCardsNumber.text = p + "";
     }
     public void CardUpdate(CardTemplate cardFromDeck, int cardNumer)
     {
