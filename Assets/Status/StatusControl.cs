@@ -22,7 +22,7 @@ public class StatusControl : MonoBehaviour
         this.strength.text = battleGenerator_CS.hero_CS.strength.ToString();
         this.weak.text = battleGenerator_CS.hero_CS.weak.ToString();
         this.frail.text = battleGenerator_CS.hero_CS.frail.ToString();
-        this.dexterous.text = battleGenerator_CS.hero_CS.strength.ToString();
+        this.dexterous.text = battleGenerator_CS.hero_CS.dexterous.ToString();
         this.regenerate.text = battleGenerator_CS.hero_CS.regeneration.ToString();
         this.setonfire.text = battleGenerator_CS.hero_CS.setOnFire.ToString();
         this.vulnerable.text = battleGenerator_CS.hero_CS.vulnerable.ToString();
@@ -37,7 +37,7 @@ public class StatusControl : MonoBehaviour
         this.strength.text = battleGenerator_CS.enemy_CS.strength.ToString();
         this.weak.text = battleGenerator_CS.enemy_CS.weak.ToString();
         this.frail.text = battleGenerator_CS.enemy_CS.frail.ToString();
-        this.dexterous.text = battleGenerator_CS.enemy_CS.strength.ToString();
+        this.dexterous.text = battleGenerator_CS.enemy_CS.dexterous.ToString();
         this.regenerate.text = 0.ToString();
         this.setonfire.text = battleGenerator_CS.enemy_CS.setOnFire.ToString();
         this.vulnerable.text = battleGenerator_CS.enemy_CS.vulnerable.ToString();

@@ -8,15 +8,15 @@ using UnityEngine;
     public class Hero : MonoBehaviour
     {
     public BattleGenerator battlegenerator_CS;
-    public int maxhp = 80;
-        public int hp = 80;
+    public int maxhp = 40;
+        public int hp = 40;
         public int shield=0;
         public int cardDraw = 5;
         public int maxenergy = 3;
         public int energy = 3;
         private const int maxCards = 10;
         public int regeneration = 0;
-        public int gold = 0;
+        public int gold = 50;
         public int vulnerable = 0;
         public int bounty = 0;
         public int setOnFire = 0;
@@ -35,8 +35,14 @@ using UnityEngine;
     {
         this.gold += goldGained;
     }
+
+    public void ResetShield()
+    {
+        this.shield = 0;
+    }
     public void ResetEnergy()
     {
+        this.ResetShield();
 
         if (this.regeneration > 0)
         {

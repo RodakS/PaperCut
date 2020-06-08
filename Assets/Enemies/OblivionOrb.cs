@@ -35,7 +35,6 @@ public class OblivionOrb : Enemy
             {
                 case 0:
                     battlegenerator_CS.enemyGenerator_CS.GenereateOrbUnderlings();
-                    battlegenerator_CS.hero_CS.hp = 80;
                     battlegenerator_CS.musicsystem_CS.PlayPukPuk();
                     break;
                 case 1:

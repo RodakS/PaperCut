@@ -32,6 +32,7 @@ public class Deck : MonoBehaviour
             deckList.RemoveAt(i);
         }
         battlegenerator_CS.hud_CS.DeckUpdate(deckList.Count,graveyardList.Count, exhaustList.Count);
+        this.UpdateCards();
     }
 
     public void CardPlay(BattleGenerator battlegenerator_CS,int cardNumer)
@@ -59,6 +60,7 @@ public class Deck : MonoBehaviour
                 battlegenerator_CS.pointer_CS.HideThis();
             }
         }
+        this.UpdateCards();
     }
 
     public void CardDraw(int cardNumer)
@@ -74,5 +76,22 @@ public class Deck : MonoBehaviour
             }
             deckList.RemoveAt(i);   //usuwam zagrana karte
             battlegenerator_CS.hud_CS.DeckUpdate(deckList.Count, graveyardList.Count, exhaustList.Count);
+        this.UpdateCards();
+    }
+
+    public void VoidDamage()
+    {
+        if (cardOnSlot[0].cardName == "Void")
+            battlegenerator_CS.hero_CS.SubstractHP(1);
+        if (cardOnSlot[1].cardName == "Void")
+            battlegenerator_CS.hero_CS.SubstractHP(1);
+        if (cardOnSlot[2].cardName == "Void")
+            battlegenerator_CS.hero_CS.SubstractHP(1);
+    }
+    public void UpdateCards()
+    {
+        cardOnSlot[0].GetModifiers(battlegenerator_CS);
+        cardOnSlot[1].GetModifiers(battlegenerator_CS);
+        cardOnSlot[2].GetModifiers(battlegenerator_CS);
     }
 }

@@ -17,6 +17,11 @@ public class EndBattleScript : MonoBehaviour
 
     public void BattleWon()
     {
+        if (battlegenerator_CS.weapon_CS.currDurability < battlegenerator_CS.weapon_CS.maxDurability)
+        battlegenerator_CS.weapon_CS.currDurability++;
+        if (battlegenerator_CS.shield_CS.currDurability < battlegenerator_CS.shield_CS.maxDurability)
+            battlegenerator_CS.shield_CS.currDurability++;
+
         battlegenerator_CS.hero_CS.energy = battlegenerator_CS.hero_CS.maxenergy;
         battleCanvas.enabled = false;
         cardToChooseCanvas.enabled = true;

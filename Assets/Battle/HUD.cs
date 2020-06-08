@@ -39,6 +39,8 @@ public class HUD : MonoBehaviour
 
         battlegenerator_CS.statuscontrol_CS.UpdateWithHero();
 
+        battlegenerator_CS.deck_CS.UpdateCards();
+
 
     }
     public void StatusUpdate(BattleState STATE)

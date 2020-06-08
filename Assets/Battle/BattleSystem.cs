@@ -27,7 +27,8 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerTurn()
     {
-        state= BattleState.PLAYERTURN;
+        
+        state = BattleState.PLAYERTURN;
 
         battlegenerator_CS.hero_CS.ResetEnergy(); 
 
@@ -90,6 +91,7 @@ public class BattleSystem : MonoBehaviour
             return;
         }
 
+        battlegenerator_CS.deck_CS.VoidDamage();
         EnemyTurn();
  
     }
@@ -99,7 +101,8 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.ENEMYTURN;
         if (!(battlegenerator_CS.enemy_CS.IsDead()))
         {
-            battlegenerator_CS.enemy_CS.ExecuteTurn();
+            battlegenerator_CS.enemy_CS.ResetShield();
+           battlegenerator_CS.enemy_CS.ExecuteTurn();
             CheckHP();
             
            // System.Threading.Thread.Sleep(500);
@@ -107,14 +110,18 @@ public class BattleSystem : MonoBehaviour
 
         if (!(battlegenerator_CS.enemy_CS2.IsDead()))
         {
+            battlegenerator_CS.enemy_CS2.ResetShield();
             battlegenerator_CS.enemy_CS2.ExecuteTurn();
             CheckHP();
            // System.Threading.Thread.Sleep(500);
         }
 
         if (!(battlegenerator_CS.enemy_CS3.IsDead()))
+        {
+            battlegenerator_CS.enemy_CS.ResetShield();
             battlegenerator_CS.enemy_CS3.ExecuteTurn();
-        CheckHP();
+            CheckHP();
+        }
         if (state == BattleState.ENEMYTURN)
         {
             PlayerTurn();

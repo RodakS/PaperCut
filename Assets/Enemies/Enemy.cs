@@ -32,6 +32,10 @@ public class Enemy : MonoBehaviour
             return true;
         else return false;
     }
+    public void ResetShield()
+    {
+        this.shield = 0;
+    }
 
     public void SubstractHP(int Damage)
         {
