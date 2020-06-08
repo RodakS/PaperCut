@@ -27,6 +27,7 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerTurn()
     {
+        battlegenerator_CS.deck_CS.UpdateCards();
         
         state = BattleState.PLAYERTURN;
 
@@ -79,7 +80,7 @@ public class BattleSystem : MonoBehaviour
 
         }
         battlegenerator_CS.hud_CS.StatusUpdate(state);
-
+        battlegenerator_CS.deck_CS.UpdateCards();
 
 
     }

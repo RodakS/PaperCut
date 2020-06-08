@@ -529,6 +529,7 @@ public class CardQuestionableStab : CardTemplate
         battlegenerator_CS.targetedEnemy.SubstractHP(9 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
         battlegenerator_CS.targetedEnemy.weak += 2;
         battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.targetedEnemy.TakeRandomModifier());
+        battlegenerator_CS.hero_CS.GiveModifier(battlegenerator_CS.targetedEnemy.TakeRandomModifier());
         battlegenerator_CS.hero_CS.energy -= cardCost;
         battlegenerator_CS.musicsystem_CS.PlaySwoosh();
     }
