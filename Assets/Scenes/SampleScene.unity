@@ -10937,13 +10937,13 @@ MonoBehaviour:
   maxenergy: 3
   energy: 3
   regeneration: 0
-  gold: 50
+  gold: 30
   vulnerable: 0
   bounty: 0
   setOnFire: 0
   sleep: 0
   stun: 0
-  strength: 10
+  strength: 0
   weak: 0
   dexterous: 0
   frail: 0
