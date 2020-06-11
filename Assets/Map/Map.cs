@@ -9,10 +9,12 @@ public class Map : MonoBehaviour
     //public LocationTemplate locations_CS;
     
     public List<LocationTemplate> mainLocationsList = new List<LocationTemplate>();
+    public GameObject mark;
 
     private void Start()
     {
         GenerateLocations();
+        mark.SetActive(false);
     }
 
     public void GenerateLocations()

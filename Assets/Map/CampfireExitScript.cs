@@ -8,7 +8,7 @@ public class CampfireExitScript : MonoBehaviour
     public CampFireScript campfire_CS;
     public Canvas mapCanvas;
     public Canvas campfireCanvas;
- public void CampfireExit()
+    public void CampfireExit()
     {
         if (campfire_CS.isInCampfire==false)
         {

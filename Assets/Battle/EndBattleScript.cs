@@ -8,6 +8,7 @@ public class EndBattleScript : MonoBehaviour
     private BattleSystem battleSystem_CS;
     public Canvas battleCanvas;
     public Canvas cardToChooseCanvas;
+    public GameObject endScreen;
 
     void Start()
     {
@@ -40,5 +41,12 @@ public class EndBattleScript : MonoBehaviour
         // dodac czysczenie statusow
         battlegenerator_CS.hud_CS.UpdateHUD();
         battlegenerator_CS.hud_CS.DeckUpdate(battlegenerator_CS.deck_CS.deckList.Count, battlegenerator_CS.deck_CS.graveyardList.Count, battlegenerator_CS.deck_CS.exhaustList.Count);
+    }
+
+    public void GameWon()
+    {
+        endScreen.SetActive(true);
+
+        //ekran końcowy
     }
 }

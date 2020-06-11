@@ -11,10 +11,7 @@ public abstract class LocationTemplate : MonoBehaviour
     public string locationDescription = "Description";
     public int id;
     public int encounter;
-    public string encounterDescription = "Description";
-    public int id_child_1;
-    public int id_child_2;
-    public int id_child_3;
+    public string encounterDescription = "Description";    
     public Sprite locationSprite;
     public int posX;
     public int posY;
@@ -31,8 +28,6 @@ public class Location1 : LocationTemplate
         encounter = 1;
         encounterDescription = "Fight against a weak enemy.";
         id = 1;
-        id_child_1 = 2;
-        id_child_2 = 3;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -52,7 +47,6 @@ public class Location2 : LocationTemplate
         encounter = 1;
         encounterDescription = "Fight against a weak enemy.";
         id = 2;
-        id_child_1 = 4;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -71,8 +65,6 @@ public class Location3 : LocationTemplate
         encounter = 2;
         encounterDescription = "Fight against multiple weak enemies.";
         id = 3;
-        id_child_1 = 5;
-        id_child_2 = 6;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -90,10 +82,10 @@ public class Location4 : LocationTemplate
         encounter = 2;
         encounterDescription = "Fight against multiple weak enemies.";
         id = 4;
-        id_child_1 = 7;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
+
         //ognisko
     }
 }
@@ -107,7 +99,6 @@ public class Location5 : LocationTemplate
         encounter = 3;
         encounterDescription = "Treasure chest.";
         id = 5;
-        id_child_1 = 8;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -124,7 +115,6 @@ public class Location6 : LocationTemplate
         encounter = 1;
         encounterDescription = "Fight against a weak enemy.";
         id = 6;
-        id_child_1 = 9;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -141,13 +131,12 @@ public class Location7 : LocationTemplate
         encounter = 2;
         encounterDescription = "Fight against multiple weak enemies.";
         id = 7;
-        id_child_1 = 11;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
-        battlegenerator_CS.enemyGenerator_CS.SetEnemies(3);
+        battlegenerator_CS.enemyGenerator_CS.SetEnemies(2);
         battlegenerator_CS.hud_CS.UpdateHUD();
-        //pojedynczy
+        //wielu
     }
 }
 
@@ -160,7 +149,6 @@ public class Location8 : LocationTemplate
         encounter = 2;
         encounterDescription = "Fight against multiple weak enemies.";
         id = 8;
-        id_child_1 = 11;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -179,7 +167,6 @@ public class Location9 : LocationTemplate
         encounter = 1;
         encounterDescription = "Fight against a weak enemy.";
         id = 9;
-        id_child_1 = 10;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -198,7 +185,6 @@ public class Location10 : LocationTemplate
         encounter = 3;
         encounterDescription = "Treasure chest.";
         id = 10;
-        id_child_1 = 11;
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {

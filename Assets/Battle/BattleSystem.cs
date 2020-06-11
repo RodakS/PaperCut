@@ -9,14 +9,18 @@ public class BattleSystem : MonoBehaviour
     private BattleGenerator battlegenerator_CS;
     public BattleState state;
 
+    public Canvas BattleCanvas;
+    public Canvas MapCanvas;
+
     void Start()
     {
         battlegenerator_CS = GetComponent<BattleGenerator>(); //podłączam battlegenerator.cs 
-
+        MapCanvas.enabled = true;
+        BattleCanvas.enabled = false;
         BattleSetUp();
     }
 
-  public  void BattleSetUp() 
+    public  void BattleSetUp() 
     {
         state = BattleState.START;
         battlegenerator_CS.deck_CS.Generate();  // tworze deck
@@ -62,6 +66,18 @@ public class BattleSystem : MonoBehaviour
         }
 
         battlegenerator_CS.hud_CS.UpdateHUD();
+
+        if (battlegenerator_CS.mapsystem_CS.yourLocation == 11 && battlegenerator_CS.enemy_CS.IsDead() && battlegenerator_CS.enemy_CS2.IsDead() && battlegenerator_CS.enemy_CS3.IsDead())
+        {
+            state = BattleState.WON;
+            //goto ekran koncowy
+            battlegenerator_CS.hud_CS.StatusUpdate(state);
+
+            battlegenerator_CS.endBattleScript_CS.GameWon();
+
+        }
+
+
         if (battlegenerator_CS.enemy_CS.IsDead() && battlegenerator_CS.enemy_CS2.IsDead() && battlegenerator_CS.enemy_CS3.IsDead())      
         {
             state = BattleState.WON;
