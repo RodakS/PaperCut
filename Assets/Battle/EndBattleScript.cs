@@ -41,6 +41,7 @@ public class EndBattleScript : MonoBehaviour
         // dodac czysczenie statusow
         battlegenerator_CS.hud_CS.UpdateHUD();
         battlegenerator_CS.hud_CS.DeckUpdate(battlegenerator_CS.deck_CS.deckList.Count, battlegenerator_CS.deck_CS.graveyardList.Count, battlegenerator_CS.deck_CS.exhaustList.Count);
+        battlegenerator_CS.statuscontrol_CS.ResetEnemyStatus();
     }
 
     public void GameWon()

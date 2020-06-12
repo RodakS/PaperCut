@@ -53,6 +53,10 @@ public class ListContent : MonoBehaviour
             {
                 cardFromListObjectTMP.GetComponent<Card_ButtonScript>().setCardTemplate(tmpList[i],i);
             }
+            if(tmpList[i].isUpgraded ==1)
+            {
+                cardFromListObjectTMP.GetComponent<Button>().interactable = false;
+            }
         }
     }
     public void ButtonShowListClick(string commandFromButton)

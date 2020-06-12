@@ -31,6 +31,7 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerTurn()
     {
+
         battlegenerator_CS.deck_CS.UpdateCards();
         
         state = BattleState.PLAYERTURN;

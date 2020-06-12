@@ -37,6 +37,7 @@ public class HUD : MonoBehaviour
         battlegenerator_CS.enemy_CS2.UpdateEnemyHUD();
         battlegenerator_CS.enemy_CS3.UpdateEnemyHUD();
 
+
         battlegenerator_CS.statuscontrol_CS.UpdateWithHero();
 
         battlegenerator_CS.deck_CS.UpdateCards();
@@ -46,6 +47,9 @@ public class HUD : MonoBehaviour
     public void StatusUpdate(BattleState STATE)
     {
             statusText.text = STATE + " ";
+        battlegenerator_CS.statuscontrol_CS.ResetEnemyStatus();     // te 2 funkcje updatujo statusy na hudzie
+        battlegenerator_CS.statuscontrol_CS.UpdateEnemiesStatus();
+ 
     }
     public void DeckUpdate(int s, int t, int p)
     {

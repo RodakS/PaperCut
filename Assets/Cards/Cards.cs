@@ -254,7 +254,7 @@ public class CardEnergy1 : CardTemplate
         {
             cardName = cardName + "+";
             cardCost = 2;
-        } //TODO upgrade dla pozostalych kart
+        } 
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -280,6 +280,12 @@ public class CardPenetratingHit : CardTemplate
         cardCost = 1;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("PenetratingHit_2");   // <- tak zrobić do reszty kart
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -294,6 +300,7 @@ public class CardPenetratingHit : CardTemplate
         heroGold = battlegenerator_CS.hero_CS.gold;
         cardDescription = "Deal " + (3 + heroOffense) + " dmg that penetrate shield.";
     }
+
 }
 
 public class CardSweepingEdge : CardTemplate
@@ -304,6 +311,12 @@ public class CardSweepingEdge : CardTemplate
         cardDescription = "Deal " + (5 + heroOffense) + " damage to each enemy.";
         cardCost = 3;
         cardSprite = Resources.Load<Sprite>("SweepingEdge_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -331,6 +344,12 @@ public class CardFinishingBlow : CardTemplate
         cardCost = 3;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("FinishingBlow_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -363,6 +382,12 @@ public class CardFire : CardTemplate
         cardCost = 2;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("Fire_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -388,6 +413,12 @@ public class CardFiraga : CardTemplate
         cardDescription = "Deal " + (5 + heroOffense) + " damage to each enemy, set the targets on fire for 3 turns.";
         cardCost = 3;
         cardSprite = Resources.Load<Sprite>("Firaga_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -418,6 +449,12 @@ public class CardChloroform : CardTemplate
         cardCost = 2;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("Chloroform_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -443,6 +480,12 @@ public class CardRegeneration : CardTemplate
         cardDescription = "Heal 3 dmg each turn for 3 turns.";
         cardCost = 2;
         cardSprite = Resources.Load<Sprite>("Regeneration_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -468,6 +511,12 @@ public class CardPanic : CardTemplate
         cardCost = 1;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("Panic_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -496,6 +545,12 @@ public class CardShareTheWeakness : CardTemplate
         cardCost = 2;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("ShareTheWeakness_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -523,6 +578,12 @@ public class CardQuestionableStab : CardTemplate
         cardCost = 1;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("QuestionableStab_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -551,6 +612,12 @@ public class CardGainTheUpperHand : CardTemplate
         cardCost = 2;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("GainTheUpperHand_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -571,19 +638,26 @@ public class CardGainTheUpperHand : CardTemplate
 
 public class CardPickpocket : CardTemplate
 {
+    int damage = 3;
     public override void Replace()
     {
         cardName = "Pickpocket";
-        cardDescription = "Deal " + (3 + heroOffense) + " damage, Rob.";
+        cardDescription = "Deal " + (damage + heroOffense) + " damage, Rob.";
         cardCost = 0;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("Pickpocket_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            damage = 5;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
         int x1, x2;
         x1 = battlegenerator_CS.targetedEnemy.hp;
-        battlegenerator_CS.targetedEnemy.SubstractHP(3 + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
+        battlegenerator_CS.targetedEnemy.SubstractHP(damage + battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak);
         x2 = battlegenerator_CS.targetedEnemy.hp;
         battlegenerator_CS.hero_CS.gold += (x1 - x2);
         battlegenerator_CS.hero_CS.energy -= cardCost;
@@ -607,6 +681,12 @@ public class CardDaylightRobbery : CardTemplate
         cardCost = 1;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("DaylightRobbery_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -637,6 +717,12 @@ public class CardShoplift : CardTemplate
         cardCost = 2;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("Shoplift_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -666,6 +752,12 @@ public class CardTheGrandHeist : CardTemplate
         cardDescription = "Deal " + (10 + heroOffense) + " damage to all enemies, Rob.";
         cardCost = 3;
         cardSprite = Resources.Load<Sprite>("TheGrandHeist_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -709,6 +801,12 @@ public class CardQuickMoney : CardTemplate
         cardDescription = "Acquire 15, exhaust.";
         cardCost = 2;
         cardSprite = Resources.Load<Sprite>("QuickMoney_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {        
@@ -734,6 +832,12 @@ public class CardOneTimeChance : CardTemplate
         cardDescription = "Acquire 80.";
         cardCost = 3;
         cardSprite = Resources.Load<Sprite>("OneTimeChance_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -761,6 +865,12 @@ public class CardSuddenBossfight : CardTemplate
         cardCost = 3;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("SuddenBossFight_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -792,6 +902,12 @@ public class CardGoldenSlash : CardTemplate
         cardDescription = "Pay 0, deal that much damage.";
         cardCost = 3;
         cardSprite = Resources.Load<Sprite>("GoldenSlash_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -817,6 +933,12 @@ public class CardSilverSword : CardTemplate
         cardCost = 2;
         this.requiresTarget = true;
         cardSprite = Resources.Load<Sprite>("SilverSword_2");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -847,6 +969,12 @@ public class CardAegisOfGold : CardTemplate
         cardDescription = "Pay 10, gain " + (20 + heroDefense) + " block.";
         cardCost = 2;
         cardSprite = Resources.Load<Sprite>("Aegis_Of_Gold");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -876,6 +1004,12 @@ public class CardMoneyPunch : CardTemplate
         this.requiresTarget = true;
         cardCost = 1;
         cardSprite = Resources.Load<Sprite>("Money_Punch");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -905,6 +1039,12 @@ public class CardFairTrade : CardTemplate
         this.requiresTarget = true;
         cardCost = 0;
         cardSprite = Resources.Load<Sprite>("Fair_Trade");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            // do dodania
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -933,6 +1073,12 @@ public class CardMoneyIsPower : CardTemplate
         cardDescription = "Pay 300, gain 1 mana permanently.";
         cardCost = 3;
         cardSprite = Resources.Load<Sprite>("Money_is_Power");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -961,6 +1107,12 @@ public class CardBasicEconomy : CardTemplate
         cardDescription = "Donate 1, Acquire 5.";
         cardCost = 0;
         cardSprite = Resources.Load<Sprite>("Basic_Economy");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            // dododania
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -986,6 +1138,12 @@ public class CardTargetPractice : CardTemplate
         cardDescription = "Gain " + (8 + heroDefense) + " block, get a Bounty 5.";
         cardCost = 1;
         cardSprite = Resources.Load<Sprite>("Target_Practice");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -1011,6 +1169,12 @@ public class CardFluidExchange : CardTemplate
         this.requiresTarget = true;
         cardCost = 3;
         cardSprite = Resources.Load<Sprite>("Fluid_Exchange");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 2;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -1049,6 +1213,12 @@ public class CardBastion : CardTemplate
         cardDescription = "Gain 1 Dexterous, gain " + (6 + heroDefense) + " shield.";
         cardCost = 1;
         cardSprite = Resources.Load<Sprite>("Bastion");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -1074,6 +1244,12 @@ public class CardOneForAll : CardTemplate
         this.requiresTarget = true;
         cardCost = 2;
         cardSprite = Resources.Load<Sprite>("One_for_All");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -1101,6 +1277,12 @@ public class CardAllForOne : CardTemplate
         cardDescription = "Give 1 strength, 1 dexterous to all enemies, steal 2 from each.";
         cardCost = 2;
         cardSprite = Resources.Load<Sprite>("All_for_One");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 1;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -1136,6 +1318,12 @@ public class CardBasicMovements : CardTemplate
         this.requiresTarget = true;
         cardCost = 0;
         cardSprite = Resources.Load<Sprite>("Basic_Movements");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            //dodania
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -1163,6 +1351,12 @@ public class CardFinishingThrust : CardTemplate
         this.requiresTarget = true;
         cardCost = 1;
         cardSprite = Resources.Load<Sprite>("Finishing_Thrust");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -1186,6 +1380,12 @@ public class CardFinalDefence : CardTemplate
         cardDescription = "Get " + (3 + heroDefense) + " shield per modifier you have.";
         cardCost = 1;
         cardSprite = Resources.Load<Sprite>("Final_Defense");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            cardCost = 0;
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -1209,6 +1409,12 @@ public class CardGamblingHeart : CardTemplate
         cardDescription = "Get " + (3 + heroDefense) + " shield and 1 random modifier.";
         cardCost = 0;
         cardSprite = Resources.Load<Sprite>("Gambling_Heart");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            //dododania
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {
@@ -1237,6 +1443,12 @@ public class CardAceInTheHole : CardTemplate
         this.requiresTarget = true;
         cardCost = 0;
         cardSprite = Resources.Load<Sprite>("Ace_in_the_Hole");
+
+        if (isUpgraded == 1)
+        {
+            cardName = cardName + "+";
+            //dododania
+        }
     }
     public override void Effect(BattleGenerator battlegenerator_CS)
     {

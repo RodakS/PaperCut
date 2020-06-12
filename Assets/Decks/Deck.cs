@@ -51,9 +51,11 @@ public class Deck : MonoBehaviour
 
                 if (deckList.Count == 0)
                 {
+
                     cardOnSlot[cardNumer - 1] = new BlankCard();
                     cardOnSlot[cardNumer - 1].Replace();
                     battlegenerator_CS.hud_CS.CardUpdate(cardOnSlot[cardNumer - 1], cardNumer);
+                    battlegenerator_CS.hud_CS.DeckUpdate(deckList.Count, graveyardList.Count, exhaustList.Count);
                 }
                 else { CardDraw(cardNumer); }
                 battlegenerator_CS.pointer_CS.HideThis();
