@@ -1406,7 +1406,7 @@ public class CardGamblingHeart : CardTemplate
     public override void Replace()
     {
         cardName = "Gambling Heart";
-        cardDescription = "Get " + (3 + heroDefense) + " shield and 1 random modifier.";
+        cardDescription = "Get " + (3 + heroDefense) + " block and 1 random modifier.";
         cardCost = 0;
         cardSprite = Resources.Load<Sprite>("Gambling_Heart");
 
@@ -1430,7 +1430,7 @@ public class CardGamblingHeart : CardTemplate
         heroDefense = battlegenerator_CS.hero_CS.dexterous - battlegenerator_CS.hero_CS.frail;
         heroOffense = battlegenerator_CS.hero_CS.strength - battlegenerator_CS.hero_CS.weak;
         heroGold = battlegenerator_CS.hero_CS.gold;
-        cardDescription = "Get " + (3 + heroDefense) + " shield and 1 random modifier.";
+        cardDescription = "Get " + (3 + heroDefense) + " block and 1 random modifier.";
     }
 }
 

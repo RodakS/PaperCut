@@ -136,7 +136,7 @@ public class BattleSystem : MonoBehaviour
 
         if (!(battlegenerator_CS.enemy_CS3.IsDead()))
         {
-            battlegenerator_CS.enemy_CS.ResetShield();
+            battlegenerator_CS.enemy_CS3.ResetShield();
             battlegenerator_CS.enemy_CS3.ExecuteTurn();
             CheckHP();
         }
