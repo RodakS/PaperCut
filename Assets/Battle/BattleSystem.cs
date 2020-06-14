@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+using UnityEngine.SceneManagement;
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 
 public class BattleSystem : MonoBehaviour
@@ -11,6 +13,7 @@ public class BattleSystem : MonoBehaviour
 
     public Canvas BattleCanvas;
     public Canvas MapCanvas;
+    public Canvas WinCanvas;
 
     void Start()
     {
@@ -73,13 +76,14 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.WON;
             //goto ekran koncowy
             battlegenerator_CS.hud_CS.StatusUpdate(state);
-
+            BattleCanvas.enabled = false;
+            WinCanvas.enabled = true;
             battlegenerator_CS.endBattleScript_CS.GameWon();
 
         }
 
 
-        if (battlegenerator_CS.enemy_CS.IsDead() && battlegenerator_CS.enemy_CS2.IsDead() && battlegenerator_CS.enemy_CS3.IsDead())      
+        if (battlegenerator_CS.mapsystem_CS.yourLocation != 11 && battlegenerator_CS.enemy_CS.IsDead() && battlegenerator_CS.enemy_CS2.IsDead() && battlegenerator_CS.enemy_CS3.IsDead())      
         {
             state = BattleState.WON;
             //goto ekran koncowy
@@ -93,7 +97,9 @@ public class BattleSystem : MonoBehaviour
         {
             state = BattleState.LOST;
             // goto ekran koncowy
+
             battlegenerator_CS.hud_CS.StatusUpdate(state);
+            SceneManager.LoadScene(sceneName: "menu", LoadSceneMode.Single);
 
         }
         battlegenerator_CS.hud_CS.StatusUpdate(state);
