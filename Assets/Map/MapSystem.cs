@@ -24,7 +24,7 @@ public class MapSystem : MonoBehaviour
     public Canvas CardChooseCanvas;
     public Canvas CampfireCanvas;
 
-
+	public 
     public void OnLocationOneClick()
     {
         if (yourLocation == 0)
